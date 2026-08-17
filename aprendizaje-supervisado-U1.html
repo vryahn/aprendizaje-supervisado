@@ -128,7 +128,7 @@ padding:.28rem .7rem;background:var(--surface);white-space:nowrap;
 transition:color .18s ease,border-color .18s ease,background .18s ease}
 nav.saltos a:hover{border-color:var(--accent);color:var(--accent)}
 nav.saltos a.activo{background:var(--accent);color:var(--on-accent);border-color:var(--accent)}
-body.solo-quiz nav.saltos a.fuera{opacity:.45}
+nav.saltos a.fuera{opacity:.45}
 .hero{display:block;margin:0 0 2rem;padding:0 0 1.9rem;position:relative}
 .hero::after{content:"";position:absolute;left:0;right:0;bottom:0;height:2px;border-radius:2px;
 background:var(--hair);opacity:.85}
@@ -147,8 +147,12 @@ border:1px solid var(--border);color:var(--text-dim)}
 .pill.urgente b{color:var(--mal)}
 .pill.ok{background:var(--accent-soft);color:var(--accent)}
 .pill.ok b{color:var(--accent)}
-.rutas{display:grid;grid-template-columns:repeat(auto-fit,minmax(13.5rem,1fr));gap:.75rem;
-margin:1.6rem 0 0}
+ol.hitos{list-style:none;display:flex;flex-wrap:wrap;gap:.75rem;margin:1.6rem 0 0;padding:0}
+ol.hitos li{flex:1 1 13.5rem;margin:0;display:flex}
+ol.hitos li>.ruta{flex:1}
+ol.hitos .av{display:block;font-size:.72rem;color:var(--text-dim);margin-top:.4rem}
+ol.hitos li.urgente .cuenta{color:var(--mal)}
+ol.hitos li.ok .cuenta{color:var(--accent)}
 .ruta{position:relative;overflow:hidden;text-align:left;font:inherit;color:inherit;cursor:pointer;
 border:1px solid var(--border);background:var(--surface);border-radius:var(--r);
 padding:.95rem 1.05rem;box-shadow:var(--shadow);
@@ -190,12 +194,21 @@ place-items:center;font-family:var(--serif);font-size:.95rem;font-weight:600;
 background:var(--accent-soft);color:var(--accent);border:1px solid var(--border)}
 ol.sesiones .dur{font-family:var(--serif);font-weight:600;font-size:1.05rem;letter-spacing:-.01em}
 ol.sesiones .det{display:block;font-size:.82rem;color:var(--text-dim);line-height:1.45}
+ol.sesiones li.fuera{opacity:.5}
+h3.plan-hito{font-family:var(--sans);font-size:.72rem;font-weight:700;letter-spacing:.1em;
+text-transform:uppercase;color:var(--text-dim);margin:1.5rem 0 .6rem;scroll-margin-top:7rem}
+h3.plan-hito:first-of-type{margin-top:0}
+h3.plan-hito small{font-size:.9em;font-weight:600;color:var(--mal);text-transform:none;
+letter-spacing:.02em}
 
 section.bloque{position:relative;background:var(--surface);border:1px solid var(--border);
 border-radius:var(--r);padding:1.4rem 1.4rem 1.7rem;margin:0 0 1rem;
 box-shadow:var(--shadow);scroll-margin-top:7rem;transition:opacity .25s,filter .25s}
-body.solo-quiz section.bloque.fuera{opacity:.45;filter:saturate(.4)}
-body.solo-quiz section.bloque.fuera:hover{opacity:.95;filter:none}
+section.bloque.fuera{opacity:.45;filter:saturate(.4)}
+section.bloque.fuera:hover{opacity:.95;filter:none}
+.sec{transition:opacity .25s,filter .25s}
+.sec.fuera{opacity:.45;filter:saturate(.4)}
+.sec.fuera:hover{opacity:.95;filter:none}
 .cab{display:flex;gap:.95rem;align-items:flex-start;border-bottom:1px solid var(--border);
 padding-bottom:.95rem;margin-bottom:1.15rem}
 .cab .bn{flex:none;width:2.6rem;height:2.6rem;border-radius:999px;background:var(--accent-soft);
@@ -243,6 +256,18 @@ border:1px solid var(--border);box-shadow:var(--shadow)}
 padding:2.1rem .95rem .95rem;font:.8rem/1.55 var(--mono)}
 .caja::before{content:attr(data-lang);position:absolute;top:0;left:0;z-index:1;
 font:700 .6rem/1 var(--sans);letter-spacing:.16em;text-transform:uppercase;padding:.6rem .85rem}
+.pred-caja{margin:1.3rem 0}
+.pred-caja.hecha{border-left:3px solid var(--ok);border-radius:0 12px 12px 0;
+padding-left:.85rem}
+.pred-lab{display:block;font-size:.82rem;color:var(--text-dim)}
+.pred-mia,#prog-json{display:block;width:100%;box-sizing:border-box;margin:.35rem 0 .6rem;
+padding:.6rem .8rem;font:.88rem/1.5 var(--sans);color:var(--text);background:var(--surface);
+border:1px solid var(--border-2);border-radius:12px;resize:vertical}
+.pred-caja>details.pred{margin:0}
+a.traza{display:block;text-align:right;text-decoration:none;font:600 .68rem var(--sans);
+letter-spacing:.04em;padding:.1rem .95rem .55rem;color:#D9A567}
+a.traza:hover{text-decoration:underline}
+.estado .frase{flex-basis:100%;width:100%;margin:.5rem 0 0;font-size:.9rem}
 details.pred{margin:1.3rem 0}
 details.pred>summary{cursor:pointer;list-style:none;font:600 .8rem var(--sans);
 color:#8FBF9F;background:#1A1416;border:1px solid #2B2226;border-radius:12px;padding:.7rem .95rem}
@@ -431,9 +456,9 @@ border-radius:2px}
 <div class="acciones"><button type="button" id="tema" class="icono" aria-label="Cambiar tema">&#9790;</button></div></div>
 <nav class="saltos" aria-label="Bloques de la unidad">
 <a href="#b1">1 · Qué vas a poder hacer al terminar</a>
-<a href="#b2" class="fuera">2 · El tema</a>
+<a href="#b2">2 · El tema</a>
 <a href="#b3">3 · Trampas de examen</a>
-<a href="#b4" class="fuera">4 · El apunte de la unidad · exámenes 1.1 y 1.2</a>
+<a href="#b4">4 · El apunte de la unidad · exámenes 1.1 y 1.2</a>
 <a href="#b5">5 · Autoexamen · 20 preguntas</a>
 </nav></header>
 <div class="wrap">
@@ -444,34 +469,36 @@ border-radius:2px}
 <div class="unum"><small>UNIDAD</small>1</div>
 <div>
 <h1>Teorema de Bayes y clasificación con riesgo mínimo</h1>
-<p class="sub">Guía de estudio: cinco bloques, con su tiempo estimado y los de la ruta examen marcados.</p>
+<p class="sub">Guía de estudio: cinco bloques, con su tiempo estimado.</p>
 <div class="pills">
 <span class="pill" data-iso="2026-08-10" title="Exámenes 1.1 y 1.2 vence el 2026-08-10.">Exámenes 1.1 y 1.2 · 10 de agosto · <b class="cuenta"></b></span>
 <span class="pill ok" id="mejor" hidden>Tu mejor quiz: <b></b></span>
 </div></div></div>
-<div class="rutas" role="group" aria-label="Elige tu ruta de estudio">
-<button type="button" class="ruta" data-ruta="quiz" aria-pressed="false"><span class="et">Ruta examen</span><span class="t">1 h 18 min</span><span class="d">Bloques 1, 3, 5 — el camino corto</span></button>
-<button type="button" class="ruta" data-ruta="completa" aria-pressed="true"><span class="et">Ruta completa</span><span class="t">7 h 47 min</span><span class="d">Los cinco bloques, para comprender y aplicar</span></button>
-</div>
+<ol class="hitos" role="group" aria-label="Elige hasta dónde estudiar">
+<li data-iso="2026-08-10"><button type="button" class="ruta" data-hito="1" aria-pressed="false"><span class="et">Exámenes 1.1 y 1.2</span><span class="t">7 h 47 min</span><span class="d">vence 10 de agosto · <b class="cuenta"></b> · 34 secciones</span><span class="av"></span></button></li>
+</ol>
+<p class="nota">Cada paso incluye todo lo del anterior. Lo que no entra en el paso elegido se atenúa; puedes leerlo igual.</p>
 <details class="nota"><summary>Cómo se calculan estos tiempos, y qué no prometen</summary><p>Los calcula el generador de esta guía contando lo que hay en cada bloque, con tasas <b>provisionales</b>: 100 palabras/min de prosa nueva, 160 de repaso, 4 min por bloque de código, 1 min por bloque de salida, 2 min por figura y 1.5 min por pregunta de quiz. Son una conjetura declarada, no una medición. Miden el tiempo de <b>recorrer</b> el material: no incluyen releer lo que no cuajó, ni las lecturas del curso, ni pelearse con un error de instalación. Anota tu tiempo real en cada bloque (se guarda en este navegador, sin cuentas ni servidor) y las unidades siguientes se estimarán con <i>tu</i> tasa.</p></details>
+<details class="nota" id="progreso-io"><summary>Llevar mi progreso a otro dispositivo</summary><p>Todo se guarda en este navegador. Copia este texto y pégalo en el otro dispositivo, en esta misma casilla, y pulsa «Importar».</p><textarea id="prog-json" rows="3" aria-label="Progreso en JSON"></textarea><p><button type="button" class="calificar" id="prog-copiar">Copiar</button> <button type="button" class="reiniciar" id="prog-importar">Importar</button> <span class="nota" id="prog-msg"></span></p></details>
 <p class="nota" id="real-total"></p>
 <p class="nota" id="reanudar" hidden>Ibas en <a href="#"></a>. <span class="cuenta-ok"></span></p>
 <p class="nota" id="para-repasar" hidden>Marcadas para repasar: <span></span></p>
 <p class="repaso-cta"><button type="button" class="calificar" id="repaso-btn" hidden>Repaso rápido · 10 preguntas</button><span class="nota" id="repaso-info"></span></p>
 </section>
 <section class="plan">
-<h2>Plan de estudio · 10 sesiones de 28-57 min (ruta completa)</h2>
+<h2>Plan de estudio · 10 sesiones de 28-57 min (por hito)</h2>
+<h3 class="plan-hito" data-h="1">Exámenes 1.1 y 1.2 · vence 10 de agosto</h3>
 <ol class="sesiones">
-<li data-sesion="1"><span class="n">1</span><div><span class="dur">31 min</span><span class="det">desde <a href="#b1-intro">Qué vas a poder hacer al terminar</a> hasta 3. Diccionario de la notación oficial · 8 secciones</span></div><span class="fecha"></span></li>
-<li data-sesion="2"><span class="n">2</span><div><span class="dur">50 min</span><span class="det">desde <a href="#b2-4-los-datos-son-una-tabla-de-numeros-numpy-minim">4. Los datos son una tabla de números: numpy mínimo</a> hasta 5. Sumatoria y argmax en Python · 2 secciones</span></div><span class="fecha"></span></li>
-<li data-sesion="3"><span class="n">3</span><div><span class="dur">51 min</span><span class="det">desde <a href="#b2-6-el-patron-fit-predict-de-scikit-learn">6. El patrón <code>fit</code> / <code>predict</code> de scikit-learn</a> hasta 1. Por qué probabilidad y no certeza · 9 secciones</span></div><span class="fecha"></span></li>
-<li data-sesion="4"><span class="n">4</span><div><span class="dur">57 min</span><span class="det">desde <a href="#b4-2-la-metodologia-general-en-cinco-pasos">2. La metodología general, en cinco pasos</a> hasta 5. Las dos formas de fallar: sobre-aprendizaje y sub-aprendizaje · 4 secciones</span></div><span class="fecha"></span></li>
-<li data-sesion="5"><span class="n">5</span><div><span class="dur">51 min</span><span class="det">desde <a href="#b4-6-probabilidad-el-minimo-indispensable">6. Probabilidad: el mínimo indispensable</a> hasta 7. El teorema de Bayes · 2 secciones</span></div><span class="fecha"></span></li>
-<li data-sesion="6"><span class="n">6</span><div><span class="dur">28 min</span><span class="det"><a href="#b4-8-bayes-en-codigo-el-problema-sintetico-de-tres-">8. Bayes en código: el problema sintético de tres nubes</a> · 1 secciones</span></div><span class="fecha"></span></li>
-<li data-sesion="7"><span class="n">7</span><div><span class="dur">57 min</span><span class="det">desde <a href="#b4-9-medir-el-error-y-que-tan-confiable-es-esa-medi">9. Medir el error, y qué tan confiable es esa medición</a> hasta 10. El error mínimo alcanzable · 2 secciones</span></div><span class="fecha"></span></li>
-<li data-sesion="8"><span class="n">8</span><div><span class="dur">46 min</span><span class="det">desde <a href="#b4-11-riesgo-cuando-equivocarse-cuesta-distinto">11. Riesgo: cuando equivocarse cuesta distinto</a> hasta 12. La acción nula: cuándo no decidir · 2 secciones</span></div><span class="fecha"></span></li>
-<li data-sesion="9"><span class="n">9</span><div><span class="dur">44 min</span><span class="det">desde <a href="#b4-13-la-regla-completa-de-decision">13. La regla completa de decisión</a> hasta Referencias · 5 secciones</span></div><span class="fecha"></span></li>
-<li data-sesion="10"><span class="n">10</span><div><span class="dur">52 min</span><span class="det">desde <a href="#b5-16-autoexamen-20-preguntas">16. Autoexamen — 20 preguntas</a> hasta Las cuatro de cálculo, resueltas — ábrelo DESPUÉS de intentarlo · 4 secciones</span></div><span class="fecha"></span></li>
+<li data-sesion="1" data-h="1"><span class="n">1</span><div><span class="dur">31 min</span><span class="det">desde <a href="#b1-intro">Qué vas a poder hacer al terminar</a> hasta 3. Diccionario de la notación oficial · 8 secciones</span></div><span class="fecha"></span></li>
+<li data-sesion="2" data-h="1"><span class="n">2</span><div><span class="dur">50 min</span><span class="det">desde <a href="#b2-4-los-datos-son-una-tabla-de-numeros-numpy-minim">4. Los datos son una tabla de números: numpy mínimo</a> hasta 5. Sumatoria y argmax en Python · 2 secciones</span></div><span class="fecha"></span></li>
+<li data-sesion="3" data-h="1"><span class="n">3</span><div><span class="dur">51 min</span><span class="det">desde <a href="#b2-6-el-patron-fit-predict-de-scikit-learn">6. El patrón <code>fit</code> / <code>predict</code> de scikit-learn</a> hasta 1. Por qué probabilidad y no certeza · 9 secciones</span></div><span class="fecha"></span></li>
+<li data-sesion="4" data-h="1"><span class="n">4</span><div><span class="dur">57 min</span><span class="det">desde <a href="#b4-2-la-metodologia-general-en-cinco-pasos">2. La metodología general, en cinco pasos</a> hasta 5. Las dos formas de fallar: sobre-aprendizaje y sub-aprendizaje · 4 secciones</span></div><span class="fecha"></span></li>
+<li data-sesion="5" data-h="1"><span class="n">5</span><div><span class="dur">51 min</span><span class="det">desde <a href="#b4-6-probabilidad-el-minimo-indispensable">6. Probabilidad: el mínimo indispensable</a> hasta 7. El teorema de Bayes · 2 secciones</span></div><span class="fecha"></span></li>
+<li data-sesion="6" data-h="1"><span class="n">6</span><div><span class="dur">28 min</span><span class="det"><a href="#b4-8-bayes-en-codigo-el-problema-sintetico-de-tres-">8. Bayes en código: el problema sintético de tres nubes</a> · 1 secciones</span></div><span class="fecha"></span></li>
+<li data-sesion="7" data-h="1"><span class="n">7</span><div><span class="dur">57 min</span><span class="det">desde <a href="#b4-9-medir-el-error-y-que-tan-confiable-es-esa-medi">9. Medir el error, y qué tan confiable es esa medición</a> hasta 10. El error mínimo alcanzable · 2 secciones</span></div><span class="fecha"></span></li>
+<li data-sesion="8" data-h="1"><span class="n">8</span><div><span class="dur">46 min</span><span class="det">desde <a href="#b4-11-riesgo-cuando-equivocarse-cuesta-distinto">11. Riesgo: cuando equivocarse cuesta distinto</a> hasta 12. La acción nula: cuándo no decidir · 2 secciones</span></div><span class="fecha"></span></li>
+<li data-sesion="9" data-h="1"><span class="n">9</span><div><span class="dur">44 min</span><span class="det">desde <a href="#b4-13-la-regla-completa-de-decision">13. La regla completa de decisión</a> hasta Referencias · 5 secciones</span></div><span class="fecha"></span></li>
+<li data-sesion="10" data-h="1"><span class="n">10</span><div><span class="dur">52 min</span><span class="det">desde <a href="#b5-16-autoexamen-20-preguntas">16. Autoexamen — 20 preguntas</a> hasta Las cuatro de cálculo, resueltas — ábrelo DESPUÉS de intentarlo · 4 secciones</span></div><span class="fecha"></span></li>
 </ol>
 <p class="nota" id="plan-nota"></p>
 </section>
@@ -482,9 +509,10 @@ border-radius:2px}
 <h2>Qué vas a poder hacer al terminar</h2>
 <div class="meta">
 <span class="chip">7 min estimados</span>
-<span class="chip q">&#9733; Ruta examen</span>
+<span class="chip q" title="Exámenes 1.1 y 1.2">&#9733; examen</span>
 <label class="tiempo">tu tiempo real <input class="real" type="number" min="0" step="1" inputmode="numeric" id="real-b1" name="real-b1" data-bloque="1" aria-label="tiempo real del bloque 1 en minutos"> min</label>
 </div></div></div>
+<div class="sec" data-h="1">
 <p>Esta guía junta todo el material de la Unidad 1 de Aprendizaje Supervisado en una
 sola página. Se abre con doble clic, funciona sin internet y se lee en el
 teléfono. No hace falta saber más que <strong>Python básico</strong>: variables, listas,
@@ -493,6 +521,8 @@ diccionarios, <code>for</code>, <code>while</code>, <code>if</code>, <code>def</
 probabilidad— se define aquí la primera vez que aparece, en palabras, antes de la
 fórmula.</p>
 
+</div>
+<div class="sec" data-h="1">
 <h3 id="b1-las-siete-cosas-que-vas-a-saber-hacer">Las siete cosas que vas a saber hacer</h3>
 <p>No son objetivos institucionales. Es la lista de lo que vas a poder hacer tú
 cuando cierres esta página:</p>
@@ -524,7 +554,10 @@ humana, y el umbral <code>1 − λ</code> que decide cuándo se usa.</li>
 error que se puede obtener en un problema de clasificación</strong>. Aquí está medida:
 con el modelo exacto que generó los datos quedaron 28 errores en 3000.</p>
 
-<div class="estado" data-sec="b1-las-siete-cosas-que-vas-a-saber-hacer"><button type="button" data-v="ok">&#10003; entendido</button><button type="button" data-v="rep">&#8635; repasar</button><button type="button" data-v="mias">&#9998; con mis palabras</button><textarea hidden rows="3" placeholder="Explica esta sección como se la contarías a alguien. Se guarda en este navegador."></textarea></div>
+<div class="estado" data-sec="b1-las-siete-cosas-que-vas-a-saber-hacer"><button type="button" data-v="ok">&#10003; entendido</button><button type="button" data-v="rep">&#8635; repasar</button><button type="button" data-v="mias">&#9998; con mis palabras</button><textarea hidden rows="3" placeholder="Explica esta sección como se la contarías a alguien. Se guarda en este navegador."></textarea>
+</div>
+</div>
+<div class="sec" data-h="1">
 <h3 id="b1-como-esta-armada-y-por-donde-entrar">Cómo está armada, y por dónde entrar</h3>
 <p>Cinco bloques. Cada uno abre con su tiempo estimado y con un campo para que
 anotes cuánto tardaste de verdad.</p>
@@ -547,7 +580,10 @@ está en el bloque 2, sección 3.3». Los nombres entre comillas angulares son
 bloques de esta misma página, no archivos aparte.</li>
 </ul>
 
-<div class="estado" data-sec="b1-como-esta-armada-y-por-donde-entrar"><button type="button" data-v="ok">&#10003; entendido</button><button type="button" data-v="rep">&#8635; repasar</button><button type="button" data-v="mias">&#9998; con mis palabras</button><textarea hidden rows="3" placeholder="Explica esta sección como se la contarías a alguien. Se guarda en este navegador."></textarea></div>
+<div class="estado" data-sec="b1-como-esta-armada-y-por-donde-entrar"><button type="button" data-v="ok">&#10003; entendido</button><button type="button" data-v="rep">&#8635; repasar</button><button type="button" data-v="mias">&#9998; con mis palabras</button><textarea hidden rows="3" placeholder="Explica esta sección como se la contarías a alguien. Se guarda en este navegador."></textarea>
+</div>
+</div>
+<div class="sec" data-h="1">
 <h3 id="b1-lo-que-esta-guia-no-es">Lo que esta guía no es</h3>
 <p>No es un resumen del libro ni una segunda explicación de la clase. Es material de
 trabajo, y trae dos cosas que no vas a encontrar en las lecturas: la tabla de
@@ -557,15 +593,19 @@ y explica por qué falla cada opción, no solo cuál era la buena.</p>
 <p>Tampoco es el examen oficial ni una filtración de él. El bloque 5 declara qué
 mide y qué no mide tu puntaje.</p>
 
-<div class="estado" data-sec="b1-lo-que-esta-guia-no-es"><button type="button" data-v="ok">&#10003; entendido</button><button type="button" data-v="rep">&#8635; repasar</button><button type="button" data-v="mias">&#9998; con mis palabras</button><textarea hidden rows="3" placeholder="Explica esta sección como se la contarías a alguien. Se guarda en este navegador."></textarea></div>
+<div class="estado" data-sec="b1-lo-que-esta-guia-no-es"><button type="button" data-v="ok">&#10003; entendido</button><button type="button" data-v="rep">&#8635; repasar</button><button type="button" data-v="mias">&#9998; con mis palabras</button><textarea hidden rows="3" placeholder="Explica esta sección como se la contarías a alguien. Se guarda en este navegador."></textarea>
+</div>
+</div>
 </section>
-<section class="bloque fuera" id="b2"><div class="cab">
+<section class="bloque" id="b2"><div class="cab">
 <div class="bn" aria-hidden="true">2</div><div>
 <h2>El tema</h2>
 <div class="meta">
 <span class="chip">1 h 33 min estimados</span>
+<span class="chip q" title="Exámenes 1.1 y 1.2">&#9733; examen</span>
 <label class="tiempo">tu tiempo real <input class="real" type="number" min="0" step="1" inputmode="numeric" id="real-b2" name="real-b2" data-bloque="2" aria-label="tiempo real del bloque 2 en minutos"> min</label>
 </div></div></div>
+<div class="sec" data-h="1">
 <p>Este archivo es el piso común de la materia. Supone que sabes Python básico
 (variables, listas, diccionarios, <code>for</code>, <code>while</code>, <code>if</code>, <code>def</code>, <code>import</code>, leer un
 traceback, <code>pip install</code>) y <strong>nada más</strong>. No supone numpy, pandas, matplotlib,
@@ -590,6 +630,8 @@ print(&quot;numpy&quot;, np.__version__, &quot;| scikit-learn&quot;, sklearn.__v
 últimos decimales.</p>
 <hr />
 
+</div>
+<div class="sec" data-h="1">
 <h3 id="b2-1-como-se-evalua-esta-materia-datos-oficiales">1. Cómo se evalúa esta materia (datos oficiales)</h3>
 <p>Esto viene del AulaVirtual del curso y <strong>no es negociable ni interpretable</strong>:</p>
 <ul>
@@ -656,7 +698,10 @@ intentos permite, si tiene tiempo límite, si se puede regresar a una pregunta y
 contestada y si penaliza respuestas en blanco.</p>
 <hr />
 
-<div class="estado" data-sec="b2-1-como-se-evalua-esta-materia-datos-oficiales"><button type="button" data-v="ok">&#10003; entendido</button><button type="button" data-v="rep">&#8635; repasar</button><button type="button" data-v="mias">&#9998; con mis palabras</button><textarea hidden rows="3" placeholder="Explica esta sección como se la contarías a alguien. Se guarda en este navegador."></textarea></div>
+<div class="estado" data-sec="b2-1-como-se-evalua-esta-materia-datos-oficiales"><button type="button" data-v="ok">&#10003; entendido</button><button type="button" data-v="rep">&#8635; repasar</button><button type="button" data-v="mias">&#9998; con mis palabras</button><textarea hidden rows="3" placeholder="Explica esta sección como se la contarías a alguien. Se guarda en este navegador."></textarea>
+</div>
+</div>
+<div class="sec" data-h="1">
 <h3 id="b2-2-los-tres-tipos-de-aprendizaje-computacional">2. Los tres tipos de aprendizaje computacional</h3>
 <p><strong>Aprendizaje computacional</strong> es la rama de la Inteligencia Artificial que
 estudia los enfoques capaces de aprender y mejorar su rendimiento con el tiempo.
@@ -724,7 +769,11 @@ que alguien etiquetó; los otros dos parten de solo entradas o de una recompensa
 </form>
 <hr />
 
-<div class="estado" data-sec="b2-2-los-tres-tipos-de-aprendizaje-computacional"><button type="button" data-v="ok">&#10003; entendido</button><button type="button" data-v="rep">&#8635; repasar</button><button type="button" data-v="mias">&#9998; con mis palabras</button><textarea hidden rows="3" placeholder="Explica esta sección como se la contarías a alguien. Se guarda en este navegador."></textarea></div>
+<div class="estado" data-sec="b2-2-los-tres-tipos-de-aprendizaje-computacional"><button type="button" data-v="ok">&#10003; entendido</button><button type="button" data-v="rep">&#8635; repasar</button><button type="button" data-v="mias">&#9998; con mis palabras</button><textarea hidden rows="3" placeholder="Explica esta sección como se la contarías a alguien. Se guarda en este navegador."></textarea>
+<button type="button" data-v="cmp" aria-expanded="false" hidden>comparar con la frase de la guía</button><blockquote class="frase" hidden><b>En una frase (guía):</b> El <strong>aprendizaje supervisado</strong> parte de pares (entrada, salida) que alguien etiquetó; los otros dos parten de solo entradas o de una recompensa.</blockquote>
+</div>
+</div>
+<div class="sec" data-h="1">
 <h3 id="b2-3-diccionario-de-la-notacion-oficial">3. Diccionario de la notación oficial</h3>
 <p>El libro usa notación matemática densa. Esta tabla es la traducción completa: la
 columna del medio es cómo se <strong>lee en voz alta</strong>, y la derecha es su equivalente
@@ -966,7 +1015,11 @@ tiene una lectura en voz alta y una traducción a Python.</p>
 </form>
 <hr />
 
-<div class="estado" data-sec="b2-3-diccionario-de-la-notacion-oficial"><button type="button" data-v="ok">&#10003; entendido</button><button type="button" data-v="rep">&#8635; repasar</button><button type="button" data-v="mias">&#9998; con mis palabras</button><textarea hidden rows="3" placeholder="Explica esta sección como se la contarías a alguien. Se guarda en este navegador."></textarea></div>
+<div class="estado" data-sec="b2-3-diccionario-de-la-notacion-oficial"><button type="button" data-v="ok">&#10003; entendido</button><button type="button" data-v="rep">&#8635; repasar</button><button type="button" data-v="mias">&#9998; con mis palabras</button><textarea hidden rows="3" placeholder="Explica esta sección como se la contarías a alguien. Se guarda en este navegador."></textarea>
+<button type="button" data-v="cmp" aria-expanded="false" hidden>comparar con la frase de la guía</button><blockquote class="frase" hidden><b>En una frase (guía):</b> La <strong>notación</strong> del libro es un diccionario cerrado: cada símbolo tiene una lectura en voz alta y una traducción a Python.</blockquote>
+</div>
+</div>
+<div class="sec" data-h="1">
 <h3 id="b2-4-los-datos-son-una-tabla-de-numeros-numpy-minim">4. Los datos son una tabla de números: numpy mínimo</h3>
 <p><strong>numpy</strong> es la librería estándar para tablas de números. Su objeto central es el
 <strong>arreglo</strong> (<em>array</em>).</p>
@@ -978,7 +1031,7 @@ arr = np.array([10, 20, 30])
 print(lista * 2)
 print(arr * 2)
 print(arr + 5)
-</code></pre></div>
+</code></pre><a class="traza" href="https://pythontutor.com/visualize.html#code=lista%20%3D%20%5B10%2C%2020%2C%2030%5D%0Aarr%20%3D%20np.array%28%5B10%2C%2020%2C%2030%5D%29%0Aprint%28lista%20%2A%202%29%0Aprint%28arr%20%2A%202%29%0Aprint%28arr%20%2B%205%29%0A&mode=display&py=3" target="_blank" rel="noopener noreferrer" title="Abre Python Tutor (sitio externo) con este código para verlo ejecutarse línea por línea">ver paso a paso &#8599;</a></div>
 <p>Salida real:</p>
 <div class="caja figura" data-lang="esquema"><pre><code>[10, 20, 30, 10, 20, 30]
 [20 40 60]
@@ -997,7 +1050,7 @@ print(&quot;forma de D:&quot;, D.shape, &quot;-&gt; N =&quot;, D.shape[0], &quot
 print(&quot;forma de y:&quot;, y.shape)
 print(&quot;primer dato:&quot;, D[0], &quot;su salida:&quot;, y[0])
 print(&quot;columna 0:&quot;, D[:, 0])
-</code></pre></div>
+</code></pre><a class="traza" href="https://pythontutor.com/visualize.html#code=D%20%3D%20np.array%28%5B%5B5.1%2C%203.5%5D%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%5B4.9%2C%203.0%5D%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%5B6.2%2C%202.9%5D%5D%29%0Ay%20%3D%20np.array%28%5B0%2C%200%2C%201%5D%29%0Aprint%28D%29%0Aprint%28%22forma%20de%20D%3A%22%2C%20D.shape%2C%20%22-%3E%20N%20%3D%22%2C%20D.shape%5B0%5D%2C%20%22%2C%20d%20%3D%22%2C%20D.shape%5B1%5D%29%0Aprint%28%22forma%20de%20y%3A%22%2C%20y.shape%29%0Aprint%28%22primer%20dato%3A%22%2C%20D%5B0%5D%2C%20%22su%20salida%3A%22%2C%20y%5B0%5D%29%0Aprint%28%22columna%200%3A%22%2C%20D%5B%3A%2C%200%5D%29%0A&mode=display&py=3" target="_blank" rel="noopener noreferrer" title="Abre Python Tutor (sitio externo) con este código para verlo ejecutarse línea por línea">ver paso a paso &#8599;</a></div>
 <p>Salida real:</p>
 <div class="caja figura" data-lang="esquema"><pre><code>[[5.1 3.5]
  [4.9 3. ]
@@ -1022,7 +1075,7 @@ de esta dimensión&quot;.</p>
 print(&quot;argmax por fila:&quot;, p.argmax(axis=1))
 print(&quot;max por fila:&quot;, p.max(axis=1))
 print(&quot;suma por fila:&quot;, p.sum(axis=1))
-</code></pre></div>
+</code></pre><a class="traza" href="https://pythontutor.com/visualize.html#code=p%20%3D%20np.array%28%5B%5B0.1%2C%200.7%2C%200.2%5D%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%5B0.6%2C%200.3%2C%200.1%5D%5D%29%0Aprint%28%22argmax%20por%20fila%3A%22%2C%20p.argmax%28axis%3D1%29%29%0Aprint%28%22max%20por%20fila%3A%22%2C%20p.max%28axis%3D1%29%29%0Aprint%28%22suma%20por%20fila%3A%22%2C%20p.sum%28axis%3D1%29%29%0A&mode=display&py=3" target="_blank" rel="noopener noreferrer" title="Abre Python Tutor (sitio externo) con este código para verlo ejecutarse línea por línea">ver paso a paso &#8599;</a></div>
 <p>Salida real:</p>
 <div class="caja figura" data-lang="esquema"><pre><code>argmax por fila: [1 0]
 max por fila: [0.7 0.6]
@@ -1037,7 +1090,7 @@ pred = np.array([0, 1, 1, 1, 0])
 print(&quot;real != pred:&quot;, real != pred)
 print(&quot;error:&quot;, (real != pred).mean())
 print(&quot;aciertos:&quot;, (real == pred).mean())
-</code></pre></div>
+</code></pre><a class="traza" href="https://pythontutor.com/visualize.html#code=real%20%3D%20np.array%28%5B0%2C%200%2C%201%2C%201%2C%201%5D%29%0Apred%20%3D%20np.array%28%5B0%2C%201%2C%201%2C%201%2C%200%5D%29%0Aprint%28%22real%20%21%3D%20pred%3A%22%2C%20real%20%21%3D%20pred%29%0Aprint%28%22error%3A%22%2C%20%28real%20%21%3D%20pred%29.mean%28%29%29%0Aprint%28%22aciertos%3A%22%2C%20%28real%20%3D%3D%20pred%29.mean%28%29%29%0A&mode=display&py=3" target="_blank" rel="noopener noreferrer" title="Abre Python Tutor (sitio externo) con este código para verlo ejecutarse línea por línea">ver paso a paso &#8599;</a></div>
 <p>Salida real:</p>
 <div class="caja figura" data-lang="esquema"><pre><code>real != pred: [False  True False False  True]
 error: 0.4
@@ -1072,7 +1125,11 @@ forma <code>(N, d)</code> y con <code>axis=1</code> devuelve un resultado por da
 </form>
 <hr />
 
-<div class="estado" data-sec="b2-4-los-datos-son-una-tabla-de-numeros-numpy-minim"><button type="button" data-v="ok">&#10003; entendido</button><button type="button" data-v="rep">&#8635; repasar</button><button type="button" data-v="mias">&#9998; con mis palabras</button><textarea hidden rows="3" placeholder="Explica esta sección como se la contarías a alguien. Se guarda en este navegador."></textarea></div>
+<div class="estado" data-sec="b2-4-los-datos-son-una-tabla-de-numeros-numpy-minim"><button type="button" data-v="ok">&#10003; entendido</button><button type="button" data-v="rep">&#8635; repasar</button><button type="button" data-v="mias">&#9998; con mis palabras</button><textarea hidden rows="3" placeholder="Explica esta sección como se la contarías a alguien. Se guarda en este navegador."></textarea>
+<button type="button" data-v="cmp" aria-expanded="false" hidden>comparar con la frase de la guía</button><blockquote class="frase" hidden><b>En una frase (guía):</b> Un <strong>arreglo</strong> de numpy opera todos sus números de golpe, guarda su forma <code>(N, d)</code> y con <code>axis=1</code> devuelve un resultado por dato.</blockquote>
+</div>
+</div>
+<div class="sec" data-h="1">
 <h3 id="b2-5-sumatoria-y-argmax-en-python">5. Sumatoria y argmax en Python</h3>
 <h4>5.1 <code>Σ</code> es un <code>for</code> que acumula</h4>
 <p><code>Σ_{i=1..5} i²</code> se lee &quot;suma, para i de 1 a 5, de i al cuadrado&quot;:</p>
@@ -1081,7 +1138,7 @@ for i in range(1, 6):
     total += i ** 2
 print(&quot;suma de i^2 para i=1..5:&quot;, total)
 print(&quot;con numpy:&quot;, (np.arange(1, 6) ** 2).sum())
-</code></pre></div>
+</code></pre><a class="traza" href="https://pythontutor.com/visualize.html#code=total%20%3D%200%0Afor%20i%20in%20range%281%2C%206%29%3A%0A%20%20%20%20total%20%2B%3D%20i%20%2A%2A%202%0Aprint%28%22suma%20de%20i%5E2%20para%20i%3D1..5%3A%22%2C%20total%29%0Aprint%28%22con%20numpy%3A%22%2C%20%28np.arange%281%2C%206%29%20%2A%2A%202%29.sum%28%29%29%0A&mode=display&py=3" target="_blank" rel="noopener noreferrer" title="Abre Python Tutor (sitio externo) con este código para verlo ejecutarse línea por línea">ver paso a paso &#8599;</a></div>
 <p>Salida real:</p>
 <div class="caja figura" data-lang="esquema"><pre><code>suma de i^2 para i=1..5: 55
 con numpy: 55
@@ -1092,7 +1149,7 @@ debajo) y <strong>qué se suma</strong> (lo que va a la derecha). Nada más.</p>
 <div class="caja codigo" data-lang="Python"><pre><code>valores = {&quot;a&quot;: 0.2, &quot;b&quot;: 0.5, &quot;c&quot;: 0.3}
 mejor = max(valores, key=valores.get)
 print(&quot;argmax del diccionario:&quot;, mejor, &quot;| max:&quot;, valores[mejor])
-</code></pre></div>
+</code></pre><a class="traza" href="https://pythontutor.com/visualize.html#code=valores%20%3D%20%7B%22a%22%3A%200.2%2C%20%22b%22%3A%200.5%2C%20%22c%22%3A%200.3%7D%0Amejor%20%3D%20max%28valores%2C%20key%3Dvalores.get%29%0Aprint%28%22argmax%20del%20diccionario%3A%22%2C%20mejor%2C%20%22%7C%20max%3A%22%2C%20valores%5Bmejor%5D%29%0A&mode=display&py=3" target="_blank" rel="noopener noreferrer" title="Abre Python Tutor (sitio externo) con este código para verlo ejecutarse línea por línea">ver paso a paso &#8599;</a></div>
 <p>Salida real:</p>
 <div class="caja figura" data-lang="esquema"><pre><code>argmax del diccionario: b | max: 0.5
 </code></pre></div>
@@ -1127,7 +1184,11 @@ entrenamiento&quot;.</p>
 </form>
 <hr />
 
-<div class="estado" data-sec="b2-5-sumatoria-y-argmax-en-python"><button type="button" data-v="ok">&#10003; entendido</button><button type="button" data-v="rep">&#8635; repasar</button><button type="button" data-v="mias">&#9998; con mis palabras</button><textarea hidden rows="3" placeholder="Explica esta sección como se la contarías a alguien. Se guarda en este navegador."></textarea></div>
+<div class="estado" data-sec="b2-5-sumatoria-y-argmax-en-python"><button type="button" data-v="ok">&#10003; entendido</button><button type="button" data-v="rep">&#8635; repasar</button><button type="button" data-v="mias">&#9998; con mis palabras</button><textarea hidden rows="3" placeholder="Explica esta sección como se la contarías a alguien. Se guarda en este navegador."></textarea>
+<button type="button" data-v="cmp" aria-expanded="false" hidden>comparar con la frase de la guía</button><blockquote class="frase" hidden><b>En una frase (guía):</b> <code>Σ</code> es un <strong><code>for</code> que acumula</strong>; <code>argmax</code> y <code>argmin</code> devuelven <strong>quién</strong> gana, no cuánto vale.</blockquote>
+</div>
+</div>
+<div class="sec" data-h="1">
 <h3 id="b2-6-el-patron-fit-predict-de-scikit-learn">6. El patrón <code>fit</code> / <code>predict</code> de scikit-learn</h3>
 <p><strong>scikit-learn</strong> (<code>sklearn</code>) empaqueta todos los algoritmos con la misma
 interfaz. La aprendes una vez y te sirve para las cinco unidades:</p>
@@ -1208,7 +1269,11 @@ interfaz, que es idéntica para todos los algoritmos del curso.</p>
 </form>
 <hr />
 
-<div class="estado" data-sec="b2-6-el-patron-fit-predict-de-scikit-learn"><button type="button" data-v="ok">&#10003; entendido</button><button type="button" data-v="rep">&#8635; repasar</button><button type="button" data-v="mias">&#9998; con mis palabras</button><textarea hidden rows="3" placeholder="Explica esta sección como se la contarías a alguien. Se guarda en este navegador."></textarea></div>
+<div class="estado" data-sec="b2-6-el-patron-fit-predict-de-scikit-learn"><button type="button" data-v="ok">&#10003; entendido</button><button type="button" data-v="rep">&#8635; repasar</button><button type="button" data-v="mias">&#9998; con mis palabras</button><textarea hidden rows="3" placeholder="Explica esta sección como se la contarías a alguien. Se guarda en este navegador."></textarea>
+<button type="button" data-v="cmp" aria-expanded="false" hidden>comparar con la frase de la guía</button><blockquote class="frase" hidden><b>En una frase (guía):</b> Todos los algoritmos del curso comparten la interfaz <strong><code>fit</code> / <code>predict</code></strong>, y el guion bajo final marca lo que el modelo aprendió.</blockquote>
+</div>
+</div>
+<div class="sec" data-h="1">
 <h3 id="b2-7-la-semilla-random-state-por-que-se-fija-siempr">7. La semilla (<code>random_state</code>): por qué se fija siempre</h3>
 <p>Muchos procedimientos usan azar: partir los datos, generar datos sintéticos,
 arrancar un algoritmo iterativo. Si no fijas el azar, <strong>cada corrida da números
@@ -1245,7 +1310,11 @@ números del libro y los tuyos son dos muestras distintas del mismo problema.</p
 </form>
 <hr />
 
-<div class="estado" data-sec="b2-7-la-semilla-random-state-por-que-se-fija-siempr"><button type="button" data-v="ok">&#10003; entendido</button><button type="button" data-v="rep">&#8635; repasar</button><button type="button" data-v="mias">&#9998; con mis palabras</button><textarea hidden rows="3" placeholder="Explica esta sección como se la contarías a alguien. Se guarda en este navegador."></textarea></div>
+<div class="estado" data-sec="b2-7-la-semilla-random-state-por-que-se-fija-siempr"><button type="button" data-v="ok">&#10003; entendido</button><button type="button" data-v="rep">&#8635; repasar</button><button type="button" data-v="mias">&#9998; con mis palabras</button><textarea hidden rows="3" placeholder="Explica esta sección como se la contarías a alguien. Se guarda en este navegador."></textarea>
+<button type="button" data-v="cmp" aria-expanded="false" hidden>comparar con la frase de la guía</button><blockquote class="frase" hidden><b>En una frase (guía):</b> Fijar la <strong>semilla</strong> hace reproducible una corrida; sin ella, los números del libro y los tuyos son dos muestras distintas del mismo problema.</blockquote>
+</div>
+</div>
+<div class="sec" data-h="1">
 <h3 id="b2-8-glosario-de-bolsillo">8. Glosario de bolsillo</h3>
 <div class="tabla"><table><thead>
 <tr>
@@ -1345,16 +1414,19 @@ números del libro y los tuyos son dos muestras distintas del mismo problema.</p
 </tbody>
 </table></div>
 
-<div class="estado" data-sec="b2-8-glosario-de-bolsillo"><button type="button" data-v="ok">&#10003; entendido</button><button type="button" data-v="rep">&#8635; repasar</button><button type="button" data-v="mias">&#9998; con mis palabras</button><textarea hidden rows="3" placeholder="Explica esta sección como se la contarías a alguien. Se guarda en este navegador."></textarea></div>
+<div class="estado" data-sec="b2-8-glosario-de-bolsillo"><button type="button" data-v="ok">&#10003; entendido</button><button type="button" data-v="rep">&#8635; repasar</button><button type="button" data-v="mias">&#9998; con mis palabras</button><textarea hidden rows="3" placeholder="Explica esta sección como se la contarías a alguien. Se guarda en este navegador."></textarea>
+</div>
+</div>
 </section>
 <section class="bloque" id="b3"><div class="cab">
 <div class="bn" aria-hidden="true">3</div><div>
 <h2>Trampas de examen</h2>
 <div class="meta">
 <span class="chip">19 min estimados</span>
-<span class="chip q">&#9733; Ruta examen</span>
+<span class="chip q" title="Exámenes 1.1 y 1.2">&#9733; examen</span>
 <label class="tiempo">tu tiempo real <input class="real" type="number" min="0" step="1" inputmode="numeric" id="real-b3" name="real-b3" data-bloque="3" aria-label="tiempo real del bloque 3 en minutos"> min</label>
 </div></div></div>
+<div class="sec" data-h="1">
 <h3 id="b3-14-trampas-de-examen">14. Trampas de examen</h3>
 <p>Los 18 renglones de esta tabla son confusiones que aparecen en preguntas de
 opción múltiple. La columna derecha es la corrección exacta.</p>
@@ -1441,7 +1513,10 @@ opción múltiple. La columna derecha es la corrección exacta.</p>
 </table></div>
 <hr />
 
-<div class="estado" data-sec="b3-14-trampas-de-examen"><button type="button" data-v="ok">&#10003; entendido</button><button type="button" data-v="rep">&#8635; repasar</button><button type="button" data-v="mias">&#9998; con mis palabras</button><textarea hidden rows="3" placeholder="Explica esta sección como se la contarías a alguien. Se guarda en este navegador."></textarea></div>
+<div class="estado" data-sec="b3-14-trampas-de-examen"><button type="button" data-v="ok">&#10003; entendido</button><button type="button" data-v="rep">&#8635; repasar</button><button type="button" data-v="mias">&#9998; con mis palabras</button><textarea hidden rows="3" placeholder="Explica esta sección como se la contarías a alguien. Se guarda en este navegador."></textarea>
+</div>
+</div>
+<div class="sec" data-h="1">
 <h3 id="b3-cuatro-trampas-medidas-que-no-salieron-de-leer-s">Cuatro trampas medidas, que no salieron de leer sino de ejecutar</h3>
 <p>Las 18 confusiones de la tabla de arriba son las que un examen de opción
 múltiple disfraza de distractor. Estas cuatro son de otra naturaleza: no salieron
@@ -1497,14 +1572,14 @@ citaron sea la suma.</p>
 en <a class="ref" href="#b4-4-que-se-busca-exactamente-h-y-el-error-empirico">«El apunte de la unidad» §4</a>.</p>
 <p><strong>En una frase:</strong> Para <strong>comparar <code>T</code> con <code>G</code></strong> el error se promedia; la <code>Σ</code> sin
 dividir solo sirve para minimizar dentro de un mismo conjunto.</p>
-<form class="quiz" data-quiz="b3s1-0" data-total="1">
+<form class="quiz" data-quiz="b3s2-0" data-total="1">
 <div class="quiz-cab"><output class="avance" aria-live="polite">0 de 1 respondidas</output><div class="quiz-prog" aria-hidden="true"><i></i></div></div>
-<fieldset class="pregunta" id="b3s1-0-q1">
+<fieldset class="pregunta" id="b3s2-0-q1">
 <legend><span class="num">1</span><span class="txt">Un enunciado te pide comparar <code>E(h|T)</code> con <code>E(h|G)</code> y cita la fórmula <code>E(h|T) = Σ L(y, h(x))</code>. ¿Cómo hay que entenderlo?</span></legend>
-<div class="opcion"><input type="radio" name="b3s1-0-q1" id="b3s1-0-q1-o0" data-ok="1"><label for="b3s1-0-q1-o0"><b>a)</b> <span>Como promedios: la suma sin dividir no es comparable entre conjuntos de distinto tamaño.</span></label></div>
-<div class="opcion"><input type="radio" name="b3s1-0-q1" id="b3s1-0-q1-o1"><label for="b3s1-0-q1-o1"><b>b)</b> <span>Como sumas literales: si el enunciado cita la fórmula, la fórmula manda sobre el código.</span></label></div>
-<div class="opcion"><input type="radio" name="b3s1-0-q1" id="b3s1-0-q1-o2"><label for="b3s1-0-q1-o2"><b>c)</b> <span>Da igual, porque <code>T</code> y <code>G</code> tienen siempre el mismo número de datos.</span></label></div>
-<label class="seguro"><input type="checkbox" name="b3s1-0-q1-seg"> estaba seguro</label>
+<div class="opcion"><input type="radio" name="b3s2-0-q1" id="b3s2-0-q1-o0" data-ok="1"><label for="b3s2-0-q1-o0"><b>a)</b> <span>Como promedios: la suma sin dividir no es comparable entre conjuntos de distinto tamaño.</span></label></div>
+<div class="opcion"><input type="radio" name="b3s2-0-q1" id="b3s2-0-q1-o1"><label for="b3s2-0-q1-o1"><b>b)</b> <span>Como sumas literales: si el enunciado cita la fórmula, la fórmula manda sobre el código.</span></label></div>
+<div class="opcion"><input type="radio" name="b3s2-0-q1" id="b3s2-0-q1-o2"><label for="b3s2-0-q1-o2"><b>c)</b> <span>Da igual, porque <code>T</code> y <code>G</code> tienen siempre el mismo número de datos.</span></label></div>
+<label class="seguro"><input type="checkbox" name="b3s2-0-q1-seg"> estaba seguro</label>
 <div class="explicacion" hidden><strong>(a)</strong>. Medido: con la definición literal el modelo <strong>equilibrado</strong> daba 26.55 en <code>T</code> contra 16.42 en <code>G</code>, un sentido que la §5 no le asigna a un modelo equilibrado. <strong>(b)</strong> usa la fórmula fuera del caso para el que sirve, que es minimizar dentro de un mismo conjunto. <strong>(c)</strong> es falso: en esa corrida <code>T</code> tenía 70 datos y <code>G</code> 30.</div>
 </fieldset>
 <div class="quiz-barra"><button type="button" class="calificar">Calificar</button><button type="button" class="reiniciar">Reiniciar</button><output class="marcador" role="status"></output></div>
@@ -1514,10 +1589,10 @@ dividir solo sirve para minimizar dentro de un mismo conjunto.</p>
 un <strong>regresor</strong>, <code>.score()</code> de scikit-learn devuelve <strong>R²</strong>, que no está acotado
 por abajo (puede ser negativo) y no complementa a ningún error. Medido sobre los
 datos y la semilla de la §5.1, con <code>DecisionTreeRegressor</code>:</p>
-<details class="pred"><summary>Salida · ¿qué crees que imprime? Predícelo y luego ábrela</summary><div class="caja salida" data-lang="salida"><pre><code>max_depth=1 : score(R2)=0.6438   error(MSE)=7.4902   score+error=8.1341
+<div class="pred-caja" data-pred="b3s2-sal1"><label class="pred-lab">Antes de abrir: ¿qué imprime? Escríbelo aquí (se guarda en este navegador).<textarea class="pred-mia" rows="2"></textarea></label><details class="pred"><summary>Salida · compárala con tu predicción</summary><div class="caja salida" data-lang="salida"><pre><code>max_depth=1 : score(R2)=0.6438   error(MSE)=7.4902   score+error=8.1341
 max_depth=4 : score(R2)=0.9740   error(MSE)=0.5475   score+error=1.5214
 </code></pre></div>
-</details>
+</details></div>
 <p>Ni uno de los dos suma 1. La trampa importa desde ya: la §5.1 de este mismo
 apunte usa un regresor, y las unidades 2 y 3 son de regresión además de
 clasificación.</p>
@@ -1525,14 +1600,14 @@ clasificación.</p>
 glosario.</p>
 <p><strong>En una frase:</strong> <code>score + error = 1</code> vale <strong>solo en clasificación</strong>; en regresión
 <code>.score()</code> es R² y no complementa a ningún error.</p>
-<form class="quiz" data-quiz="b3s1-1" data-total="1">
+<form class="quiz" data-quiz="b3s2-1" data-total="1">
 <div class="quiz-cab"><output class="avance" aria-live="polite">0 de 1 respondidas</output><div class="quiz-prog" aria-hidden="true"><i></i></div></div>
-<fieldset class="pregunta" id="b3s1-1-q1">
+<fieldset class="pregunta" id="b3s2-1-q1">
 <legend><span class="num">1</span><span class="txt">Un <code>DecisionTreeRegressor</code> con <code>max_depth=4</code> reporta <code>score(R²) = 0.9740</code> y <code>error(MSE) = 0.5475</code>. ¿Cuánto vale <code>score + error</code>?</span></legend>
-<div class="opcion"><input type="radio" name="b3s1-1-q1" id="b3s1-1-q1-o0"><label for="b3s1-1-q1-o0"><b>a)</b> <span>1.0000, como en cualquier modelo de scikit-learn.</span></label></div>
-<div class="opcion"><input type="radio" name="b3s1-1-q1" id="b3s1-1-q1-o1" data-ok="1"><label for="b3s1-1-q1-o1"><b>b)</b> <span>1.5214, porque en regresión el <code>score</code> es R² y no complementa a ningún error.</span></label></div>
-<div class="opcion"><input type="radio" name="b3s1-1-q1" id="b3s1-1-q1-o2"><label for="b3s1-1-q1-o2"><b>c)</b> <span>0.4265, que es lo que dan los dos juntos.</span></label></div>
-<label class="seguro"><input type="checkbox" name="b3s1-1-q1-seg"> estaba seguro</label>
+<div class="opcion"><input type="radio" name="b3s2-1-q1" id="b3s2-1-q1-o0"><label for="b3s2-1-q1-o0"><b>a)</b> <span>1.0000, como en cualquier modelo de scikit-learn.</span></label></div>
+<div class="opcion"><input type="radio" name="b3s2-1-q1" id="b3s2-1-q1-o1" data-ok="1"><label for="b3s2-1-q1-o1"><b>b)</b> <span>1.5214, porque en regresión el <code>score</code> es R² y no complementa a ningún error.</span></label></div>
+<div class="opcion"><input type="radio" name="b3s2-1-q1" id="b3s2-1-q1-o2"><label for="b3s2-1-q1-o2"><b>c)</b> <span>0.4265, que es lo que dan los dos juntos.</span></label></div>
+<label class="seguro"><input type="checkbox" name="b3s2-1-q1-seg"> estaba seguro</label>
 <div class="explicacion" hidden><strong>(b)</strong>, medido. <strong>(a)</strong> aplica la regla de clasificación fuera de su dominio: R² no está acotado por abajo y hasta puede salir negativo. <strong>(c)</strong> hizo la operación equivocada: 0.4265 es <code>score - error</code>, una resta que tampoco significa nada aquí.</div>
 </fieldset>
 <div class="quiz-barra"><button type="button" class="calificar">Calificar</button><button type="button" class="reiniciar">Reiniciar</button><output class="marcador" role="status"></output></div>
@@ -1556,14 +1631,14 @@ sabiendo que su antecedente no se cumple con gaussianas.</p>
 precisión.</p>
 <p><strong>En una frase:</strong> &quot;Sin traslape el error es 0&quot; es un <strong>condicional verdadero cuyo
 antecedente no se cumple</strong> cuando las clases son nubes gaussianas.</p>
-<form class="quiz" data-quiz="b3s1-2" data-total="1">
+<form class="quiz" data-quiz="b3s2-2" data-total="1">
 <div class="quiz-cab"><output class="avance" aria-live="polite">0 de 1 respondidas</output><div class="quiz-prog" aria-hidden="true"><i></i></div></div>
-<fieldset class="pregunta" id="b3s1-2-q1">
+<fieldset class="pregunta" id="b3s2-2-q1">
 <legend><span class="num">1</span><span class="txt">&quot;Si las clases no se traslapan, el error de Bayes es 0.&quot; ¿Cómo se aplica eso a dos nubes gaussianas?</span></legend>
-<div class="opcion"><input type="radio" name="b3s1-2-q1" id="b3s1-2-q1-o0" data-ok="1"><label for="b3s1-2-q1-o0"><b>a)</b> <span>El condicional es cierto, pero su antecedente no se cumple: con gaussianas el traslape nunca es exactamente cero, solo despreciable.</span></label></div>
-<div class="opcion"><input type="radio" name="b3s1-2-q1" id="b3s1-2-q1-o1"><label for="b3s1-2-q1-o1"><b>b)</b> <span>Se aplica tal cual: en la corrida de la §9.1 la nube 3 no participó en ningún error, así que su traslape es cero.</span></label></div>
-<div class="opcion"><input type="radio" name="b3s1-2-q1" id="b3s1-2-q1-o2"><label for="b3s1-2-q1-o2"><b>c)</b> <span>No se aplica: sin traslape el error sería 0.5.</span></label></div>
-<label class="seguro"><input type="checkbox" name="b3s1-2-q1-seg"> estaba seguro</label>
+<div class="opcion"><input type="radio" name="b3s2-2-q1" id="b3s2-2-q1-o0" data-ok="1"><label for="b3s2-2-q1-o0"><b>a)</b> <span>El condicional es cierto, pero su antecedente no se cumple: con gaussianas el traslape nunca es exactamente cero, solo despreciable.</span></label></div>
+<div class="opcion"><input type="radio" name="b3s2-2-q1" id="b3s2-2-q1-o1"><label for="b3s2-2-q1-o1"><b>b)</b> <span>Se aplica tal cual: en la corrida de la §9.1 la nube 3 no participó en ningún error, así que su traslape es cero.</span></label></div>
+<div class="opcion"><input type="radio" name="b3s2-2-q1" id="b3s2-2-q1-o2"><label for="b3s2-2-q1-o2"><b>c)</b> <span>No se aplica: sin traslape el error sería 0.5.</span></label></div>
+<label class="seguro"><input type="checkbox" name="b3s2-2-q1-seg"> estaba seguro</label>
 <div class="explicacion" hidden><strong>(a)</strong>. <strong>(b)</strong> confunde &quot;traslape despreciable <strong>en esta muestra</strong> de 3000 puntos&quot; con &quot;traslape cero&quot;: la distribución de los errores por par de clases es una propiedad de la muestra, no del problema. <strong>(c)</strong> invierte el resultado: 0.5 es el mínimo con traslape <strong>total</strong> y dos clases, el extremo contrario.</div>
 </fieldset>
 <div class="quiz-barra"><button type="button" class="calificar">Calificar</button><button type="button" class="reiniciar">Reiniciar</button><output class="marcador" role="status"></output></div>
@@ -1573,11 +1648,11 @@ antecedente no se cumple</strong> cuando las clases son nubes gaussianas.</p>
 Es lo que pasó con los dos priors del Apéndice A.2, y no es una regla. Ejecutando
 el mismo experimento con otros valores sobre las tres nubes de la §8 (error de
 referencia con prior balanceado: <strong>0.0093</strong>):</p>
-<details class="pred"><summary>Salida · ¿qué crees que imprime? Predícelo y luego ábrela</summary><div class="caja salida" data-lang="salida"><pre><code>prior [0.3333333333333333, 0.3333333333333333, 0.3333333333333333] -&gt; error 0.0093
+<div class="pred-caja" data-pred="b3s2-sal2"><label class="pred-lab">Antes de abrir: ¿qué imprime? Escríbelo aquí (se guarda en este navegador).<textarea class="pred-mia" rows="2"></textarea></label><details class="pred"><summary>Salida · compárala con tu predicción</summary><div class="caja salida" data-lang="salida"><pre><code>prior [0.3333333333333333, 0.3333333333333333, 0.3333333333333333] -&gt; error 0.0093
 prior [0.6, 0.2, 0.2] -&gt; error 0.0117
 prior [0.2, 0.6, 0.2] -&gt; error 0.0093
 </code></pre></div>
-</details>
+</details></div>
 <p><code>[0.6, 0.2, 0.2]</code> sube el error, pero <code>[0.2, 0.6, 0.2]</code> lo deja <strong>idéntico</strong> al
 del prior balanceado: ese desbalance no alcanzó a voltear ni un punto de la zona
 dudosa. Es coherente con lo que el propio apéndice explica —&quot;el prior solo decide
@@ -1588,31 +1663,38 @@ del traslape</strong>.</p>
 <code>intento-trainee/experimentos_propios.py</code>, cuya salida es la de arriba.</p>
 <p><strong>En una frase:</strong> Lo que sube el error no es el <strong>desbalance del prior</strong> en sí, sino
 que ese desbalance alcance a mover la frontera dentro del traslape.</p>
-<form class="quiz" data-quiz="b3s1-3" data-total="1">
+<form class="quiz" data-quiz="b3s2-3" data-total="1">
 <div class="quiz-cab"><output class="avance" aria-live="polite">0 de 1 respondidas</output><div class="quiz-prog" aria-hidden="true"><i></i></div></div>
-<fieldset class="pregunta" id="b3s1-3-q1">
+<fieldset class="pregunta" id="b3s2-3-q1">
 <legend><span class="num">1</span><span class="txt">Con las tres nubes de la §8 (error 0.0093 con prior balanceado), el prior <code>[0.6, 0.2, 0.2]</code> dio error 0.0117 y <code>[0.2, 0.6, 0.2]</code> dio 0.0093. ¿Qué concluyes?</span></legend>
-<div class="opcion"><input type="radio" name="b3s1-3-q1" id="b3s1-3-q1-o0"><label for="b3s1-3-q1-o0"><b>a)</b> <span>Que desbalancear el prior siempre sube el error.</span></label></div>
-<div class="opcion"><input type="radio" name="b3s1-3-q1" id="b3s1-3-q1-o1"><label for="b3s1-3-q1-o1"><b>b)</b> <span>Que el prior no influye en el error.</span></label></div>
-<div class="opcion"><input type="radio" name="b3s1-3-q1" id="b3s1-3-q1-o2" data-ok="1"><label for="b3s1-3-q1-o2"><b>c)</b> <span>Que sube el error solo si el desbalance alcanza a mover la frontera dentro del traslape: <code>[0.2, 0.6, 0.2]</code> no volteó ni un punto.</span></label></div>
-<label class="seguro"><input type="checkbox" name="b3s1-3-q1-seg"> estaba seguro</label>
+<div class="opcion"><input type="radio" name="b3s2-3-q1" id="b3s2-3-q1-o0"><label for="b3s2-3-q1-o0"><b>a)</b> <span>Que desbalancear el prior siempre sube el error.</span></label></div>
+<div class="opcion"><input type="radio" name="b3s2-3-q1" id="b3s2-3-q1-o1"><label for="b3s2-3-q1-o1"><b>b)</b> <span>Que el prior no influye en el error.</span></label></div>
+<div class="opcion"><input type="radio" name="b3s2-3-q1" id="b3s2-3-q1-o2" data-ok="1"><label for="b3s2-3-q1-o2"><b>c)</b> <span>Que sube el error solo si el desbalance alcanza a mover la frontera dentro del traslape: <code>[0.2, 0.6, 0.2]</code> no volteó ni un punto.</span></label></div>
+<label class="seguro"><input type="checkbox" name="b3s2-3-q1-seg"> estaba seguro</label>
 <div class="explicacion" hidden><strong>(c)</strong>, medido. <strong>(a)</strong> es la generalización que estos dos números desmienten: el segundo prior deja el error <strong>idéntico</strong> al balanceado. <strong>(b)</strong> se va al otro extremo y choca con el primer prior, que sí lo subió de 0.0093 a 0.0117.</div>
 </fieldset>
 <div class="quiz-barra"><button type="button" class="calificar">Calificar</button><button type="button" class="reiniciar">Reiniciar</button><output class="marcador" role="status"></output></div>
 </form>
 
-<div class="estado" data-sec="b3-cuatro-trampas-medidas-que-no-salieron-de-leer-s"><button type="button" data-v="ok">&#10003; entendido</button><button type="button" data-v="rep">&#8635; repasar</button><button type="button" data-v="mias">&#9998; con mis palabras</button><textarea hidden rows="3" placeholder="Explica esta sección como se la contarías a alguien. Se guarda en este navegador."></textarea></div>
+<div class="estado" data-sec="b3-cuatro-trampas-medidas-que-no-salieron-de-leer-s"><button type="button" data-v="ok">&#10003; entendido</button><button type="button" data-v="rep">&#8635; repasar</button><button type="button" data-v="mias">&#9998; con mis palabras</button><textarea hidden rows="3" placeholder="Explica esta sección como se la contarías a alguien. Se guarda en este navegador."></textarea>
+<button type="button" data-v="cmp" aria-expanded="false" hidden>comparar con la frase de la guía</button><blockquote class="frase" hidden><b>En una frase (guía):</b> Para <strong>comparar <code>T</code> con <code>G</code></strong> el error se promedia; la <code>Σ</code> sin dividir solo sirve para minimizar dentro de un mismo conjunto.</blockquote>
+</div>
+</div>
 </section>
-<section class="bloque fuera" id="b4"><div class="cab">
+<section class="bloque" id="b4"><div class="cab">
 <div class="bn" aria-hidden="true">4</div><div>
 <h2>El apunte de la unidad · exámenes 1.1 y 1.2</h2>
 <div class="meta">
 <span class="chip">4 h 56 min estimados</span>
+<span class="chip q" title="Exámenes 1.1 y 1.2">&#9733; examen</span>
 <label class="tiempo">tu tiempo real <input class="real" type="number" min="0" step="1" inputmode="numeric" id="real-b4" name="real-b4" data-bloque="4" aria-label="tiempo real del bloque 4 en minutos"> min</label>
 </div></div></div>
+<div class="sec" data-h="1">
 <p><strong>Antes de leer esto, lee «El tema».</strong> De ahí vienen la notación, numpy y el
 patrón <code>fit</code>/<code>predict</code>; aquí no se repiten.</p>
 
+</div>
+<div class="sec" data-h="1">
 <h3 id="b4-datos-oficiales-de-la-actividad">Datos oficiales de la actividad</h3>
 <ul>
 <li><strong>Actividad:</strong> Examen 1.1 (en línea, en AulaVirtual). <strong>Vale 10%.</strong></li>
@@ -1653,7 +1735,10 @@ ejecutable, y las 2 figuras se regeneran con <code>img/generar-figuras.py</code>
 semillas que se indican.</p>
 <hr />
 
-<div class="estado" data-sec="b4-datos-oficiales-de-la-actividad"><button type="button" data-v="ok">&#10003; entendido</button><button type="button" data-v="rep">&#8635; repasar</button><button type="button" data-v="mias">&#9998; con mis palabras</button><textarea hidden rows="3" placeholder="Explica esta sección como se la contarías a alguien. Se guarda en este navegador."></textarea></div>
+<div class="estado" data-sec="b4-datos-oficiales-de-la-actividad"><button type="button" data-v="ok">&#10003; entendido</button><button type="button" data-v="rep">&#8635; repasar</button><button type="button" data-v="mias">&#9998; con mis palabras</button><textarea hidden rows="3" placeholder="Explica esta sección como se la contarías a alguien. Se guarda en este navegador."></textarea>
+</div>
+</div>
+<div class="sec" data-h="1">
 <h3 id="b4-mapa-de-la-unidad">Mapa de la unidad</h3>
 <p>Lee este mapa como el orden de las preguntas que la unidad responde:</p>
 <div class="caja figura" data-lang="esquema"><pre><code>                    ¿Por qué NO puedo tener certeza absoluta?          §1
@@ -1691,7 +1776,10 @@ semillas que se indican.</p>
 </code></pre></div>
 <hr />
 
-<div class="estado" data-sec="b4-mapa-de-la-unidad"><button type="button" data-v="ok">&#10003; entendido</button><button type="button" data-v="rep">&#8635; repasar</button><button type="button" data-v="mias">&#9998; con mis palabras</button><textarea hidden rows="3" placeholder="Explica esta sección como se la contarías a alguien. Se guarda en este navegador."></textarea></div>
+<div class="estado" data-sec="b4-mapa-de-la-unidad"><button type="button" data-v="ok">&#10003; entendido</button><button type="button" data-v="rep">&#8635; repasar</button><button type="button" data-v="mias">&#9998; con mis palabras</button><textarea hidden rows="3" placeholder="Explica esta sección como se la contarías a alguien. Se guarda en este navegador."></textarea>
+</div>
+</div>
+<div class="sec" data-h="1">
 <h3 id="b4-1-por-que-probabilidad-y-no-certeza">1. Por qué probabilidad y no certeza</h3>
 <p>Piensa en dos programas.</p>
 <p><strong>El primero ordena una lista de números.</strong> Le das <code>[3, 1, 2]</code> y devuelve
@@ -1743,7 +1831,11 @@ forma de describirlo.</p>
 </form>
 <hr />
 
-<div class="estado" data-sec="b4-1-por-que-probabilidad-y-no-certeza"><button type="button" data-v="ok">&#10003; entendido</button><button type="button" data-v="rep">&#8635; repasar</button><button type="button" data-v="mias">&#9998; con mis palabras</button><textarea hidden rows="3" placeholder="Explica esta sección como se la contarías a alguien. Se guarda en este navegador."></textarea></div>
+<div class="estado" data-sec="b4-1-por-que-probabilidad-y-no-certeza"><button type="button" data-v="ok">&#10003; entendido</button><button type="button" data-v="rep">&#8635; repasar</button><button type="button" data-v="mias">&#9998; con mis palabras</button><textarea hidden rows="3" placeholder="Explica esta sección como se la contarías a alguien. Se guarda en este navegador."></textarea>
+<button type="button" data-v="cmp" aria-expanded="false" hidden>comparar con la frase de la guía</button><blockquote class="frase" hidden><b>En una frase (guía):</b> Un predictor no puede ser infalible porque el fenómeno tiene <strong>incertidumbre irreducible</strong>; por eso se describe con probabilidad.</blockquote>
+</div>
+</div>
+<div class="sec" data-h="1">
 <h3 id="b4-2-la-metodologia-general-en-cinco-pasos">2. La metodología general, en cinco pasos</h3>
 <p>El libro fija cinco pasos que valen igual para aprendizaje supervisado y no
 supervisado. Memorízalos: son candidatos naturales a pregunta de examen.</p>
@@ -1783,7 +1875,11 @@ algoritmo, predicción y medición del rendimiento.</p>
 </form>
 <hr />
 
-<div class="estado" data-sec="b4-2-la-metodologia-general-en-cinco-pasos"><button type="button" data-v="ok">&#10003; entendido</button><button type="button" data-v="rep">&#8635; repasar</button><button type="button" data-v="mias">&#9998; con mis palabras</button><textarea hidden rows="3" placeholder="Explica esta sección como se la contarías a alguien. Se guarda en este navegador."></textarea></div>
+<div class="estado" data-sec="b4-2-la-metodologia-general-en-cinco-pasos"><button type="button" data-v="ok">&#10003; entendido</button><button type="button" data-v="rep">&#8635; repasar</button><button type="button" data-v="mias">&#9998; con mis palabras</button><textarea hidden rows="3" placeholder="Explica esta sección como se la contarías a alguien. Se guarda en este navegador."></textarea>
+<button type="button" data-v="cmp" aria-expanded="false" hidden>comparar con la frase de la guía</button><blockquote class="frase" hidden><b>En una frase (guía):</b> La <strong>metodología</strong> son cinco pasos fijos: datos, entrenamiento, algoritmo, predicción y medición del rendimiento.</blockquote>
+</div>
+</div>
+<div class="sec" data-h="1">
 <h3 id="b4-3-que-tipo-de-problema-tienes">3. Qué tipo de problema tienes</h3>
 <p>Aprendizaje supervisado empieza siempre con un conjunto de <strong>pares (entrada,
 salida)</strong>. La imagen mental que usa el libro:</p>
@@ -1900,7 +1996,11 @@ binaria, multi-clase o multi-etiqueta, y regresión.</p>
 </form>
 <hr />
 
-<div class="estado" data-sec="b4-3-que-tipo-de-problema-tienes"><button type="button" data-v="ok">&#10003; entendido</button><button type="button" data-v="rep">&#8635; repasar</button><button type="button" data-v="mias">&#9998; con mis palabras</button><textarea hidden rows="3" placeholder="Explica esta sección como se la contarías a alguien. Se guarda en este navegador."></textarea></div>
+<div class="estado" data-sec="b4-3-que-tipo-de-problema-tienes"><button type="button" data-v="ok">&#10003; entendido</button><button type="button" data-v="rep">&#8635; repasar</button><button type="button" data-v="mias">&#9998; con mis palabras</button><textarea hidden rows="3" placeholder="Explica esta sección como se la contarías a alguien. Se guarda en este navegador."></textarea>
+<button type="button" data-v="cmp" aria-expanded="false" hidden>comparar con la frase de la guía</button><blockquote class="frase" hidden><b>En una frase (guía):</b> La <strong>clase de problema</strong> se decide por la forma de la salida <code>y</code>: binaria, multi-clase o multi-etiqueta, y regresión.</blockquote>
+</div>
+</div>
+<div class="sec" data-h="1">
 <h3 id="b4-4-que-se-busca-exactamente-h-y-el-error-empirico">4. Qué se busca exactamente: <code>h*</code> y el error empírico</h3>
 <p>Aquí el libro se pone formal. Vamos término por término, y ninguna fórmula
 aparece antes de que sus símbolos estén en palabras.</p>
@@ -1940,7 +2040,7 @@ de un mismo conjunto, donde el divisor es el mismo y no cambia quién gana.</p>
 <div class="caja codigo" data-lang="Python"><pre><code>E = 0
 for x, y in T:
     E += L(y, h(x))
-</code></pre></div>
+</code></pre><a class="traza" href="https://pythontutor.com/visualize.html#code=E%20%3D%200%0Afor%20x%2C%20y%20in%20T%3A%0A%20%20%20%20E%20%2B%3D%20L%28y%2C%20h%28x%29%29%0A&mode=display&py=3" target="_blank" rel="noopener noreferrer" title="Abre Python Tutor (sitio externo) con este código para verlo ejecutarse línea por línea">ver paso a paso &#8599;</a></div>
 <p><strong>Y lo que buscas es:</strong></p>
 <div class="caja figura" data-lang="esquema"><pre><code>h*  =  argmin_{h ∈ H}  E(h | T)
 </code></pre></div>
@@ -2004,7 +2104,11 @@ el error empírico</strong> en <code>T</code>; para comparar dos conjuntos, ese 
 </form>
 <hr />
 
-<div class="estado" data-sec="b4-4-que-se-busca-exactamente-h-y-el-error-empirico"><button type="button" data-v="ok">&#10003; entendido</button><button type="button" data-v="rep">&#8635; repasar</button><button type="button" data-v="mias">&#9998; con mis palabras</button><textarea hidden rows="3" placeholder="Explica esta sección como se la contarías a alguien. Se guarda en este navegador."></textarea></div>
+<div class="estado" data-sec="b4-4-que-se-busca-exactamente-h-y-el-error-empirico"><button type="button" data-v="ok">&#10003; entendido</button><button type="button" data-v="rep">&#8635; repasar</button><button type="button" data-v="mias">&#9998; con mis palabras</button><textarea hidden rows="3" placeholder="Explica esta sección como se la contarías a alguien. Se guarda en este navegador."></textarea>
+<button type="button" data-v="cmp" aria-expanded="false" hidden>comparar con la frase de la guía</button><blockquote class="frase" hidden><b>En una frase (guía):</b> Aprender es <strong>elegir del catálogo <code>H</code> la función <code>h*</code> que minimiza el error empírico</strong> en <code>T</code>; para comparar dos conjuntos, ese error se promedia.</blockquote>
+</div>
+</div>
+<div class="sec" data-h="1">
 <h3 id="b4-5-las-dos-formas-de-fallar-sobre-aprendizaje-y-s">5. Las dos formas de fallar: sobre-aprendizaje y sub-aprendizaje</h3>
 <p><strong>Sobre-aprendizaje</strong> (<em>overfitting</em>): el catálogo <code>H</code> tiene demasiada libertad
 para el problema, el modelo se memoriza el entrenamiento y no generaliza.</p>
@@ -2018,7 +2122,7 @@ completamente inútil con un dato nuevo. En Python es un diccionario:</p>
 <div class="caja codigo" data-lang="Python"><pre><code>memoria = {tuple(x): y for x, y in T}
 def h(x):
     return memoria.get(tuple(x), 0)
-</code></pre></div>
+</code></pre><a class="traza" href="https://pythontutor.com/visualize.html#code=memoria%20%3D%20%7Btuple%28x%29%3A%20y%20for%20x%2C%20y%20in%20T%7D%0Adef%20h%28x%29%3A%0A%20%20%20%20return%20memoria.get%28tuple%28x%29%2C%200%29%0A&mode=display&py=3" target="_blank" rel="noopener noreferrer" title="Abre Python Tutor (sitio externo) con este código para verlo ejecutarse línea por línea">ver paso a paso &#8599;</a></div>
 <p><strong>En símbolos:</strong> sobre-aprendizaje es <code>E(h* | T) ≪ E(h* | G)</code>. El símbolo <code>≪</code> se
 lee &quot;muchísimo menor que&quot;, no &quot;menor que&quot;. Error casi cero en entrenamiento y
 error grande en prueba.</p>
@@ -2105,7 +2209,11 @@ el de prueba. Uno alto, en cambio, ya diagnostica sub-aprendizaje sin mirar <cod
 </form>
 <hr />
 
-<div class="estado" data-sec="b4-5-las-dos-formas-de-fallar-sobre-aprendizaje-y-s"><button type="button" data-v="ok">&#10003; entendido</button><button type="button" data-v="rep">&#8635; repasar</button><button type="button" data-v="mias">&#9998; con mis palabras</button><textarea hidden rows="3" placeholder="Explica esta sección como se la contarías a alguien. Se guarda en este navegador."></textarea></div>
+<div class="estado" data-sec="b4-5-las-dos-formas-de-fallar-sobre-aprendizaje-y-s"><button type="button" data-v="ok">&#10003; entendido</button><button type="button" data-v="rep">&#8635; repasar</button><button type="button" data-v="mias">&#9998; con mis palabras</button><textarea hidden rows="3" placeholder="Explica esta sección como se la contarías a alguien. Se guarda en este navegador."></textarea>
+<button type="button" data-v="cmp" aria-expanded="false" hidden>comparar con la frase de la guía</button><blockquote class="frase" hidden><b>En una frase (guía):</b> <strong>Sobre-aprender</strong> es error casi nulo en <code>T</code> y grande en <code>G</code>; <strong>sub-aprender</strong> es error grande ya en <code>T</code>.</blockquote>
+</div>
+</div>
+<div class="sec" data-h="1">
 <h3 id="b4-6-probabilidad-el-minimo-indispensable">6. Probabilidad: el mínimo indispensable</h3>
 <p>Todo lo que necesitas de probabilidad para esta unidad cabe en esta sección.</p>
 <h4>6.1 Probabilidad es una proporción</h4>
@@ -2123,7 +2231,7 @@ N = len(etiquetas)
 for k in sorted(cuenta):
     print(&quot;P(Y=%d) = %d/%d = %.2f&quot; % (k, cuenta[k], N, cuenta[k] / N))
 print(&quot;suma:&quot;, sum(cuenta[k] / N for k in cuenta))
-</code></pre></div>
+</code></pre><a class="traza" href="https://pythontutor.com/visualize.html#code=etiquetas%20%3D%20%5B1%2C%201%2C%202%2C%201%2C%203%2C%202%2C%201%2C%201%2C%202%2C%203%5D%0Acuenta%20%3D%20%7B%7D%0Afor%20e%20in%20etiquetas%3A%0A%20%20%20%20cuenta%5Be%5D%20%3D%20cuenta.get%28e%2C%200%29%20%2B%201%0AN%20%3D%20len%28etiquetas%29%0Afor%20k%20in%20sorted%28cuenta%29%3A%0A%20%20%20%20print%28%22P%28Y%3D%25d%29%20%3D%20%25d/%25d%20%3D%20%25.2f%22%20%25%20%28k%2C%20cuenta%5Bk%5D%2C%20N%2C%20cuenta%5Bk%5D%20/%20N%29%29%0Aprint%28%22suma%3A%22%2C%20sum%28cuenta%5Bk%5D%20/%20N%20for%20k%20in%20cuenta%29%29%0A&mode=display&py=3" target="_blank" rel="noopener noreferrer" title="Abre Python Tutor (sitio externo) con este código para verlo ejecutarse línea por línea">ver paso a paso &#8599;</a></div>
 <p>Salida real:</p>
 <div class="caja figura" data-lang="esquema"><pre><code>P(Y=1) = 5/10 = 0.50
 P(Y=2) = 3/10 = 0.30
@@ -2179,7 +2287,7 @@ Python:</p>
 <div class="caja codigo" data-lang="Python"><pre><code>PX = 0
 for y in clases:
     PX += P_X_dado_Y[y] * P_Y[y]
-</code></pre></div>
+</code></pre><a class="traza" href="https://pythontutor.com/visualize.html#code=PX%20%3D%200%0Afor%20y%20in%20clases%3A%0A%20%20%20%20PX%20%2B%3D%20P_X_dado_Y%5By%5D%20%2A%20P_Y%5By%5D%0A&mode=display&py=3" target="_blank" rel="noopener noreferrer" title="Abre Python Tutor (sitio externo) con este código para verlo ejecutarse línea por línea">ver paso a paso &#8599;</a></div>
 <p>Esta suma tiene nombre en el teorema de Bayes: se llama <strong>evidencia</strong>.</p>
 <h4>6.5 La normal y la densidad: <code>pdf</code> no es probabilidad</h4>
 <p>Los ejemplos del libro generan datos con la <strong>distribución normal</strong> (o gaussiana):
@@ -2248,7 +2356,11 @@ evidencia sale de la probabilidad total y la <strong>densidad no es una probabil
 </form>
 <hr />
 
-<div class="estado" data-sec="b4-6-probabilidad-el-minimo-indispensable"><button type="button" data-v="ok">&#10003; entendido</button><button type="button" data-v="rep">&#8635; repasar</button><button type="button" data-v="mias">&#9998; con mis palabras</button><textarea hidden rows="3" placeholder="Explica esta sección como se la contarías a alguien. Se guarda en este navegador."></textarea></div>
+<div class="estado" data-sec="b4-6-probabilidad-el-minimo-indispensable"><button type="button" data-v="ok">&#10003; entendido</button><button type="button" data-v="rep">&#8635; repasar</button><button type="button" data-v="mias">&#9998; con mis palabras</button><textarea hidden rows="3" placeholder="Explica esta sección como se la contarías a alguien. Se guarda en este navegador."></textarea>
+<button type="button" data-v="cmp" aria-expanded="false" hidden>comparar con la frase de la guía</button><blockquote class="frase" hidden><b>En una frase (guía):</b> La probabilidad es una <strong>proporción</strong>, la barra se lee &quot;dado&quot;, la evidencia sale de la probabilidad total y la <strong>densidad no es una probabilidad</strong>.</blockquote>
+</div>
+</div>
+<div class="sec" data-h="1">
 <h3 id="b4-7-el-teorema-de-bayes">7. El teorema de Bayes</h3>
 <h4>7.1 La intuición primero</h4>
 <p>Una prueba médica detecta una enfermedad. La prueba es buena: de cada 100
@@ -2374,7 +2486,11 @@ lo que quieres —el posterior—, dividiendo entre la evidencia.</p>
 </form>
 <hr />
 
-<div class="estado" data-sec="b4-7-el-teorema-de-bayes"><button type="button" data-v="ok">&#10003; entendido</button><button type="button" data-v="rep">&#8635; repasar</button><button type="button" data-v="mias">&#9998; con mis palabras</button><textarea hidden rows="3" placeholder="Explica esta sección como se la contarías a alguien. Se guarda en este navegador."></textarea></div>
+<div class="estado" data-sec="b4-7-el-teorema-de-bayes"><button type="button" data-v="ok">&#10003; entendido</button><button type="button" data-v="rep">&#8635; repasar</button><button type="button" data-v="mias">&#9998; con mis palabras</button><textarea hidden rows="3" placeholder="Explica esta sección como se la contarías a alguien. Se guarda en este navegador."></textarea>
+<button type="button" data-v="cmp" aria-expanded="false" hidden>comparar con la frase de la guía</button><blockquote class="frase" hidden><b>En una frase (guía):</b> <strong>Bayes</strong> convierte lo que puedes medir —verosimilitud y prior— en lo que quieres —el posterior—, dividiendo entre la evidencia.</blockquote>
+</div>
+</div>
+<div class="sec" data-h="1">
 <h3 id="b4-8-bayes-en-codigo-el-problema-sintetico-de-tres-">8. Bayes en código: el problema sintético de tres nubes</h3>
 <p>Este es el ejemplo del libro, reproducido con <strong>semillas fijas</strong> para que puedas
 comparar tus números con los de aquí. Es un ejemplo del <strong>paso 4</strong> de la
@@ -2474,7 +2590,7 @@ prediccion = clase[posterior.argmax(axis=1)]
 print(&quot;posterior del primer punto:&quot;, np.round(posterior[0], 6))
 print(&quot;suma del posterior:&quot;, round(float(posterior[0].sum()), 10))
 print(&quot;prediccion del primer punto:&quot;, prediccion[0])
-</code></pre></div>
+</code></pre><a class="traza" href="https://pythontutor.com/visualize.html#code=vero%20%3D%20np.vstack%28%5Bp1.pdf%28X%29%2C%20p2.pdf%28X%29%2C%20p3.pdf%28X%29%5D%29.T%0Anum%20%3D%20vero%20%2A%20%281%20/%203%29%0Aevidencia%20%3D%20num.sum%28axis%3D1%29%0Aposterior%20%3D%20num%20/%20np.atleast_2d%28evidencia%29.T%0A%0Aclase%20%3D%20np.array%28%5B1%2C%202%2C%203%5D%29%0Aprediccion%20%3D%20clase%5Bposterior.argmax%28axis%3D1%29%5D%0Aprint%28%22posterior%20del%20primer%20punto%3A%22%2C%20np.round%28posterior%5B0%5D%2C%206%29%29%0Aprint%28%22suma%20del%20posterior%3A%22%2C%20round%28float%28posterior%5B0%5D.sum%28%29%29%2C%2010%29%29%0Aprint%28%22prediccion%20del%20primer%20punto%3A%22%2C%20prediccion%5B0%5D%29%0A&mode=display&py=3" target="_blank" rel="noopener noreferrer" title="Abre Python Tutor (sitio externo) con este código para verlo ejecutarse línea por línea">ver paso a paso &#8599;</a></div>
 <p>Salida real:</p>
 <div class="caja figura" data-lang="esquema"><pre><code>posterior del primer punto: [9.99977e-01 2.30000e-05 0.00000e+00]
 suma del posterior: 1.0
@@ -2545,7 +2661,11 @@ no es siempre uniforme; en la §15 lo cambias tú y mides el efecto.</p>
 </form>
 <hr />
 
-<div class="estado" data-sec="b4-8-bayes-en-codigo-el-problema-sintetico-de-tres-"><button type="button" data-v="ok">&#10003; entendido</button><button type="button" data-v="rep">&#8635; repasar</button><button type="button" data-v="mias">&#9998; con mis palabras</button><textarea hidden rows="3" placeholder="Explica esta sección como se la contarías a alguien. Se guarda en este navegador."></textarea></div>
+<div class="estado" data-sec="b4-8-bayes-en-codigo-el-problema-sintetico-de-tres-"><button type="button" data-v="ok">&#10003; entendido</button><button type="button" data-v="rep">&#8635; repasar</button><button type="button" data-v="mias">&#9998; con mis palabras</button><textarea hidden rows="3" placeholder="Explica esta sección como se la contarías a alguien. Se guarda en este navegador."></textarea>
+<button type="button" data-v="cmp" aria-expanded="false" hidden>comparar con la frase de la guía</button><blockquote class="frase" hidden><b>En una frase (guía):</b> Con las distribuciones verdaderas, Bayes se calcula en cuatro pasos: <strong>verosimilitud por prior</strong>, sumar para la evidencia, dividir y <code>argmax</code>.</blockquote>
+</div>
+</div>
+<div class="sec" data-h="1">
 <h3 id="b4-9-medir-el-error-y-que-tan-confiable-es-esa-medi">9. Medir el error, y qué tan confiable es esa medición</h3>
 <p>Esto es el <strong>paso 5</strong> de la metodología (§2).</p>
 <h4>9.1 El error es un promedio de booleanos</h4>
@@ -2558,7 +2678,7 @@ pred = np.array([1, 2, 2, 3, 3])
 print(&quot;real != pred:&quot;, real != pred)
 print(&quot;suma de los True:&quot;, int((real != pred).sum()))
 print(&quot;media de los True (error):&quot;, (real != pred).mean())
-</code></pre></div>
+</code></pre><a class="traza" href="https://pythontutor.com/visualize.html#code=real%20%3D%20np.array%28%5B1%2C%201%2C%202%2C%203%2C%202%5D%29%0Apred%20%3D%20np.array%28%5B1%2C%202%2C%202%2C%203%2C%203%5D%29%0Aprint%28%22real%20%21%3D%20pred%3A%22%2C%20real%20%21%3D%20pred%29%0Aprint%28%22suma%20de%20los%20True%3A%22%2C%20int%28%28real%20%21%3D%20pred%29.sum%28%29%29%29%0Aprint%28%22media%20de%20los%20True%20%28error%29%3A%22%2C%20%28real%20%21%3D%20pred%29.mean%28%29%29%0A&mode=display&py=3" target="_blank" rel="noopener noreferrer" title="Abre Python Tutor (sitio externo) con este código para verlo ejecutarse línea por línea">ver paso a paso &#8599;</a></div>
 <p>Salida real:</p>
 <div class="caja figura" data-lang="esquema"><pre><code>real != pred: [False  True False False  True]
 suma de los True: 2
@@ -2568,7 +2688,7 @@ media de los True (error): 0.4
 <div class="caja codigo" data-lang="Python"><pre><code>error = (y != prediccion).mean()
 print(&quot;error promedio:&quot;, round(float(error), 4))
 print(&quot;numero de errores:&quot;, int((y != prediccion).sum()))
-</code></pre></div>
+</code></pre><a class="traza" href="https://pythontutor.com/visualize.html#code=error%20%3D%20%28y%20%21%3D%20prediccion%29.mean%28%29%0Aprint%28%22error%20promedio%3A%22%2C%20round%28float%28error%29%2C%204%29%29%0Aprint%28%22numero%20de%20errores%3A%22%2C%20int%28%28y%20%21%3D%20prediccion%29.sum%28%29%29%29%0A&mode=display&py=3" target="_blank" rel="noopener noreferrer" title="Abre Python Tutor (sitio externo) con este código para verlo ejecutarse línea por línea">ver paso a paso &#8599;</a></div>
 <p>Salida real:</p>
 <div class="caja figura" data-lang="esquema"><pre><code>error promedio: 0.0093
 numero de errores: 28
@@ -2593,7 +2713,7 @@ proporción <code>p</code> de unos, el error estándar de la proporción medida 
 </code></pre></div>
 <div class="caja codigo" data-lang="Python"><pre><code>se_formula = np.sqrt(error * (1 - error) / 3000)
 print(&quot;error estandar (formula):&quot;, round(float(se_formula), 4))
-</code></pre></div>
+</code></pre><a class="traza" href="https://pythontutor.com/visualize.html#code=se_formula%20%3D%20np.sqrt%28error%20%2A%20%281%20-%20error%29%20/%203000%29%0Aprint%28%22error%20estandar%20%28formula%29%3A%22%2C%20round%28float%28se_formula%29%2C%204%29%29%0A&mode=display&py=3" target="_blank" rel="noopener noreferrer" title="Abre Python Tutor (sitio externo) con este código para verlo ejecutarse línea por línea">ver paso a paso &#8599;</a></div>
 <div class="caja figura" data-lang="esquema"><pre><code>error estandar (formula): 0.0018
 </code></pre></div>
 <p>Lo que hay que retener de la fórmula sin saber de dónde viene: <strong>el error
@@ -2607,7 +2727,7 @@ el error estándar.</p>
 S = rng.randint(y.shape[0], size=(500, y.shape[0]))
 B = [(y[s] != prediccion[s]).mean() for s in S]
 print(&quot;error estandar (bootstrap, B=500):&quot;, round(float(np.std(B)), 4))
-</code></pre></div>
+</code></pre><a class="traza" href="https://pythontutor.com/visualize.html#code=rng%20%3D%20np.random.RandomState%280%29%0AS%20%3D%20rng.randint%28y.shape%5B0%5D%2C%20size%3D%28500%2C%20y.shape%5B0%5D%29%29%0AB%20%3D%20%5B%28y%5Bs%5D%20%21%3D%20prediccion%5Bs%5D%29.mean%28%29%20for%20s%20in%20S%5D%0Aprint%28%22error%20estandar%20%28bootstrap%2C%20B%3D500%29%3A%22%2C%20round%28float%28np.std%28B%29%29%2C%204%29%29%0A&mode=display&py=3" target="_blank" rel="noopener noreferrer" title="Abre Python Tutor (sitio externo) con este código para verlo ejecutarse línea por línea">ver paso a paso &#8599;</a></div>
 <div class="caja figura" data-lang="esquema"><pre><code>error estandar (bootstrap, B=500): 0.0017
 </code></pre></div>
 <p><code>S</code> es una tabla de 500 filas × 3000 columnas de índices al azar; cada fila es
@@ -2651,7 +2771,11 @@ estándar</strong> dice cuánto variaría esa medición si la repitieras.</p>
 </form>
 <hr />
 
-<div class="estado" data-sec="b4-9-medir-el-error-y-que-tan-confiable-es-esa-medi"><button type="button" data-v="ok">&#10003; entendido</button><button type="button" data-v="rep">&#8635; repasar</button><button type="button" data-v="mias">&#9998; con mis palabras</button><textarea hidden rows="3" placeholder="Explica esta sección como se la contarías a alguien. Se guarda en este navegador."></textarea></div>
+<div class="estado" data-sec="b4-9-medir-el-error-y-que-tan-confiable-es-esa-medi"><button type="button" data-v="ok">&#10003; entendido</button><button type="button" data-v="rep">&#8635; repasar</button><button type="button" data-v="mias">&#9998; con mis palabras</button><textarea hidden rows="3" placeholder="Explica esta sección como se la contarías a alguien. Se guarda en este navegador."></textarea>
+<button type="button" data-v="cmp" aria-expanded="false" hidden>comparar con la frase de la guía</button><blockquote class="frase" hidden><b>En una frase (guía):</b> El <strong>error</strong> es el promedio de un arreglo de booleanos, y su <strong>error estándar</strong> dice cuánto variaría esa medición si la repitieras.</blockquote>
+</div>
+</div>
+<div class="sec" data-h="1">
 <h3 id="b4-10-el-error-minimo-alcanzable">10. El error mínimo alcanzable</h3>
 <p>La segunda pregunta de &quot;Activa tu mente&quot;: <strong>¿cuál es el mínimo error que se puede
 obtener en un problema de clasificación?</strong></p>
@@ -2690,7 +2814,7 @@ print(&quot;error de &#x27;decide P si x1 &gt; 0&#x27;:&quot;,
       round(float((yz != np.where(Z[:, 0] &gt; 0, &#x27;P&#x27;, &#x27;N&#x27;)).mean()), 4))
 print(&quot;error de &#x27;decide P si x2 &gt; 2.5&#x27;:&quot;,
       round(float((yz != np.where(Z[:, 1] &gt; 2.5, &#x27;P&#x27;, &#x27;N&#x27;)).mean()), 4))
-</code></pre></div>
+</code></pre><a class="traza" href="https://pythontutor.com/visualize.html#code=q1%20%3D%20multivariate_normal%28mean%3D%5B5%2C%205%5D%2C%20%20cov%3D%5B%5B20%2C%20-5%5D%2C%20%5B-5%2C%202%5D%5D%29%0Aq2%20%3D%20multivariate_normal%28mean%3D%5B-5%2C%200%5D%2C%20cov%3D%5B%5B20%2C%205%5D%2C%20%5B5%2C%202%5D%5D%29%0AZ%20%3D%20np.concatenate%28%28q1.rvs%28size%3D1000%2C%20random_state%3D4%29%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20q2.rvs%28size%3D1000%2C%20random_state%3D5%29%29%29%0Ayz%20%3D%20np.array%28%5B%27P%27%5D%20%2A%201000%20%2B%20%5B%27N%27%5D%20%2A%201000%29%0A%0Apost%20%3D%20np.c_%5Bq1.pdf%28Z%29%2C%20q2.pdf%28Z%29%5D%20%2A%200.5%0Apost%20%3D%20post%20/%20np.c_%5Bpost.sum%28axis%3D1%29%5D%0Ahy%20%3D%20np.array%28%5B%27P%27%20if%20i%20%3D%3D%200%20else%20%27N%27%20for%20i%20in%20post.argmax%28axis%3D1%29%5D%29%0Ae%20%3D%20%28yz%20%21%3D%20hy%29.mean%28%29%0Aprint%28%22error%20de%20la%20regla%20de%20Bayes%3A%22%2C%20round%28float%28e%29%2C%204%29%2C%0A%20%20%20%20%20%20%22%7C%20error%20estandar%3A%22%2C%20round%28float%28np.sqrt%28e%20%2A%20%281%20-%20e%29%20/%202000%29%29%2C%204%29%29%0Aprint%28%22error%20de%20%27siempre%20P%27%3A%22%2C%20round%28float%28%28yz%20%21%3D%20%27P%27%29.mean%28%29%29%2C%204%29%29%0Aprint%28%22error%20de%20%27decide%20P%20si%20x1%20%3E%200%27%3A%22%2C%0A%20%20%20%20%20%20round%28float%28%28yz%20%21%3D%20np.where%28Z%5B%3A%2C%200%5D%20%3E%200%2C%20%27P%27%2C%20%27N%27%29%29.mean%28%29%29%2C%204%29%29%0Aprint%28%22error%20de%20%27decide%20P%20si%20x2%20%3E%202.5%27%3A%22%2C%0A%20%20%20%20%20%20round%28float%28%28yz%20%21%3D%20np.where%28Z%5B%3A%2C%201%5D%20%3E%202.5%2C%20%27P%27%2C%20%27N%27%29%29.mean%28%29%29%2C%204%29%29%0A&mode=display&py=3" target="_blank" rel="noopener noreferrer" title="Abre Python Tutor (sitio externo) con este código para verlo ejecutarse línea por línea">ver paso a paso &#8599;</a></div>
 <p>Salida real:</p>
 <div class="caja figura" data-lang="esquema"><pre><code>error de la regla de Bayes: 0.0085 | error estandar: 0.0021
 error de &#x27;siempre P&#x27;: 0.5
@@ -2719,7 +2843,7 @@ hw = np.array([&#x27;P&#x27; if i == 0 else &#x27;N&#x27; for i in pw.argmax(axi
 print(&quot;error:&quot;, round(float((yw != hw).mean()), 4))
 print(&quot;posterior maximo observado:&quot;, round(float(pw.max()), 4))
 print(&quot;validos con lambda=0.2:&quot;, int((pw.max(axis=1) &gt; 1 - 0.2).sum()))
-</code></pre></div>
+</code></pre><a class="traza" href="https://pythontutor.com/visualize.html#code=r1%20%3D%20multivariate_normal%28mean%3D%5B5%2C%205%5D%2C%20cov%3D%5B%5B20%2C%20-5%5D%2C%20%5B-5%2C%202%5D%5D%29%0Ar2%20%3D%20multivariate_normal%28mean%3D%5B5%2C%205%5D%2C%20cov%3D%5B%5B20%2C%20-5%5D%2C%20%5B-5%2C%202%5D%5D%29%0AW%20%3D%20np.concatenate%28%28r1.rvs%28size%3D1000%2C%20random_state%3D6%29%2C%20r2.rvs%28size%3D1000%2C%20random_state%3D7%29%29%29%0Ayw%20%3D%20np.array%28%5B%27P%27%5D%20%2A%201000%20%2B%20%5B%27N%27%5D%20%2A%201000%29%0Apw%20%3D%20np.c_%5Br1.pdf%28W%29%2C%20r2.pdf%28W%29%5D%20%2A%200.5%0Apw%20%3D%20pw%20/%20np.c_%5Bpw.sum%28axis%3D1%29%5D%0Ahw%20%3D%20np.array%28%5B%27P%27%20if%20i%20%3D%3D%200%20else%20%27N%27%20for%20i%20in%20pw.argmax%28axis%3D1%29%5D%29%0Aprint%28%22error%3A%22%2C%20round%28float%28%28yw%20%21%3D%20hw%29.mean%28%29%29%2C%204%29%29%0Aprint%28%22posterior%20maximo%20observado%3A%22%2C%20round%28float%28pw.max%28%29%29%2C%204%29%29%0Aprint%28%22validos%20con%20lambda%3D0.2%3A%22%2C%20int%28%28pw.max%28axis%3D1%29%20%3E%201%20-%200.2%29.sum%28%29%29%29%0A&mode=display&py=3" target="_blank" rel="noopener noreferrer" title="Abre Python Tutor (sitio externo) con este código para verlo ejecutarse línea por línea">ver paso a paso &#8599;</a></div>
 <p>Salida real:</p>
 <div class="caja figura" data-lang="esquema"><pre><code>error: 0.5
 posterior maximo observado: 0.5
@@ -2775,7 +2899,11 @@ entre las clases, no el algoritmo que uses.</p>
 </form>
 <hr />
 
-<div class="estado" data-sec="b4-10-el-error-minimo-alcanzable"><button type="button" data-v="ok">&#10003; entendido</button><button type="button" data-v="rep">&#8635; repasar</button><button type="button" data-v="mias">&#9998; con mis palabras</button><textarea hidden rows="3" placeholder="Explica esta sección como se la contarías a alguien. Se guarda en este navegador."></textarea></div>
+<div class="estado" data-sec="b4-10-el-error-minimo-alcanzable"><button type="button" data-v="ok">&#10003; entendido</button><button type="button" data-v="rep">&#8635; repasar</button><button type="button" data-v="mias">&#9998; con mis palabras</button><textarea hidden rows="3" placeholder="Explica esta sección como se la contarías a alguien. Se guarda en este navegador."></textarea>
+<button type="button" data-v="cmp" aria-expanded="false" hidden>comparar con la frase de la guía</button><blockquote class="frase" hidden><b>En una frase (guía):</b> El <strong>error de Bayes</strong> es el piso del problema: lo fija el traslape entre las clases, no el algoritmo que uses.</blockquote>
+</div>
+</div>
+<div class="sec" data-h="1">
 <h3 id="b4-11-riesgo-cuando-equivocarse-cuesta-distinto">11. Riesgo: cuando equivocarse cuesta distinto</h3>
 <p>Hasta aquí, todos los errores pesaban igual. En la vida no.</p>
 <p><strong>Sistema de autenticación.</strong> Dejar entrar a un impostor es gravísimo. No dejar
@@ -2808,7 +2936,7 @@ costos ponderado por probabilidad</strong>.</p>
 <div class="caja codigo" data-lang="Python"><pre><code>R = 0
 for k in clases:
     R += lam[i][k] * posterior[k]
-</code></pre></div>
+</code></pre><a class="traza" href="https://pythontutor.com/visualize.html#code=R%20%3D%200%0Afor%20k%20in%20clases%3A%0A%20%20%20%20R%20%2B%3D%20lam%5Bi%5D%5Bk%5D%20%2A%20posterior%5Bk%5D%0A&mode=display&py=3" target="_blank" rel="noopener noreferrer" title="Abre Python Tutor (sitio externo) con este código para verlo ejecutarse línea por línea">ver paso a paso &#8599;</a></div>
 <p>Y la regla: <strong>se toma la acción con el riesgo más chico.</strong></p>
 <h4>11.2 El costo 0/1 y por qué recupera &quot;la clase más probable&quot;</h4>
 <p>El costo más simple, llamado <strong>0/1</strong>, es &quot;acertar no cuesta nada, equivocarse
@@ -2841,7 +2969,7 @@ for i in range(3):
     print(&quot;R(alpha_%d) = %.4f   1 - P(Y=%d|x) = %.4f&quot; % (i+1, R[i], i+1, 1 - post_punto[i]))
 print(&quot;accion de minimo riesgo:&quot;, int(R.argmin()) + 1,
       &quot;| clase mas probable:&quot;, int(post_punto.argmax()) + 1)
-</code></pre></div>
+</code></pre><a class="traza" href="https://pythontutor.com/visualize.html#code=post_punto%20%3D%20np.array%28%5B0.3427%2C%200.6573%2C%200.0%5D%29%0Alam01%20%3D%201%20-%20np.eye%283%29%20%20%20%20%20%20%20%20%20%20%23%20ceros%20en%20la%20diagonal%2C%20unos%20fuera%0AR%20%3D%20lam01%20%40%20post_punto%0Afor%20i%20in%20range%283%29%3A%0A%20%20%20%20print%28%22R%28alpha_%25d%29%20%3D%20%25.4f%20%20%201%20-%20P%28Y%3D%25d%7Cx%29%20%3D%20%25.4f%22%20%25%20%28i%2B1%2C%20R%5Bi%5D%2C%20i%2B1%2C%201%20-%20post_punto%5Bi%5D%29%29%0Aprint%28%22accion%20de%20minimo%20riesgo%3A%22%2C%20int%28R.argmin%28%29%29%20%2B%201%2C%0A%20%20%20%20%20%20%22%7C%20clase%20mas%20probable%3A%22%2C%20int%28post_punto.argmax%28%29%29%20%2B%201%29%0A&mode=display&py=3" target="_blank" rel="noopener noreferrer" title="Abre Python Tutor (sitio externo) con este código para verlo ejecutarse línea por línea">ver paso a paso &#8599;</a></div>
 <p>Salida real:</p>
 <div class="caja figura" data-lang="esquema"><pre><code>R(alpha_1) = 0.6573   1 - P(Y=1|x) = 0.6573
 R(alpha_2) = 0.3427   1 - P(Y=2|x) = 0.3427
@@ -2917,7 +3045,11 @@ costo 0/1 recupera &quot;la clase más probable&quot;, con costos asimétricos n
 </form>
 <hr />
 
-<div class="estado" data-sec="b4-11-riesgo-cuando-equivocarse-cuesta-distinto"><button type="button" data-v="ok">&#10003; entendido</button><button type="button" data-v="rep">&#8635; repasar</button><button type="button" data-v="mias">&#9998; con mis palabras</button><textarea hidden rows="3" placeholder="Explica esta sección como se la contarías a alguien. Se guarda en este navegador."></textarea></div>
+<div class="estado" data-sec="b4-11-riesgo-cuando-equivocarse-cuesta-distinto"><button type="button" data-v="ok">&#10003; entendido</button><button type="button" data-v="rep">&#8635; repasar</button><button type="button" data-v="mias">&#9998; con mis palabras</button><textarea hidden rows="3" placeholder="Explica esta sección como se la contarías a alguien. Se guarda en este navegador."></textarea>
+<button type="button" data-v="cmp" aria-expanded="false" hidden>comparar con la frase de la guía</button><blockquote class="frase" hidden><b>En una frase (guía):</b> El <strong>riesgo</strong> es el costo promedio ponderado por el posterior; con costo 0/1 recupera &quot;la clase más probable&quot;, con costos asimétricos no.</blockquote>
+</div>
+</div>
+<div class="sec" data-h="1">
 <h3 id="b4-12-la-accion-nula-cuando-no-decidir">12. La acción nula: cuándo no decidir</h3>
 <p>A veces lo correcto es <strong>no decidir</strong> y pedir intervención humana. El sistema de
 autenticación puede llamar a un supervisor; un diagnóstico dudoso puede pasar a
@@ -2986,7 +3118,11 @@ acciones— con costo constante <code>λ</code>, y no como una clase extra.</p>
 </form>
 <hr />
 
-<div class="estado" data-sec="b4-12-la-accion-nula-cuando-no-decidir"><button type="button" data-v="ok">&#10003; entendido</button><button type="button" data-v="rep">&#8635; repasar</button><button type="button" data-v="mias">&#9998; con mis palabras</button><textarea hidden rows="3" placeholder="Explica esta sección como se la contarías a alguien. Se guarda en este navegador."></textarea></div>
+<div class="estado" data-sec="b4-12-la-accion-nula-cuando-no-decidir"><button type="button" data-v="ok">&#10003; entendido</button><button type="button" data-v="rep">&#8635; repasar</button><button type="button" data-v="mias">&#9998; con mis palabras</button><textarea hidden rows="3" placeholder="Explica esta sección como se la contarías a alguien. Se guarda en este navegador."></textarea>
+<button type="button" data-v="cmp" aria-expanded="false" hidden>comparar con la frase de la guía</button><blockquote class="frase" hidden><b>En una frase (guía):</b> No decidir se modela como una <strong>acción</strong> extra —<code>K</code> clases, <code>K+1</code> acciones— con costo constante <code>λ</code>, y no como una clase extra.</blockquote>
+</div>
+</div>
+<div class="sec" data-h="1">
 <h3 id="b4-13-la-regla-completa-de-decision">13. La regla completa de decisión</h3>
 <p>Junta lo de las §11 y §12, con costo 0/1 más acción nula:</p>
 <div class="caja figura" data-lang="esquema"><pre><code>riesgo de elegir la clase i :  R(alpha_i | x)     = 1 - P(Y = i | X = x)
@@ -3013,7 +3149,7 @@ normalizado, no un puntaje proporcional.</p>
           &quot;| validos&quot;, int(valid.sum()),
           &quot;| rechazados&quot;, int((~valid).sum()),
           &quot;| error en validos&quot;, round(float((yz[valid] != hy[valid]).mean()), 4))
-</code></pre></div>
+</code></pre><a class="traza" href="https://pythontutor.com/visualize.html#code=for%20lam_nula%20in%20%280.05%2C%200.2%2C%200.4%29%3A%0A%20%20%20%20valid%20%3D%20post.max%28axis%3D1%29%20%3E%201%20-%20lam_nula%0A%20%20%20%20print%28%22lambda%22%2C%20lam_nula%2C%0A%20%20%20%20%20%20%20%20%20%20%22%7C%20validos%22%2C%20int%28valid.sum%28%29%29%2C%0A%20%20%20%20%20%20%20%20%20%20%22%7C%20rechazados%22%2C%20int%28%28~valid%29.sum%28%29%29%2C%0A%20%20%20%20%20%20%20%20%20%20%22%7C%20error%20en%20validos%22%2C%20round%28float%28%28yz%5Bvalid%5D%20%21%3D%20hy%5Bvalid%5D%29.mean%28%29%29%2C%204%29%29%0A&mode=display&py=3" target="_blank" rel="noopener noreferrer" title="Abre Python Tutor (sitio externo) con este código para verlo ejecutarse línea por línea">ver paso a paso &#8599;</a></div>
 <p>Salida real:</p>
 <div class="caja figura" data-lang="esquema"><pre><code>lambda 0.05 | validos 1930 | rechazados 70 | error en validos 0.0031
 lambda 0.2 | validos 1978 | rechazados 22 | error en validos 0.0046
@@ -3069,7 +3205,11 @@ si no, se pide intervención, y eso compra precisión pagando cobertura.</p>
 </form>
 <hr />
 
-<div class="estado" data-sec="b4-13-la-regla-completa-de-decision"><button type="button" data-v="ok">&#10003; entendido</button><button type="button" data-v="rep">&#8635; repasar</button><button type="button" data-v="mias">&#9998; con mis palabras</button><textarea hidden rows="3" placeholder="Explica esta sección como se la contarías a alguien. Se guarda en este navegador."></textarea></div>
+<div class="estado" data-sec="b4-13-la-regla-completa-de-decision"><button type="button" data-v="ok">&#10003; entendido</button><button type="button" data-v="rep">&#8635; repasar</button><button type="button" data-v="mias">&#9998; con mis palabras</button><textarea hidden rows="3" placeholder="Explica esta sección como se la contarías a alguien. Se guarda en este navegador."></textarea>
+<button type="button" data-v="cmp" aria-expanded="false" hidden>comparar con la frase de la guía</button><blockquote class="frase" hidden><b>En una frase (guía):</b> Se decide la clase de posterior máximo <strong>solo si supera <code>1 - λ</code></strong>; si no, se pide intervención, y eso compra precisión pagando cobertura.</blockquote>
+</div>
+</div>
+<div class="sec" data-h="1">
 <h3 id="b4-15-tres-experimentos-propios-predice-antes-de-co">15. Tres experimentos propios: predice antes de correr</h3>
 <p>Estos tres experimentos son <strong>tus decisiones</strong>, y son la diferencia entre haber
 leído la unidad y haberla entendido. La regla es una y no se negocia: <strong>escribe tu
@@ -3118,7 +3258,7 @@ valores que <strong>tú elijas</strong> (por ejemplo <code>[0.8, 0.1, 0.1]</code
     po = n / np.atleast_2d(n.sum(axis=1)).T
     pred = clase[po.argmax(axis=1)]
     print(&quot;prior&quot;, pr, &quot;-&gt; error&quot;, round(float((y != pred).mean()), 4))
-</code></pre></div>
+</code></pre><a class="traza" href="https://pythontutor.com/visualize.html#code=for%20pr%20in%20%28%5B1/3%2C%201/3%2C%201/3%5D%2C%20%5B0.8%2C%200.1%2C%200.1%5D%29%3A%20%20%20%20%20%20%20%20%23%20%3C-%20pon%20aqui%20tus%20valores%0A%20%20%20%20n%20%3D%20vero%20%2A%20np.array%28pr%29%0A%20%20%20%20po%20%3D%20n%20/%20np.atleast_2d%28n.sum%28axis%3D1%29%29.T%0A%20%20%20%20pred%20%3D%20clase%5Bpo.argmax%28axis%3D1%29%5D%0A%20%20%20%20print%28%22prior%22%2C%20pr%2C%20%22-%3E%20error%22%2C%20round%28float%28%28y%20%21%3D%20pred%29.mean%28%29%29%2C%204%29%29%0A&mode=display&py=3" target="_blank" rel="noopener noreferrer" title="Abre Python Tutor (sitio externo) con este código para verlo ejecutarse línea por línea">ver paso a paso &#8599;</a></div>
 <p><strong>Antes de correr, contesta:</strong> ¿el error sube o baja? ¿Cuál nube se &quot;come&quot; a las
 otras y por qué? ¿Cambia la predicción de los puntos que están lejos de todas las
 fronteras? Recuerda que hay 1000 datos reales de cada clase.</p>
@@ -3147,7 +3287,10 @@ segunda pregunta de &quot;Activa tu mente&quot;, con tus propias palabras y tus 
 números.</p>
 <hr />
 
-<div class="estado" data-sec="b4-15-tres-experimentos-propios-predice-antes-de-co"><button type="button" data-v="ok">&#10003; entendido</button><button type="button" data-v="rep">&#8635; repasar</button><button type="button" data-v="mias">&#9998; con mis palabras</button><textarea hidden rows="3" placeholder="Explica esta sección como se la contarías a alguien. Se guarda en este navegador."></textarea></div>
+<div class="estado" data-sec="b4-15-tres-experimentos-propios-predice-antes-de-co"><button type="button" data-v="ok">&#10003; entendido</button><button type="button" data-v="rep">&#8635; repasar</button><button type="button" data-v="mias">&#9998; con mis palabras</button><textarea hidden rows="3" placeholder="Explica esta sección como se la contarías a alguien. Se guarda en este navegador."></textarea>
+</div>
+</div>
+<div class="sec" data-h="1">
 <details class="spoiler" id="b4-apendice-a-soluciones-abrelo-despues-de-intentar"><summary>Apéndice A · Soluciones — ábrelo DESPUÉS de intentarlo · 10 min</summary><div class="cuerpo">
 <h4>A.2 Resultados de referencia de los tres experimentos (§15)</h4>
 <p><strong>Experimento 1 — prior.</strong> Medido sobre las tres nubes de la §8:</p>
@@ -3194,6 +3337,8 @@ cosas&quot;, no &quot;hay que probar otro algoritmo&quot;.</p>
 <hr />
 
 </div></details>
+</div>
+<div class="sec" data-h="1">
 <h3 id="b4-apendice-b-codigo-completo-ejecutable">Apéndice B · Código completo, ejecutable</h3>
 <p>Guarda esto como <code>unidad1.py</code> y córrelo con tu Python. Reproduce <strong>todas</strong> las
 salidas pegadas en este apunte. Las semillas están fijas: <code>random_state=1, 2, 3</code>
@@ -3326,7 +3471,10 @@ max_depth=4 (equilibrado)    E(T)=0.3793  E(G)=0.5475
 <code>img/generar-figuras.py</code>, que usa las mismas semillas.</p>
 <hr />
 
-<div class="estado" data-sec="b4-apendice-b-codigo-completo-ejecutable"><button type="button" data-v="ok">&#10003; entendido</button><button type="button" data-v="rep">&#8635; repasar</button><button type="button" data-v="mias">&#9998; con mis palabras</button><textarea hidden rows="3" placeholder="Explica esta sección como se la contarías a alguien. Se guarda en este navegador."></textarea></div>
+<div class="estado" data-sec="b4-apendice-b-codigo-completo-ejecutable"><button type="button" data-v="ok">&#10003; entendido</button><button type="button" data-v="rep">&#8635; repasar</button><button type="button" data-v="mias">&#9998; con mis palabras</button><textarea hidden rows="3" placeholder="Explica esta sección como se la contarías a alguien. Se guarda en este navegador."></textarea>
+</div>
+</div>
+<div class="sec" data-h="1">
 <h3 id="b4-referencias">Referencias</h3>
 <p>Graff, M. (s.f.). <em>Aprendizaje Computacional</em>, capítulos 1 (Introducción) y 2
 (Teoría de Decisión Bayesiana). INFOTEC.
@@ -3335,16 +3483,19 @@ max_depth=4 (equilibrado)    E(T)=0.3793  E(G)=0.5475
 <p>Breiman, L. (2001). Statistical modeling: The two cultures. <em>Statistical
 Science, 16</em>(3), 199-231. <a href="https://doi.org/10.1214/ss/1009213726">https://doi.org/10.1214/ss/1009213726</a></p>
 
-<div class="estado" data-sec="b4-referencias"><button type="button" data-v="ok">&#10003; entendido</button><button type="button" data-v="rep">&#8635; repasar</button><button type="button" data-v="mias">&#9998; con mis palabras</button><textarea hidden rows="3" placeholder="Explica esta sección como se la contarías a alguien. Se guarda en este navegador."></textarea></div>
+<div class="estado" data-sec="b4-referencias"><button type="button" data-v="ok">&#10003; entendido</button><button type="button" data-v="rep">&#8635; repasar</button><button type="button" data-v="mias">&#9998; con mis palabras</button><textarea hidden rows="3" placeholder="Explica esta sección como se la contarías a alguien. Se guarda en este navegador."></textarea>
+</div>
+</div>
 </section>
 <section class="bloque" id="b5"><div class="cab">
 <div class="bn" aria-hidden="true">5</div><div>
 <h2>Autoexamen · 20 preguntas</h2>
 <div class="meta">
 <span class="chip">52 min estimados</span>
-<span class="chip q">&#9733; Ruta examen</span>
+<span class="chip q" title="Exámenes 1.1 y 1.2">&#9733; examen</span>
 <label class="tiempo">tu tiempo real <input class="real" type="number" min="0" step="1" inputmode="numeric" id="real-b5" name="real-b5" data-bloque="5" aria-label="tiempo real del bloque 5 en minutos"> min</label>
 </div></div></div>
+<div class="sec" data-h="1">
 <h3 id="b5-16-autoexamen-20-preguntas">16. Autoexamen — 20 preguntas</h3>
 <p><strong>Contéstalas sin ver el apunte.</strong> Las <strong>16 primeras</strong> se califican solas aquí
 abajo: contéstalas todas antes de pulsar <em>Calificar</em>, porque el botón revela de
@@ -3360,148 +3511,151 @@ referencias «§N» de las explicaciones son secciones de «El apunte de la unid
 <p>Este autoexamen <strong>no es el examen oficial</strong> ni una filtración de él: es material
 de práctica escrito a partir del contenido de la unidad. Lee, justo debajo del
 banco, qué mide y qué no mide tu puntaje.</p>
-<form class="quiz" data-quiz="b5s0-0" data-total="16">
+<form class="quiz" data-quiz="b5s1-0" data-total="16">
 <div class="quiz-cab"><output class="avance" aria-live="polite">0 de 16 respondidas</output><div class="quiz-prog" aria-hidden="true"><i></i></div></div>
-<fieldset class="pregunta" id="b5s0-0-q1">
+<fieldset class="pregunta" id="b5s1-0-q1">
 <legend><span class="num">1</span><span class="txt">¿Por qué en aprendizaje computacional se usa probabilidad en vez de buscar un algoritmo exacto como el de ordenamiento?</span></legend>
-<div class="opcion"><input type="radio" name="b5s0-0-q1" id="b5s0-0-q1-o0"><label for="b5s0-0-q1-o0"><b>a)</b> <span>Porque los algoritmos probabilísticos son más rápidos.</span></label></div>
-<div class="opcion"><input type="radio" name="b5s0-0-q1" id="b5s0-0-q1-o1" data-ok="1"><label for="b5s0-0-q1-o1"><b>b)</b> <span>Porque hay incertidumbre en la captura de los datos y variables que no se pueden medir.</span></label></div>
-<div class="opcion"><input type="radio" name="b5s0-0-q1" id="b5s0-0-q1-o2"><label for="b5s0-0-q1-o2"><b>c)</b> <span>Porque los datos siempre son gaussianos.</span></label></div>
-<div class="opcion"><input type="radio" name="b5s0-0-q1" id="b5s0-0-q1-o3"><label for="b5s0-0-q1-o3"><b>d)</b> <span>Porque el conjunto de entrenamiento es finito.</span></label></div>
-<label class="seguro"><input type="checkbox" name="b5s0-0-q1-seg"> estaba seguro</label>
+<div class="opcion"><input type="radio" name="b5s1-0-q1" id="b5s1-0-q1-o0"><label for="b5s1-0-q1-o0"><b>a)</b> <span>Porque los algoritmos probabilísticos son más rápidos.</span></label></div>
+<div class="opcion"><input type="radio" name="b5s1-0-q1" id="b5s1-0-q1-o1" data-ok="1"><label for="b5s1-0-q1-o1"><b>b)</b> <span>Porque hay incertidumbre en la captura de los datos y variables que no se pueden medir.</span></label></div>
+<div class="opcion"><input type="radio" name="b5s1-0-q1" id="b5s1-0-q1-o2"><label for="b5s1-0-q1-o2"><b>c)</b> <span>Porque los datos siempre son gaussianos.</span></label></div>
+<div class="opcion"><input type="radio" name="b5s1-0-q1" id="b5s1-0-q1-o3"><label for="b5s1-0-q1-o3"><b>d)</b> <span>Porque el conjunto de entrenamiento es finito.</span></label></div>
+<label class="seguro"><input type="checkbox" name="b5s1-0-q1-seg"> estaba seguro</label>
 <div class="explicacion" hidden><strong>(b)</strong> (§1) Es el argumento oficial de la unidad: incertidumbre en la captura de los datos y variables no medibles. Lo mejor esperable es un algoritmo exacto y preciso, no infalible. <strong>(a)</strong> es falso; <strong>(c)</strong> es un supuesto de algunos métodos, no la razón; <strong>(d)</strong> no es la causa.</div>
 </fieldset>
-<fieldset class="pregunta" id="b5s0-0-q2">
+<fieldset class="pregunta" id="b5s1-0-q2">
 <legend><span class="num">2</span><span class="txt">Un modelo debe predecir el precio de venta de una casa en pesos. ¿Qué tipo de problema es?</span></legend>
-<div class="opcion"><input type="radio" name="b5s0-0-q2" id="b5s0-0-q2-o0"><label for="b5s0-0-q2-o0"><b>a)</b> <span>Clasificación binaria.</span></label></div>
-<div class="opcion"><input type="radio" name="b5s0-0-q2" id="b5s0-0-q2-o1"><label for="b5s0-0-q2-o1"><b>b)</b> <span>Clasificación multi-clase.</span></label></div>
-<div class="opcion"><input type="radio" name="b5s0-0-q2" id="b5s0-0-q2-o2" data-ok="1"><label for="b5s0-0-q2-o2"><b>c)</b> <span>Regresión.</span></label></div>
-<div class="opcion"><input type="radio" name="b5s0-0-q2" id="b5s0-0-q2-o3"><label for="b5s0-0-q2-o3"><b>d)</b> <span>Aprendizaje por refuerzo.</span></label></div>
-<label class="seguro"><input type="checkbox" name="b5s0-0-q2-seg"> estaba seguro</label>
+<div class="opcion"><input type="radio" name="b5s1-0-q2" id="b5s1-0-q2-o0"><label for="b5s1-0-q2-o0"><b>a)</b> <span>Clasificación binaria.</span></label></div>
+<div class="opcion"><input type="radio" name="b5s1-0-q2" id="b5s1-0-q2-o1"><label for="b5s1-0-q2-o1"><b>b)</b> <span>Clasificación multi-clase.</span></label></div>
+<div class="opcion"><input type="radio" name="b5s1-0-q2" id="b5s1-0-q2-o2" data-ok="1"><label for="b5s1-0-q2-o2"><b>c)</b> <span>Regresión.</span></label></div>
+<div class="opcion"><input type="radio" name="b5s1-0-q2" id="b5s1-0-q2-o3"><label for="b5s1-0-q2-o3"><b>d)</b> <span>Aprendizaje por refuerzo.</span></label></div>
+<label class="seguro"><input type="checkbox" name="b5s1-0-q2-seg"> estaba seguro</label>
 <div class="explicacion" hidden><strong>(c)</strong> (§3.1) El precio es un número cualquiera: <code>y ∈ ℝ</code>, regresión.</div>
 </fieldset>
-<fieldset class="pregunta" id="b5s0-0-q3">
+<fieldset class="pregunta" id="b5s1-0-q3">
 <legend><span class="num">3</span><span class="txt">Un modelo etiqueta una noticia y puede asignarle simultáneamente &quot;deportes&quot; y &quot;política&quot;. ¿Cómo se llama y cómo se escribe la salida?</span></legend>
-<div class="opcion"><input type="radio" name="b5s0-0-q3" id="b5s0-0-q3-o0"><label for="b5s0-0-q3-o0"><b>a)</b> <span>Multi-clase, <code>y ∈ {0,1}</code>.</span></label></div>
-<div class="opcion"><input type="radio" name="b5s0-0-q3" id="b5s0-0-q3-o1" data-ok="1"><label for="b5s0-0-q3-o1"><b>b)</b> <span>Multi-etiqueta, <code>y ∈ {0,1}^K</code>.</span></label></div>
-<div class="opcion"><input type="radio" name="b5s0-0-q3" id="b5s0-0-q3-o2"><label for="b5s0-0-q3-o2"><b>c)</b> <span>Regresión, <code>y ∈ ℝ</code>.</span></label></div>
-<div class="opcion"><input type="radio" name="b5s0-0-q3" id="b5s0-0-q3-o3"><label for="b5s0-0-q3-o3"><b>d)</b> <span>Binaria, <code>y ∈ {0,1}^K</code>.</span></label></div>
-<label class="seguro"><input type="checkbox" name="b5s0-0-q3-seg"> estaba seguro</label>
+<div class="opcion"><input type="radio" name="b5s1-0-q3" id="b5s1-0-q3-o0"><label for="b5s1-0-q3-o0"><b>a)</b> <span>Multi-clase, <code>y ∈ {0,1}</code>.</span></label></div>
+<div class="opcion"><input type="radio" name="b5s1-0-q3" id="b5s1-0-q3-o1" data-ok="1"><label for="b5s1-0-q3-o1"><b>b)</b> <span>Multi-etiqueta, <code>y ∈ {0,1}^K</code>.</span></label></div>
+<div class="opcion"><input type="radio" name="b5s1-0-q3" id="b5s1-0-q3-o2"><label for="b5s1-0-q3-o2"><b>c)</b> <span>Regresión, <code>y ∈ ℝ</code>.</span></label></div>
+<div class="opcion"><input type="radio" name="b5s1-0-q3" id="b5s1-0-q3-o3"><label for="b5s1-0-q3-o3"><b>d)</b> <span>Binaria, <code>y ∈ {0,1}^K</code>.</span></label></div>
+<label class="seguro"><input type="checkbox" name="b5s1-0-q3-seg"> estaba seguro</label>
 <div class="explicacion" hidden><strong>(b)</strong> (§3.1) Varias etiquetas a la vez es <strong>multi-etiqueta</strong> y se escribe <code>y ∈ {0,1}^K</code>; aquí sería <code>[1, 1, 0]</code>. Multi-clase usa la misma notación pero permite un solo uno.</div>
 </fieldset>
-<fieldset class="pregunta" id="b5s0-0-q4">
+<fieldset class="pregunta" id="b5s1-0-q4">
 <legend><span class="num">4</span><span class="txt">En el teorema de Bayes, ¿cómo se llama el término <code>P(X | Y)</code>?</span></legend>
-<div class="opcion"><input type="radio" name="b5s0-0-q4" id="b5s0-0-q4-o0"><label for="b5s0-0-q4-o0"><b>a)</b> <span>Posterior.</span></label></div>
-<div class="opcion"><input type="radio" name="b5s0-0-q4" id="b5s0-0-q4-o1"><label for="b5s0-0-q4-o1"><b>b)</b> <span>Prior.</span></label></div>
-<div class="opcion"><input type="radio" name="b5s0-0-q4" id="b5s0-0-q4-o2" data-ok="1"><label for="b5s0-0-q4-o2"><b>c)</b> <span>Verosimilitud.</span></label></div>
-<div class="opcion"><input type="radio" name="b5s0-0-q4" id="b5s0-0-q4-o3"><label for="b5s0-0-q4-o3"><b>d)</b> <span>Evidencia.</span></label></div>
-<label class="seguro"><input type="checkbox" name="b5s0-0-q4-seg"> estaba seguro</label>
+<div class="opcion"><input type="radio" name="b5s1-0-q4" id="b5s1-0-q4-o0"><label for="b5s1-0-q4-o0"><b>a)</b> <span>Posterior.</span></label></div>
+<div class="opcion"><input type="radio" name="b5s1-0-q4" id="b5s1-0-q4-o1"><label for="b5s1-0-q4-o1"><b>b)</b> <span>Prior.</span></label></div>
+<div class="opcion"><input type="radio" name="b5s1-0-q4" id="b5s1-0-q4-o2" data-ok="1"><label for="b5s1-0-q4-o2"><b>c)</b> <span>Verosimilitud.</span></label></div>
+<div class="opcion"><input type="radio" name="b5s1-0-q4" id="b5s1-0-q4-o3"><label for="b5s1-0-q4-o3"><b>d)</b> <span>Evidencia.</span></label></div>
+<label class="seguro"><input type="checkbox" name="b5s1-0-q4-seg"> estaba seguro</label>
 <div class="explicacion" hidden><strong>(c)</strong> (§7.2) <code>P(X|Y)</code> es la <strong>verosimilitud</strong>. <code>P(Y|X)</code> posterior, <code>P(Y)</code> prior, <code>P(X)</code> evidencia. Si te confundiste aquí, relee §6.3: la barra se lee &quot;dado&quot; y el orden importa.</div>
 </fieldset>
-<fieldset class="pregunta" id="b5s0-0-q5">
+<fieldset class="pregunta" id="b5s1-0-q5">
 <legend><span class="num">5</span><span class="txt">¿Cómo se calcula la evidencia <code>P(X)</code>?</span></legend>
-<div class="opcion"><input type="radio" name="b5s0-0-q5" id="b5s0-0-q5-o0"><label for="b5s0-0-q5-o0"><b>a)</b> <span>Es siempre 1.</span></label></div>
-<div class="opcion"><input type="radio" name="b5s0-0-q5" id="b5s0-0-q5-o1" data-ok="1"><label for="b5s0-0-q5-o1"><b>b)</b> <span>Con la probabilidad total: sumando <code>P(X|Y=y)·P(Y=y)</code> sobre todas las clases.</span></label></div>
-<div class="opcion"><input type="radio" name="b5s0-0-q5" id="b5s0-0-q5-o2"><label for="b5s0-0-q5-o2"><b>c)</b> <span>Es el prior de la clase más frecuente.</span></label></div>
-<div class="opcion"><input type="radio" name="b5s0-0-q5" id="b5s0-0-q5-o3"><label for="b5s0-0-q5-o3"><b>d)</b> <span>Es el máximo de las verosimilitudes.</span></label></div>
-<label class="seguro"><input type="checkbox" name="b5s0-0-q5-seg"> estaba seguro</label>
+<div class="opcion"><input type="radio" name="b5s1-0-q5" id="b5s1-0-q5-o0"><label for="b5s1-0-q5-o0"><b>a)</b> <span>Es siempre 1.</span></label></div>
+<div class="opcion"><input type="radio" name="b5s1-0-q5" id="b5s1-0-q5-o1" data-ok="1"><label for="b5s1-0-q5-o1"><b>b)</b> <span>Con la probabilidad total: sumando <code>P(X|Y=y)·P(Y=y)</code> sobre todas las clases.</span></label></div>
+<div class="opcion"><input type="radio" name="b5s1-0-q5" id="b5s1-0-q5-o2"><label for="b5s1-0-q5-o2"><b>c)</b> <span>Es el prior de la clase más frecuente.</span></label></div>
+<div class="opcion"><input type="radio" name="b5s1-0-q5" id="b5s1-0-q5-o3"><label for="b5s1-0-q5-o3"><b>d)</b> <span>Es el máximo de las verosimilitudes.</span></label></div>
+<label class="seguro"><input type="checkbox" name="b5s1-0-q5-seg"> estaba seguro</label>
 <div class="explicacion" hidden><strong>(b)</strong> (§6.4, §7.3) Probabilidad total. En código es la suma de los numeradores: <code>num.sum(axis=1)</code>.</div>
 </fieldset>
-<fieldset class="pregunta" id="b5s0-0-q6">
+<fieldset class="pregunta" id="b5s1-0-q6">
 <legend><span class="num">6</span><span class="txt">Con costo 0/1, el riesgo de tomar la acción <code>α_i</code> dado <code>x</code> es:</span></legend>
-<div class="opcion"><input type="radio" name="b5s0-0-q6" id="b5s0-0-q6-o0"><label for="b5s0-0-q6-o0"><b>a)</b> <span><code>P(Y=i | X=x)</code></span></label></div>
-<div class="opcion"><input type="radio" name="b5s0-0-q6" id="b5s0-0-q6-o1" data-ok="1"><label for="b5s0-0-q6-o1"><b>b)</b> <span><code>1 - P(Y=i | X=x)</code></span></label></div>
-<div class="opcion"><input type="radio" name="b5s0-0-q6" id="b5s0-0-q6-o2"><label for="b5s0-0-q6-o2"><b>c)</b> <span><code>λ</code></span></label></div>
-<div class="opcion"><input type="radio" name="b5s0-0-q6" id="b5s0-0-q6-o3"><label for="b5s0-0-q6-o3"><b>d)</b> <span><code>1 - λ</code></span></label></div>
-<label class="seguro"><input type="checkbox" name="b5s0-0-q6-seg"> estaba seguro</label>
+<div class="opcion"><input type="radio" name="b5s1-0-q6" id="b5s1-0-q6-o0"><label for="b5s1-0-q6-o0"><b>a)</b> <span><code>P(Y=i | X=x)</code></span></label></div>
+<div class="opcion"><input type="radio" name="b5s1-0-q6" id="b5s1-0-q6-o1" data-ok="1"><label for="b5s1-0-q6-o1"><b>b)</b> <span><code>1 - P(Y=i | X=x)</code></span></label></div>
+<div class="opcion"><input type="radio" name="b5s1-0-q6" id="b5s1-0-q6-o2"><label for="b5s1-0-q6-o2"><b>c)</b> <span><code>λ</code></span></label></div>
+<div class="opcion"><input type="radio" name="b5s1-0-q6" id="b5s1-0-q6-o3"><label for="b5s1-0-q6-o3"><b>d)</b> <span><code>1 - λ</code></span></label></div>
+<label class="seguro"><input type="checkbox" name="b5s1-0-q6-seg"> estaba seguro</label>
 <div class="explicacion" hidden><strong>(b)</strong> (§11.2) <code>R(α_i|x) = 1 - P(Y=i|X=x)</code>. Verificado numéricamente: posterior 0.6573 → riesgo 0.3427. <strong>(c)</strong> es el riesgo de la <strong>acción nula</strong>, no de elegir una clase.</div>
 </fieldset>
-<fieldset class="pregunta" id="b5s0-0-q7">
+<fieldset class="pregunta" id="b5s1-0-q7">
 <legend><span class="num">7</span><span class="txt">¿Por qué se modela la intervención humana como una <strong>acción</strong> extra y no como una <strong>clase</strong> extra?</span></legend>
-<div class="opcion"><input type="radio" name="b5s0-0-q7" id="b5s0-0-q7-o0"><label for="b5s0-0-q7-o0"><b>a)</b> <span>Porque las clases deben ser siempre pares.</span></label></div>
-<div class="opcion"><input type="radio" name="b5s0-0-q7" id="b5s0-0-q7-o1" data-ok="1"><label for="b5s0-0-q7-o1"><b>b)</b> <span>Porque agregar una clase incrementa la complejidad del problema.</span></label></div>
-<div class="opcion"><input type="radio" name="b5s0-0-q7" id="b5s0-0-q7-o2"><label for="b5s0-0-q7-o2"><b>c)</b> <span>Porque las acciones son más rápidas de calcular.</span></label></div>
-<div class="opcion"><input type="radio" name="b5s0-0-q7" id="b5s0-0-q7-o3"><label for="b5s0-0-q7-o3"><b>d)</b> <span>Porque el teorema de Bayes no admite más de dos clases.</span></label></div>
-<label class="seguro"><input type="checkbox" name="b5s0-0-q7-seg"> estaba seguro</label>
+<div class="opcion"><input type="radio" name="b5s1-0-q7" id="b5s1-0-q7-o0"><label for="b5s1-0-q7-o0"><b>a)</b> <span>Porque las clases deben ser siempre pares.</span></label></div>
+<div class="opcion"><input type="radio" name="b5s1-0-q7" id="b5s1-0-q7-o1" data-ok="1"><label for="b5s1-0-q7-o1"><b>b)</b> <span>Porque agregar una clase incrementa la complejidad del problema.</span></label></div>
+<div class="opcion"><input type="radio" name="b5s1-0-q7" id="b5s1-0-q7-o2"><label for="b5s1-0-q7-o2"><b>c)</b> <span>Porque las acciones son más rápidas de calcular.</span></label></div>
+<div class="opcion"><input type="radio" name="b5s1-0-q7" id="b5s1-0-q7-o3"><label for="b5s1-0-q7-o3"><b>d)</b> <span>Porque el teorema de Bayes no admite más de dos clases.</span></label></div>
+<label class="seguro"><input type="checkbox" name="b5s1-0-q7-seg"> estaba seguro</label>
 <div class="explicacion" hidden><strong>(b)</strong> (§12) Razón textual del libro: agregar una clase incrementa la complejidad del problema. Agregar una acción no toca el modelo de las <code>K</code> clases.</div>
 </fieldset>
-<fieldset class="pregunta" id="b5s0-0-q8">
+<fieldset class="pregunta" id="b5s1-0-q8">
 <legend><span class="num">8</span><span class="txt">Con <code>K</code> clases y acción nula, se elige la clase <code>ŷ</code> si es la de posterior máximo y además:</span></legend>
-<div class="opcion"><input type="radio" name="b5s0-0-q8" id="b5s0-0-q8-o0"><label for="b5s0-0-q8-o0"><b>a)</b> <span><code>P(Y=ŷ|X=x) &gt; λ</code></span></label></div>
-<div class="opcion"><input type="radio" name="b5s0-0-q8" id="b5s0-0-q8-o1"><label for="b5s0-0-q8-o1"><b>b)</b> <span><code>P(Y=ŷ|X=x) &lt; λ</code></span></label></div>
-<div class="opcion"><input type="radio" name="b5s0-0-q8" id="b5s0-0-q8-o2" data-ok="1"><label for="b5s0-0-q8-o2"><b>c)</b> <span><code>P(Y=ŷ|X=x) &gt; 1 - λ</code></span></label></div>
-<div class="opcion"><input type="radio" name="b5s0-0-q8" id="b5s0-0-q8-o3"><label for="b5s0-0-q8-o3"><b>d)</b> <span><code>P(Y=ŷ|X=x) &gt; 1/K</code></span></label></div>
-<label class="seguro"><input type="checkbox" name="b5s0-0-q8-seg"> estaba seguro</label>
+<div class="opcion"><input type="radio" name="b5s1-0-q8" id="b5s1-0-q8-o0"><label for="b5s1-0-q8-o0"><b>a)</b> <span><code>P(Y=ŷ|X=x) &gt; λ</code></span></label></div>
+<div class="opcion"><input type="radio" name="b5s1-0-q8" id="b5s1-0-q8-o1"><label for="b5s1-0-q8-o1"><b>b)</b> <span><code>P(Y=ŷ|X=x) &lt; λ</code></span></label></div>
+<div class="opcion"><input type="radio" name="b5s1-0-q8" id="b5s1-0-q8-o2" data-ok="1"><label for="b5s1-0-q8-o2"><b>c)</b> <span><code>P(Y=ŷ|X=x) &gt; 1 - λ</code></span></label></div>
+<div class="opcion"><input type="radio" name="b5s1-0-q8" id="b5s1-0-q8-o3"><label for="b5s1-0-q8-o3"><b>d)</b> <span><code>P(Y=ŷ|X=x) &gt; 1/K</code></span></label></div>
+<label class="seguro"><input type="checkbox" name="b5s1-0-q8-seg"> estaba seguro</label>
 <div class="explicacion" hidden><strong>(c)</strong> (§13) <code>P(Y=ŷ|X=x) &gt; 1 - λ</code>. Sale de comparar los dos riesgos: <code>1 - P &lt; λ</code> equivale a <code>P &gt; 1 - λ</code>. La <strong>(a)</strong> es la trampa más común.</div>
 </fieldset>
-<fieldset class="pregunta" id="b5s0-0-q9">
+<fieldset class="pregunta" id="b5s1-0-q9">
 <legend><span class="num">9</span><span class="txt">Un modelo tiene <code>E(h*|T) = 0.001</code> y <code>E(h*|G) = 0.42</code>. ¿Qué le pasa?</span></legend>
-<div class="opcion"><input type="radio" name="b5s0-0-q9" id="b5s0-0-q9-o0"><label for="b5s0-0-q9-o0"><b>a)</b> <span>Sub-aprendizaje.</span></label></div>
-<div class="opcion"><input type="radio" name="b5s0-0-q9" id="b5s0-0-q9-o1" data-ok="1"><label for="b5s0-0-q9-o1"><b>b)</b> <span>Sobre-aprendizaje.</span></label></div>
-<div class="opcion"><input type="radio" name="b5s0-0-q9" id="b5s0-0-q9-o2"><label for="b5s0-0-q9-o2"><b>c)</b> <span>Generaliza bien.</span></label></div>
-<div class="opcion"><input type="radio" name="b5s0-0-q9" id="b5s0-0-q9-o3"><label for="b5s0-0-q9-o3"><b>d)</b> <span><code>T</code> y <code>G</code> se traslapan.</span></label></div>
-<label class="seguro"><input type="checkbox" name="b5s0-0-q9-seg"> estaba seguro</label>
+<div class="opcion"><input type="radio" name="b5s1-0-q9" id="b5s1-0-q9-o0"><label for="b5s1-0-q9-o0"><b>a)</b> <span>Sub-aprendizaje.</span></label></div>
+<div class="opcion"><input type="radio" name="b5s1-0-q9" id="b5s1-0-q9-o1" data-ok="1"><label for="b5s1-0-q9-o1"><b>b)</b> <span>Sobre-aprendizaje.</span></label></div>
+<div class="opcion"><input type="radio" name="b5s1-0-q9" id="b5s1-0-q9-o2"><label for="b5s1-0-q9-o2"><b>c)</b> <span>Generaliza bien.</span></label></div>
+<div class="opcion"><input type="radio" name="b5s1-0-q9" id="b5s1-0-q9-o3"><label for="b5s1-0-q9-o3"><b>d)</b> <span><code>T</code> y <code>G</code> se traslapan.</span></label></div>
+<label class="seguro"><input type="checkbox" name="b5s1-0-q9-seg"> estaba seguro</label>
 <div class="explicacion" hidden><strong>(b)</strong> (§5) Sobre-aprendizaje: <code>E(h*|T) ≪ E(h*|G)</code>. Casi cero en entrenamiento, grande en prueba. Sub-aprendizaje sería error grande <strong>ya en entrenamiento</strong>.</div>
 </fieldset>
-<fieldset class="pregunta" id="b5s0-0-q10">
+<fieldset class="pregunta" id="b5s1-0-q10">
 <legend><span class="num">10</span><span class="txt">¿Cuál es el mínimo error alcanzable en un problema de clasificación con dos clases igual de probables cuyas entradas provienen de <strong>la misma</strong> distribución?</span></legend>
-<div class="opcion"><input type="radio" name="b5s0-0-q10" id="b5s0-0-q10-o0"><label for="b5s0-0-q10-o0"><b>a)</b> <span>0</span></label></div>
-<div class="opcion"><input type="radio" name="b5s0-0-q10" id="b5s0-0-q10-o1"><label for="b5s0-0-q10-o1"><b>b)</b> <span>0.25</span></label></div>
-<div class="opcion"><input type="radio" name="b5s0-0-q10" id="b5s0-0-q10-o2" data-ok="1"><label for="b5s0-0-q10-o2"><b>c)</b> <span>0.5</span></label></div>
-<div class="opcion"><input type="radio" name="b5s0-0-q10" id="b5s0-0-q10-o3"><label for="b5s0-0-q10-o3"><b>d)</b> <span>Depende del algoritmo.</span></label></div>
-<label class="seguro"><input type="checkbox" name="b5s0-0-q10-seg"> estaba seguro</label>
+<div class="opcion"><input type="radio" name="b5s1-0-q10" id="b5s1-0-q10-o0"><label for="b5s1-0-q10-o0"><b>a)</b> <span>0</span></label></div>
+<div class="opcion"><input type="radio" name="b5s1-0-q10" id="b5s1-0-q10-o1"><label for="b5s1-0-q10-o1"><b>b)</b> <span>0.25</span></label></div>
+<div class="opcion"><input type="radio" name="b5s1-0-q10" id="b5s1-0-q10-o2" data-ok="1"><label for="b5s1-0-q10-o2"><b>c)</b> <span>0.5</span></label></div>
+<div class="opcion"><input type="radio" name="b5s1-0-q10" id="b5s1-0-q10-o3"><label for="b5s1-0-q10-o3"><b>d)</b> <span>Depende del algoritmo.</span></label></div>
+<label class="seguro"><input type="checkbox" name="b5s1-0-q10-seg"> estaba seguro</label>
 <div class="explicacion" hidden><strong>(c)</strong> (§10.2) 0.5, medido: dos clases generadas por la misma distribución dan error 0.5 y ningún posterior arriba de 0.5. En general <code>1 - 1/K</code>. La <strong>(d)</strong> es la trampa: <strong>no depende del algoritmo</strong>, es el piso del problema.</div>
 </fieldset>
-<fieldset class="pregunta" id="b5s0-0-q11">
+<fieldset class="pregunta" id="b5s1-0-q11">
 <legend><span class="num">11</span><span class="txt">El <code>pdf</code> de una normal en un punto vale 15.9155. ¿Qué se concluye?</span></legend>
-<div class="opcion"><input type="radio" name="b5s0-0-q11" id="b5s0-0-q11-o0"><label for="b5s0-0-q11-o0"><b>a)</b> <span>Que hay un error, las probabilidades no pasan de 1.</span></label></div>
-<div class="opcion"><input type="radio" name="b5s0-0-q11" id="b5s0-0-q11-o1"><label for="b5s0-0-q11-o1"><b>b)</b> <span>Que la probabilidad es 1591.55%.</span></label></div>
-<div class="opcion"><input type="radio" name="b5s0-0-q11" id="b5s0-0-q11-o2" data-ok="1"><label for="b5s0-0-q11-o2"><b>c)</b> <span>Que es una densidad y las densidades pueden pasar de 1.</span></label></div>
-<div class="opcion"><input type="radio" name="b5s0-0-q11" id="b5s0-0-q11-o3"><label for="b5s0-0-q11-o3"><b>d)</b> <span>Que la nube es muy ancha.</span></label></div>
-<label class="seguro"><input type="checkbox" name="b5s0-0-q11-seg"> estaba seguro</label>
+<div class="opcion"><input type="radio" name="b5s1-0-q11" id="b5s1-0-q11-o0"><label for="b5s1-0-q11-o0"><b>a)</b> <span>Que hay un error, las probabilidades no pasan de 1.</span></label></div>
+<div class="opcion"><input type="radio" name="b5s1-0-q11" id="b5s1-0-q11-o1"><label for="b5s1-0-q11-o1"><b>b)</b> <span>Que la probabilidad es 1591.55%.</span></label></div>
+<div class="opcion"><input type="radio" name="b5s1-0-q11" id="b5s1-0-q11-o2" data-ok="1"><label for="b5s1-0-q11-o2"><b>c)</b> <span>Que es una densidad y las densidades pueden pasar de 1.</span></label></div>
+<div class="opcion"><input type="radio" name="b5s1-0-q11" id="b5s1-0-q11-o3"><label for="b5s1-0-q11-o3"><b>d)</b> <span>Que la nube es muy ancha.</span></label></div>
+<label class="seguro"><input type="checkbox" name="b5s1-0-q11-seg"> estaba seguro</label>
 <div class="explicacion" hidden><strong>(c)</strong> (§6.5) Es una <strong>densidad</strong>. Medido: 15.9155 en el centro de una nube angosta. Las densidades no están acotadas por 1; las probabilidades sí. <strong>(d)</strong> está al revés: una densidad alta en el centro indica nube <strong>angosta</strong>.</div>
 </fieldset>
-<fieldset class="pregunta" id="b5s0-0-q12">
+<fieldset class="pregunta" id="b5s1-0-q12">
 <legend><span class="num">12</span><span class="txt">En un sistema con costos asimétricos, <code>P(autorizado|x) = 0.85</code> y <code>P(impostor|x) = 0.15</code>; el costo de permitir a un impostor es 8 y el de negar al autorizado es 1. ¿Qué acción se toma?</span></legend>
-<div class="opcion"><input type="radio" name="b5s0-0-q12" id="b5s0-0-q12-o0"><label for="b5s0-0-q12-o0"><b>a)</b> <span>Permitir, porque &quot;autorizado&quot; es la clase más probable.</span></label></div>
-<div class="opcion"><input type="radio" name="b5s0-0-q12" id="b5s0-0-q12-o1" data-ok="1"><label for="b5s0-0-q12-o1"><b>b)</b> <span>Negar, porque su riesgo es menor.</span></label></div>
-<div class="opcion"><input type="radio" name="b5s0-0-q12" id="b5s0-0-q12-o2"><label for="b5s0-0-q12-o2"><b>c)</b> <span>La acción nula.</span></label></div>
-<div class="opcion"><input type="radio" name="b5s0-0-q12" id="b5s0-0-q12-o3"><label for="b5s0-0-q12-o3"><b>d)</b> <span>Es indistinto: los dos riesgos son iguales.</span></label></div>
-<label class="seguro"><input type="checkbox" name="b5s0-0-q12-seg"> estaba seguro</label>
+<div class="opcion"><input type="radio" name="b5s1-0-q12" id="b5s1-0-q12-o0"><label for="b5s1-0-q12-o0"><b>a)</b> <span>Permitir, porque &quot;autorizado&quot; es la clase más probable.</span></label></div>
+<div class="opcion"><input type="radio" name="b5s1-0-q12" id="b5s1-0-q12-o1" data-ok="1"><label for="b5s1-0-q12-o1"><b>b)</b> <span>Negar, porque su riesgo es menor.</span></label></div>
+<div class="opcion"><input type="radio" name="b5s1-0-q12" id="b5s1-0-q12-o2"><label for="b5s1-0-q12-o2"><b>c)</b> <span>La acción nula.</span></label></div>
+<div class="opcion"><input type="radio" name="b5s1-0-q12" id="b5s1-0-q12-o3"><label for="b5s1-0-q12-o3"><b>d)</b> <span>Es indistinto: los dos riesgos son iguales.</span></label></div>
+<label class="seguro"><input type="checkbox" name="b5s1-0-q12-seg"> estaba seguro</label>
 <div class="explicacion" hidden><strong>(b)</strong> (§11.3) <code>R(negar) = 0×0.15 + 1×0.85 = 0.85</code>; <code>R(permitir) = 8×0.15 + 0×0.85 = 1.20</code>. Como 0.85 &lt; 1.20 se <strong>niega</strong>, aunque &quot;autorizado&quot; sea la clase más probable. Los números no son los de la §11.3: hay que rehacer la cuenta con este costo (8) y este posterior (0.85). La <strong>(d)</strong> es falsa porque los dos riesgos no son iguales, 0.85 ≠ 1.20. Este es el resultado central de la §11.</div>
 </fieldset>
-<fieldset class="pregunta" id="b5s0-0-q13">
+<fieldset class="pregunta" id="b5s1-0-q13">
 <legend><span class="num">13</span><span class="txt"><strong>Verdadero o falso.</strong> <code>T ∩ G = ∅</code> significa que el conjunto de entrenamiento y el de prueba no comparten ningún dato.</span></legend>
-<div class="opcion"><input type="radio" name="b5s0-0-q13" id="b5s0-0-q13-o0" data-ok="1"><label for="b5s0-0-q13-o0"><b>a)</b> <span>Verdadero.</span></label></div>
-<div class="opcion"><input type="radio" name="b5s0-0-q13" id="b5s0-0-q13-o1"><label for="b5s0-0-q13-o1"><b>b)</b> <span>Falso.</span></label></div>
-<label class="seguro"><input type="checkbox" name="b5s0-0-q13-seg"> estaba seguro</label>
+<div class="opcion"><input type="radio" name="b5s1-0-q13" id="b5s1-0-q13-o0" data-ok="1"><label for="b5s1-0-q13-o0"><b>a)</b> <span>Verdadero.</span></label></div>
+<div class="opcion"><input type="radio" name="b5s1-0-q13" id="b5s1-0-q13-o1"><label for="b5s1-0-q13-o1"><b>b)</b> <span>Falso.</span></label></div>
+<label class="seguro"><input type="checkbox" name="b5s1-0-q13-seg"> estaba seguro</label>
 <div class="explicacion" hidden><strong>Verdadero.</strong> (§4.1) El símbolo <code>∩</code> es intersección y <code>∅</code> es el conjunto vacío: no comparten ningún elemento. <code>train_test_split</code> lo garantiza.</div>
 </fieldset>
-<fieldset class="pregunta" id="b5s0-0-q14">
+<fieldset class="pregunta" id="b5s1-0-q14">
 <legend><span class="num">14</span><span class="txt"><strong>Verdadero o falso.</strong> Usar la acción nula reduce el error de Bayes del problema.</span></legend>
-<div class="opcion"><input type="radio" name="b5s0-0-q14" id="b5s0-0-q14-o0"><label for="b5s0-0-q14-o0"><b>a)</b> <span>Verdadero.</span></label></div>
-<div class="opcion"><input type="radio" name="b5s0-0-q14" id="b5s0-0-q14-o1" data-ok="1"><label for="b5s0-0-q14-o1"><b>b)</b> <span>Falso.</span></label></div>
-<label class="seguro"><input type="checkbox" name="b5s0-0-q14-seg"> estaba seguro</label>
+<div class="opcion"><input type="radio" name="b5s1-0-q14" id="b5s1-0-q14-o0"><label for="b5s1-0-q14-o0"><b>a)</b> <span>Verdadero.</span></label></div>
+<div class="opcion"><input type="radio" name="b5s1-0-q14" id="b5s1-0-q14-o1" data-ok="1"><label for="b5s1-0-q14-o1"><b>b)</b> <span>Falso.</span></label></div>
+<label class="seguro"><input type="checkbox" name="b5s1-0-q14-seg"> estaba seguro</label>
 <div class="explicacion" hidden><strong>Falso.</strong> (§13.1) Baja el error <strong>entre los casos aceptados</strong>, porque deja de contestar los difíciles. El error de Bayes del problema no se mueve. Medido: el piso siguió en 0.0085 con <code>λ</code> de 0.05, 0.2 y 0.4.</div>
 </fieldset>
-<fieldset class="pregunta" id="b5s0-0-q15">
+<fieldset class="pregunta" id="b5s1-0-q15">
 <legend><span class="num">15</span><span class="txt"><strong>Verdadero o falso.</strong> Si el modelo es exactamente el que generó los datos, el error de clasificación es 0.</span></legend>
-<div class="opcion"><input type="radio" name="b5s0-0-q15" id="b5s0-0-q15-o0"><label for="b5s0-0-q15-o0"><b>a)</b> <span>Verdadero.</span></label></div>
-<div class="opcion"><input type="radio" name="b5s0-0-q15" id="b5s0-0-q15-o1" data-ok="1"><label for="b5s0-0-q15-o1"><b>b)</b> <span>Falso.</span></label></div>
-<label class="seguro"><input type="checkbox" name="b5s0-0-q15-seg"> estaba seguro</label>
+<div class="opcion"><input type="radio" name="b5s1-0-q15" id="b5s1-0-q15-o0"><label for="b5s1-0-q15-o0"><b>a)</b> <span>Verdadero.</span></label></div>
+<div class="opcion"><input type="radio" name="b5s1-0-q15" id="b5s1-0-q15-o1" data-ok="1"><label for="b5s1-0-q15-o1"><b>b)</b> <span>Falso.</span></label></div>
+<label class="seguro"><input type="checkbox" name="b5s1-0-q15-seg"> estaba seguro</label>
 <div class="explicacion" hidden><strong>Falso.</strong> (§9.1, §10) Con el modelo exacto que generó los datos hubo 28 errores en 3000 (0.0093). El traslape entre clases pone un piso mayor que cero.</div>
 </fieldset>
-<fieldset class="pregunta" id="b5s0-0-q16">
+<fieldset class="pregunta" id="b5s1-0-q16">
 <legend><span class="num">16</span><span class="txt"><strong>Verdadero o falso.</strong> <code>argmax_k P(Y=k|X=x)</code> devuelve el valor de la probabilidad más alta.</span></legend>
-<div class="opcion"><input type="radio" name="b5s0-0-q16" id="b5s0-0-q16-o0"><label for="b5s0-0-q16-o0"><b>a)</b> <span>Verdadero.</span></label></div>
-<div class="opcion"><input type="radio" name="b5s0-0-q16" id="b5s0-0-q16-o1" data-ok="1"><label for="b5s0-0-q16-o1"><b>b)</b> <span>Falso.</span></label></div>
-<label class="seguro"><input type="checkbox" name="b5s0-0-q16-seg"> estaba seguro</label>
+<div class="opcion"><input type="radio" name="b5s1-0-q16" id="b5s1-0-q16-o0"><label for="b5s1-0-q16-o0"><b>a)</b> <span>Verdadero.</span></label></div>
+<div class="opcion"><input type="radio" name="b5s1-0-q16" id="b5s1-0-q16-o1" data-ok="1"><label for="b5s1-0-q16-o1"><b>b)</b> <span>Falso.</span></label></div>
+<label class="seguro"><input type="checkbox" name="b5s1-0-q16-seg"> estaba seguro</label>
 <div class="explicacion" hidden><strong>Falso.</strong> (<a class="ref" href="#b2-5-sumatoria-y-argmax-en-python">«El tema» §5.2</a>) <code>argmax</code> devuelve <strong>cuál</strong> clase, no el valor. El valor lo devuelve <code>max</code>.</div>
 </fieldset>
 <div class="quiz-barra"><button type="button" class="calificar">Calificar</button><button type="button" class="reiniciar">Reiniciar</button><output class="marcador" role="status"></output></div>
 </form>
 
-<div class="estado" data-sec="b5-16-autoexamen-20-preguntas"><button type="button" data-v="ok">&#10003; entendido</button><button type="button" data-v="rep">&#8635; repasar</button><button type="button" data-v="mias">&#9998; con mis palabras</button><textarea hidden rows="3" placeholder="Explica esta sección como se la contarías a alguien. Se guarda en este navegador."></textarea></div>
+<div class="estado" data-sec="b5-16-autoexamen-20-preguntas"><button type="button" data-v="ok">&#10003; entendido</button><button type="button" data-v="rep">&#8635; repasar</button><button type="button" data-v="mias">&#9998; con mis palabras</button><textarea hidden rows="3" placeholder="Explica esta sección como se la contarías a alguien. Se guarda en este navegador."></textarea>
+</div>
+</div>
+<div class="sec" data-h="1">
 <h3 id="b5-que-mide-tu-puntaje-y-que-no-mide">Qué mide tu puntaje y qué no mide</h3>
 <p>Esta lectura es <strong>recomendación de estudio, no un criterio oficial de la
 materia</strong>, y conviene leerla antes de contarte una historia con tu puntaje.</p>
@@ -3586,7 +3740,10 @@ la materia):</p>
 </tbody>
 </table></div>
 
-<div class="estado" data-sec="b5-que-mide-tu-puntaje-y-que-no-mide"><button type="button" data-v="ok">&#10003; entendido</button><button type="button" data-v="rep">&#8635; repasar</button><button type="button" data-v="mias">&#9998; con mis palabras</button><textarea hidden rows="3" placeholder="Explica esta sección como se la contarías a alguien. Se guarda en este navegador."></textarea></div>
+<div class="estado" data-sec="b5-que-mide-tu-puntaje-y-que-no-mide"><button type="button" data-v="ok">&#10003; entendido</button><button type="button" data-v="rep">&#8635; repasar</button><button type="button" data-v="mias">&#9998; con mis palabras</button><textarea hidden rows="3" placeholder="Explica esta sección como se la contarías a alguien. Se guarda en este navegador."></textarea>
+</div>
+</div>
+<div class="sec" data-h="1">
 <h3 id="b5-para-pensar-las-cuatro-de-calculo">Para pensar · las cuatro de cálculo</h3>
 <p>Estas cuatro no se califican solas: se contestan con lápiz y papel, y la
 solución —con el código que la comprueba— está en el desplegable de abajo.</p>
@@ -3608,7 +3765,10 @@ accion B           2          0
 <p>Si <code>P(A|x) = 0.6</code> y <code>P(B|x) = 0.4</code>, calcula <code>R(acción A)</code> y <code>R(acción B)</code> y di
 qué acción se toma. ¿Coincide con la clase más probable?</p>
 
-<div class="estado" data-sec="b5-para-pensar-las-cuatro-de-calculo"><button type="button" data-v="ok">&#10003; entendido</button><button type="button" data-v="rep">&#8635; repasar</button><button type="button" data-v="mias">&#9998; con mis palabras</button><textarea hidden rows="3" placeholder="Explica esta sección como se la contarías a alguien. Se guarda en este navegador."></textarea></div>
+<div class="estado" data-sec="b5-para-pensar-las-cuatro-de-calculo"><button type="button" data-v="ok">&#10003; entendido</button><button type="button" data-v="rep">&#8635; repasar</button><button type="button" data-v="mias">&#9998; con mis palabras</button><textarea hidden rows="3" placeholder="Explica esta sección como se la contarías a alguien. Se guarda en este navegador."></textarea>
+</div>
+</div>
+<div class="sec" data-h="1">
 <details class="spoiler" id="b5-las-cuatro-de-calculo-resueltas-abrelo-despues-d"><summary>Las cuatro de cálculo, resueltas — ábrelo DESPUÉS de intentarlo · 19 min</summary><div class="cuerpo">
 <p><strong>P17.</strong> Evidencia: <code>(0.002 + 0.006 + 0.000) × 1/3 = 0.008/3 = 0.0026667</code>.
 Posteriores: <code>0.002/0.008 = 0.25</code>, <code>0.006/0.008 = 0.75</code>, <code>0.000/0.008 = 0.00</code>.
@@ -3623,7 +3783,7 @@ post = {k: num[k] / ev for k in num}
 print(&quot;evidencia:&quot;, round(ev, 7), &quot;posteriores:&quot;, {k: round(v, 4) for k, v in post.items()})
 mejor = max(post, key=post.get)
 print(&quot;clase:&quot;, mejor, &quot;riesgo 0/1:&quot;, round(1 - post[mejor], 4))
-</code></pre></div>
+</code></pre><a class="traza" href="https://pythontutor.com/visualize.html#code=vero%20%3D%20%7B1%3A%200.002%2C%202%3A%200.006%2C%203%3A%200.000%7D%0Aprior%20%3D%201/3%0Anum%20%3D%20%7Bk%3A%20v%20%2A%20prior%20for%20k%2C%20v%20in%20vero.items%28%29%7D%0Aev%20%3D%20sum%28num.values%28%29%29%0Apost%20%3D%20%7Bk%3A%20num%5Bk%5D%20/%20ev%20for%20k%20in%20num%7D%0Aprint%28%22evidencia%3A%22%2C%20round%28ev%2C%207%29%2C%20%22posteriores%3A%22%2C%20%7Bk%3A%20round%28v%2C%204%29%20for%20k%2C%20v%20in%20post.items%28%29%7D%29%0Amejor%20%3D%20max%28post%2C%20key%3Dpost.get%29%0Aprint%28%22clase%3A%22%2C%20mejor%2C%20%22riesgo%200/1%3A%22%2C%20round%281%20-%20post%5Bmejor%5D%2C%204%29%29%0A&mode=display&py=3" target="_blank" rel="noopener noreferrer" title="Abre Python Tutor (sitio externo) con este código para verlo ejecutarse línea por línea">ver paso a paso &#8599;</a></div>
 <p>Salida real:</p>
 <div class="caja figura" data-lang="esquema"><pre><code>evidencia: 0.0026667 posteriores: {1: 0.25, 2: 0.75, 3: 0.0}
 clase: 2 riesgo 0/1: 0.25
@@ -3662,6 +3822,7 @@ accion elegida: B | clase mas probable: A
 </code></pre></div>
 
 </div></details>
+</div>
 </section>
 </main>
 <footer><p><b>Bryan Rodríguez Abarca</b> · MCDI · INFOTEC 2026-2</p><p>Sitio personal de estudio. El logotipo de INFOTEC identifica a la institución donde se cursa el programa; este sitio no es un canal oficial del centro.</p>
@@ -3734,16 +3895,50 @@ function pintaVencimientos(){
     d.querySelectorAll('section.bloque').forEach(function(s){io.observe(s);});
   }
 
-  var rutas=d.querySelectorAll('.ruta');
-  function ponRuta(r){
-    d.body.classList.toggle('solo-quiz',r==='quiz');
-    rutas.forEach(function(b){
-      b.setAttribute('aria-pressed',b.getAttribute('data-ruta')===r?'true':'false');});
-    guarda(KEY+'ruta',r);
+  // Hitos: el paso k muestra a plena tinta todo lo que hace falta para el
+  // entregable k (y lo de los anteriores); el resto se atenua, no se esconde.
+  var pasos=d.querySelectorAll('.ruta[data-hito]'),nH=pasos.length;
+  function pintaAv(){
+    var e=estados();
+    pasos.forEach(function(b){
+      var k=+b.getAttribute('data-hito'),tot=0,ok=0;
+      d.querySelectorAll('main .sec[data-h] .estado').forEach(function(c){
+        if(+c.closest('.sec').getAttribute('data-h')<=k){
+          tot++; if(e[c.getAttribute('data-sec')]==='ok') ok++;}
+      });
+      b.querySelector('.av').textContent=tot?(ok+' de '+tot+' entendidas'):'';
+    });
   }
-  rutas.forEach(function(b){
-    b.addEventListener('click',function(){ponRuta(b.getAttribute('data-ruta'));});});
-  ponRuta(guardado(KEY+'ruta')==='quiz'?'quiz':'completa');
+  function ponHito(k){
+    d.body.dataset.hito=k;
+    d.querySelectorAll('main .sec').forEach(function(s){
+      s.classList.toggle('fuera',+s.getAttribute('data-h')>k);});
+    d.querySelectorAll('main section.bloque').forEach(function(b){
+      var dentro=b.querySelector('.sec:not(.fuera)');
+      b.classList.toggle('fuera',!dentro);});
+    d.querySelectorAll('nav.saltos a').forEach(function(a){
+      var b=d.getElementById(a.getAttribute('href').slice(1));
+      a.classList.toggle('fuera',!!b&&b.classList.contains('fuera'));});
+    d.querySelectorAll('ol.sesiones li[data-h]').forEach(function(li){
+      li.classList.toggle('fuera',+li.getAttribute('data-h')>k);});
+    pasos.forEach(function(b){
+      b.setAttribute('aria-pressed',+b.getAttribute('data-hito')===k?'true':'false');});
+    guarda(KEY+'hito',k);
+    pintaAv();pintaRepaso();
+  }
+  pasos.forEach(function(b){
+    b.addEventListener('click',function(){ponHito(+b.getAttribute('data-hito'));});});
+  if(nH){
+    var gk=parseInt(guardado(KEY+'hito'),10),ini=0;
+    if(gk>=1&&gk<=nH) ini=gk;
+    else{
+      d.querySelectorAll('ol.hitos li').forEach(function(li,i){
+        var iso=li.getAttribute('data-iso');
+        if(!ini&&iso&&dias(iso)>=0) ini=i+1;});
+      if(!ini) ini=nH;
+    }
+    ponHito(ini);
+  }
 
   var caja=d.getElementById('mejor');
   function pintaMejor(){
@@ -3813,16 +4008,22 @@ function pintaVencimientos(){
   pintaMejor();
 
   var btn=d.getElementById('repaso-btn'),info=d.getElementById('repaso-info'),
-      sec=d.getElementById('repaso'),banco=d.querySelectorAll('main .pregunta');
+      sec=d.getElementById('repaso');
+  // El banco solo tiene las preguntas del paso elegido: repasar lo que todavia
+  // no toca es ruido.
+  function banco(){return [].slice.call(d.querySelectorAll('main .sec:not(.fuera) .pregunta'));}
   function pintaRepaso(){
-    if(!btn||!banco.length) return;
-    btn.hidden=false;
-    var n=Object.keys(fallas()).length;
+    if(!btn) return;
+    var b=banco();
+    btn.hidden=!b.length;
+    if(!b.length) return;
+    btn.textContent='Repaso r\u00e1pido \u00b7 '+Math.min(10,b.length)+' preguntas';
+    var f=fallas(),n=b.filter(function(q){return f[q.id];}).length;
     info.textContent=n?('Llevas '+n+' pregunta'+(n===1?'':'s')+' con fallos pendientes.'):
-      'Todas las preguntas de la unidad, barajadas.';
+      'Todas las preguntas del paso elegido, barajadas.';
   }
   function armaRepaso(){
-    var f=fallas(),lista=[].slice.call(banco);
+    var f=fallas(),lista=banco();
     for(var i=lista.length-1;i>0;i--){var j=Math.floor(Math.random()*(i+1)),t=lista[i];lista[i]=lista[j];lista[j]=t;}
     lista.sort(function(a,b){return (f[b.id]||0)-(f[a.id]||0);});
     lista=lista.slice(0,10);
@@ -3862,7 +4063,7 @@ function pintaVencimientos(){
     var e=estados(),rep=[],ok=0;
     cajas.forEach(function(c){
       var id=c.getAttribute('data-sec'),v=e[id];
-      c.querySelectorAll('button[data-v]').forEach(function(b){
+      c.querySelectorAll('button[data-v]:not([data-v=cmp])').forEach(function(b){
         var on=b.getAttribute('data-v')===v||(b.getAttribute('data-v')==='mias'&&guardado(KEY+'mias-'+id));
         b.setAttribute('aria-pressed',on?'true':'false');});
       if(v==='rep') rep.push(id); if(v==='ok') ok++;
@@ -3870,15 +4071,27 @@ function pintaVencimientos(){
     if(lista){lista.hidden=!rep.length;lista.querySelector('span').innerHTML=rep.map(function(id){
       return '<a href="#'+id+'">'+tituloDe(id)+'</a>';}).join(' · ');}
     if(rea) rea.querySelector('.cuenta-ok').textContent=ok+' de '+cajas.length+' secciones entendidas.';
+    pintaAv();
   }
   cajas.forEach(function(c){
-    var id=c.getAttribute('data-sec'),ta=c.querySelector('textarea');
+    var id=c.getAttribute('data-sec'),ta=c.querySelector('textarea'),
+        cmp=c.querySelector('button[data-v=cmp]'),frase=c.querySelector('.frase');
     var t=guardado(KEY+'mias-'+id); if(t){ta.value=t;}
     ta.addEventListener('input',function(){if(ta.value) guarda(KEY+'mias-'+id,ta.value); else borra(KEY+'mias-'+id);});
     c.querySelectorAll('button[data-v]').forEach(function(b){
       b.addEventListener('click',function(){
         var v=b.getAttribute('data-v');
-        if(v==='mias'){ta.hidden=!ta.hidden;if(!ta.hidden) ta.focus();return;}
+        // Primero con tus palabras, y solo despues la frase de la guia: comparar
+        // las dos es lo que enseña, leerla antes solo la copia.
+        if(v==='cmp'){
+          frase.hidden=!frase.hidden;
+          b.setAttribute('aria-expanded',frase.hidden?'false':'true');return;}
+        if(v==='mias'){
+          ta.hidden=!ta.hidden;
+          if(cmp) cmp.hidden=ta.hidden;
+          if(frase&&ta.hidden){frase.hidden=true;
+            if(cmp) cmp.setAttribute('aria-expanded','false');}
+          if(!ta.hidden) ta.focus();return;}
         var e=estados(); if(e[id]===v) delete e[id]; else e[id]=v;
         guarda(KEY+'estado',JSON.stringify(e)); pintaEstados();
       });
@@ -3899,32 +4112,99 @@ function pintaVencimientos(){
     d.querySelectorAll('main h3[id],main details.spoiler[id]').forEach(function(h){io2.observe(h);});
   }
 
-  // Plan con fechas: reparte las sesiones desde la primera visita hasta la vispera
-  // del vencimiento, y anade dos repasos (a los 2 dias y la vispera).
-  var pill=d.querySelector('.pill[data-iso]'),nota=d.getElementById('plan-nota'),
-      lis=d.querySelectorAll('ol.sesiones li[data-sesion]');
-  if(pill&&nota&&lis.length){
-    var iso=pill.getAttribute('data-iso'),hoy=new Date();hoy.setHours(0,0,0,0);
+  // Plan con fechas POR HITO: la ventana de cada paso va desde el vencimiento
+  // del anterior (o tu primera visita) hasta la vispera del suyo.
+  var nota=d.getElementById('plan-nota'),
+      pasosLi=[].slice.call(d.querySelectorAll('ol.hitos li'));
+  if(nota&&pasosLi.length){
+    var hoy=new Date();hoy.setHours(0,0,0,0);
     var inicio=guardado(KEY+'plan-inicio');
     if(!inicio){inicio=hoy.toISOString().slice(0,10);guarda(KEY+'plan-inicio',inicio);}
-    var d0=new Date(inicio+'T00:00:00'),fin=new Date(iso+'T00:00:00');fin.setDate(fin.getDate()-1);
-    var dias=Math.max(0,Math.round((fin-d0)/864e5)),n=lis.length;
+    var uni=d.querySelector('.pill[data-iso]'),uniISO=uni?uni.getAttribute('data-iso'):'';
     var MES=['ene','feb','mar','abr','may','jun','jul','ago','sep','oct','nov','dic'];
     function fmt(dt){return dt.getDate()+' '+MES[dt.getMonth()];}
-    function enDias(k){var x=new Date(d0);x.setDate(x.getDate()+k);return x;}
-    if(fin<hoy){nota.textContent='El vencimiento ya pasó: usa el plan como orden, sin fechas.';}
-    else{
-      var paso=dias/Math.max(1,n),fechas=[];
-      lis.forEach(function(li,i){
-        var dt=enDias(Math.round(i*paso));fechas.push(dt);
-        var f=li.querySelector('.fecha');f.textContent=fmt(dt);
-        if(dt<hoy) li.classList.add('pasada'); else if(dt.getTime()===hoy.getTime()) li.classList.add('hoy');
+    var d0=new Date(inicio+'T00:00:00'),cursor=d0,visperas=[],
+        conFechas=false,hubo=false;
+    pasosLi.forEach(function(li,i){
+      var k=i+1,iso=li.getAttribute('data-iso'),fin=null;
+      var ses=d.querySelectorAll('ol.sesiones li[data-h="'+k+'"]'),
+          h3=d.querySelector('h3.plan-hito[data-h="'+k+'"]');
+      if(iso){fin=new Date(iso+'T00:00:00');fin.setDate(fin.getDate()-1);}
+      else if(uniISO){var u=new Date(uniISO+'T00:00:00');u.setDate(u.getDate()-1);
+        if(u>cursor) fin=u;}
+      if(!fin) return;
+      hubo=true;
+      var sig=iso?new Date(iso+'T00:00:00'):new Date(fin);
+      if(fin<hoy){   // la ventana entera ya paso: sin fechas, solo el sello
+        ses.forEach(function(li2){li2.classList.add('pasada');});
+        if(h3&&!h3.querySelector('small')) h3.insertAdjacentHTML('beforeend',' <small>venció</small>');
+        cursor=sig>cursor?sig:cursor;return;
+      }
+      conFechas=true;
+      var ini=cursor>d0?cursor:d0;
+      if(fin<ini) fin=new Date(ini);
+      var dd=Math.max(0,Math.round((fin-ini)/864e5)),paso=dd/Math.max(1,ses.length);
+      ses.forEach(function(li2,j){
+        var dt=new Date(ini);dt.setDate(dt.getDate()+Math.round(j*paso));
+        li2.querySelector('.fecha').textContent=fmt(dt);
+        if(dt<hoy) li2.classList.add('pasada');
+        else if(dt.getTime()===hoy.getTime()) li2.classList.add('hoy');
       });
-      var r1=enDias(Math.min(2,dias)),r2=fin;
-      nota.innerHTML='Fechas repartidas desde tu primera visita ('+fmt(d0)+') hasta la víspera ('
-        +fmt(fin)+'). Repaso rápido sugerido: <b>'+fmt(r1)+'</b>'+(r2>r1?' y <b>'+fmt(r2)+'</b>':'')
-        +'. Es una sugerencia; el orden importa más que el día.';
-    }
+      visperas.push(fmt(fin));
+      cursor=sig>cursor?sig:cursor;
+    });
+    if(!conFechas) nota.textContent=hubo
+      ?'Todos los vencimientos ya pasaron: usa el plan como orden, sin fechas.'
+      :'Sin vencimientos: usa el plan como orden, sin fechas.';
+    else nota.innerHTML='Fechas desde tu primera visita ('+fmt(d0)+') hasta la víspera de cada '
+      +'vencimiento. Repaso rápido sugerido la víspera de cada hito: <b>'
+      +visperas.join('</b>, <b>')+'</b>. Es una sugerencia; el orden importa más que el día.';
+  }
+
+  // Prediccion escrita antes de abrir cada salida.
+  d.querySelectorAll('.pred-caja').forEach(function(c){
+    var k=KEY+'pred-'+c.getAttribute('data-pred'),ta=c.querySelector('.pred-mia'),
+        det=c.querySelector('details');
+    var v=guardado(k); if(v) ta.value=v;
+    ta.addEventListener('input',function(){
+      if(ta.value) guarda(k,ta.value); else borra(k);});
+    det.addEventListener('toggle',function(){
+      if(!det.open) return;
+      if(ta.value.trim()) c.classList.add('hecha');
+      else ta.placeholder='Abriste sin predecir. La próxima vez escribe algo antes: '
+        +'es lo que fija el aprendizaje.';
+    });
+  });
+
+  // Progreso portatil: todo vive en localStorage, asi que exportarlo es copiar
+  // las claves de esta materia a un JSON.
+  var pio=d.getElementById('progreso-io');
+  if(pio){
+    var pref='guia-aprendizaje-supervisado-',pta=d.getElementById('prog-json'),
+        pmsg=d.getElementById('prog-msg');
+    function mio(k){return k.indexOf(pref)===0||k==='guia-tema';}
+    pio.addEventListener('toggle',function(){
+      if(!pio.open) return;
+      var o={};
+      try{for(var i=0;i<localStorage.length;i++){var k=localStorage.key(i);
+        if(mio(k)) o[k]=localStorage.getItem(k);}}catch(e){}
+      pta.value=JSON.stringify(o);
+    });
+    d.getElementById('prog-copiar').addEventListener('click',function(){
+      if(navigator.clipboard&&navigator.clipboard.writeText)
+        navigator.clipboard.writeText(pta.value).then(function(){pmsg.textContent='Copiado.';},
+          function(){pmsg.textContent='Cópialo a mano.';});
+      else{pta.select();pmsg.textContent='Cópialo a mano.';}
+    });
+    d.getElementById('prog-importar').addEventListener('click',function(){
+      var o;
+      try{o=JSON.parse(pta.value);}catch(e){pmsg.textContent='JSON inválido';return;}
+      if(!o||typeof o!=='object'){pmsg.textContent='JSON inválido';return;}
+      var n=0;
+      Object.keys(o).forEach(function(k){if(mio(k)){guarda(k,String(o[k]));n++;}});
+      pmsg.textContent=n+' claves importadas; recarga la página';
+      setTimeout(function(){location.reload();},800);
+    });
   }
 
   var reales=d.querySelectorAll('input.real');
