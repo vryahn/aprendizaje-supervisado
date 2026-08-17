@@ -450,8 +450,8 @@ border-radius:2px}
 <span class="pill ok" id="mejor" hidden>Tu mejor quiz: <b></b></span>
 </div></div></div>
 <div class="rutas" role="group" aria-label="Elige tu ruta de estudio">
-<button type="button" class="ruta" data-ruta="quiz" aria-pressed="false"><span class="et">Ruta examen</span><span class="t">1 h 11 min</span><span class="d">Bloques 1, 3, 5 — el camino corto</span></button>
-<button type="button" class="ruta" data-ruta="completa" aria-pressed="true"><span class="et">Ruta completa</span><span class="t">6 h 21 min</span><span class="d">Los cinco bloques, para comprender y aplicar</span></button>
+<button type="button" class="ruta" data-ruta="quiz" aria-pressed="false"><span class="et">Ruta examen</span><span class="t">1 h 18 min</span><span class="d">Bloques 1, 3, 5 — el camino corto</span></button>
+<button type="button" class="ruta" data-ruta="completa" aria-pressed="true"><span class="et">Ruta completa</span><span class="t">7 h 47 min</span><span class="d">Los cinco bloques, para comprender y aplicar</span></button>
 </div>
 <details class="nota"><summary>Cómo se calculan estos tiempos, y qué no prometen</summary><p>Los calcula el generador de esta guía contando lo que hay en cada bloque, con tasas <b>provisionales</b>: 100 palabras/min de prosa nueva, 160 de repaso, 4 min por bloque de código, 1 min por bloque de salida, 2 min por figura y 1.5 min por pregunta de quiz. Son una conjetura declarada, no una medición. Miden el tiempo de <b>recorrer</b> el material: no incluyen releer lo que no cuajó, ni las lecturas del curso, ni pelearse con un error de instalación. Anota tu tiempo real en cada bloque (se guarda en este navegador, sin cuentas ni servidor) y las unidades siguientes se estimarán con <i>tu</i> tasa.</p></details>
 <p class="nota" id="real-total"></p>
@@ -460,16 +460,18 @@ border-radius:2px}
 <p class="repaso-cta"><button type="button" class="calificar" id="repaso-btn" hidden>Repaso rápido · 10 preguntas</button><span class="nota" id="repaso-info"></span></p>
 </section>
 <section class="plan">
-<h2>Plan de estudio · 8 sesiones de 40-56 min (ruta completa)</h2>
+<h2>Plan de estudio · 10 sesiones de 28-57 min (ruta completa)</h2>
 <ol class="sesiones">
-<li data-sesion="1"><span class="n">1</span><div><span class="dur">56 min</span><span class="det">desde <a href="#b1-intro">Qué vas a poder hacer al terminar</a> hasta 4. Los datos son una tabla de números: numpy mínimo · 9 secciones</span></div><span class="fecha"></span></li>
-<li data-sesion="2"><span class="n">2</span><div><span class="dur">47 min</span><span class="det">desde <a href="#b2-5-sumatoria-y-argmax-en-python">5. Sumatoria y argmax en Python</a> hasta 1. Por qué probabilidad y no certeza · 10 secciones</span></div><span class="fecha"></span></li>
-<li data-sesion="3"><span class="n">3</span><div><span class="dur">40 min</span><span class="det">desde <a href="#b4-2-la-metodologia-general-en-cinco-pasos">2. La metodología general, en cinco pasos</a> hasta 5. Las dos formas de fallar: sobre-aprendizaje y sub-aprendizaje · 4 secciones</span></div><span class="fecha"></span></li>
-<li data-sesion="4"><span class="n">4</span><div><span class="dur">41 min</span><span class="det">desde <a href="#b4-6-probabilidad-el-minimo-indispensable">6. Probabilidad: el mínimo indispensable</a> hasta 7. El teorema de Bayes · 2 secciones</span></div><span class="fecha"></span></li>
-<li data-sesion="5"><span class="n">5</span><div><span class="dur">53 min</span><span class="det">desde <a href="#b4-8-bayes-en-codigo-el-problema-sintetico-de-tres-">8. Bayes en código: el problema sintético de tres nubes</a> hasta 9. Medir el error, y qué tan confiable es esa medición · 2 secciones</span></div><span class="fecha"></span></li>
-<li data-sesion="6"><span class="n">6</span><div><span class="dur">47 min</span><span class="det">desde <a href="#b4-10-el-error-minimo-alcanzable">10. El error mínimo alcanzable</a> hasta 11. Riesgo: cuando equivocarse cuesta distinto · 2 secciones</span></div><span class="fecha"></span></li>
-<li data-sesion="7"><span class="n">7</span><div><span class="dur">45 min</span><span class="det">desde <a href="#b4-12-la-accion-nula-cuando-no-decidir">12. La acción nula: cuándo no decidir</a> hasta Referencias · 6 secciones</span></div><span class="fecha"></span></li>
-<li data-sesion="8"><span class="n">8</span><div><span class="dur">52 min</span><span class="det">desde <a href="#b5-16-autoexamen-20-preguntas">16. Autoexamen — 20 preguntas</a> hasta Las cuatro de cálculo, resueltas — ábrelo DESPUÉS de intentarlo · 4 secciones</span></div><span class="fecha"></span></li>
+<li data-sesion="1"><span class="n">1</span><div><span class="dur">31 min</span><span class="det">desde <a href="#b1-intro">Qué vas a poder hacer al terminar</a> hasta 3. Diccionario de la notación oficial · 8 secciones</span></div><span class="fecha"></span></li>
+<li data-sesion="2"><span class="n">2</span><div><span class="dur">50 min</span><span class="det">desde <a href="#b2-4-los-datos-son-una-tabla-de-numeros-numpy-minim">4. Los datos son una tabla de números: numpy mínimo</a> hasta 5. Sumatoria y argmax en Python · 2 secciones</span></div><span class="fecha"></span></li>
+<li data-sesion="3"><span class="n">3</span><div><span class="dur">51 min</span><span class="det">desde <a href="#b2-6-el-patron-fit-predict-de-scikit-learn">6. El patrón <code>fit</code> / <code>predict</code> de scikit-learn</a> hasta 1. Por qué probabilidad y no certeza · 9 secciones</span></div><span class="fecha"></span></li>
+<li data-sesion="4"><span class="n">4</span><div><span class="dur">57 min</span><span class="det">desde <a href="#b4-2-la-metodologia-general-en-cinco-pasos">2. La metodología general, en cinco pasos</a> hasta 5. Las dos formas de fallar: sobre-aprendizaje y sub-aprendizaje · 4 secciones</span></div><span class="fecha"></span></li>
+<li data-sesion="5"><span class="n">5</span><div><span class="dur">51 min</span><span class="det">desde <a href="#b4-6-probabilidad-el-minimo-indispensable">6. Probabilidad: el mínimo indispensable</a> hasta 7. El teorema de Bayes · 2 secciones</span></div><span class="fecha"></span></li>
+<li data-sesion="6"><span class="n">6</span><div><span class="dur">28 min</span><span class="det"><a href="#b4-8-bayes-en-codigo-el-problema-sintetico-de-tres-">8. Bayes en código: el problema sintético de tres nubes</a> · 1 secciones</span></div><span class="fecha"></span></li>
+<li data-sesion="7"><span class="n">7</span><div><span class="dur">57 min</span><span class="det">desde <a href="#b4-9-medir-el-error-y-que-tan-confiable-es-esa-medi">9. Medir el error, y qué tan confiable es esa medición</a> hasta 10. El error mínimo alcanzable · 2 secciones</span></div><span class="fecha"></span></li>
+<li data-sesion="8"><span class="n">8</span><div><span class="dur">46 min</span><span class="det">desde <a href="#b4-11-riesgo-cuando-equivocarse-cuesta-distinto">11. Riesgo: cuando equivocarse cuesta distinto</a> hasta 12. La acción nula: cuándo no decidir · 2 secciones</span></div><span class="fecha"></span></li>
+<li data-sesion="9"><span class="n">9</span><div><span class="dur">44 min</span><span class="det">desde <a href="#b4-13-la-regla-completa-de-decision">13. La regla completa de decisión</a> hasta Referencias · 5 secciones</span></div><span class="fecha"></span></li>
+<li data-sesion="10"><span class="n">10</span><div><span class="dur">52 min</span><span class="det">desde <a href="#b5-16-autoexamen-20-preguntas">16. Autoexamen — 20 preguntas</a> hasta Las cuatro de cálculo, resueltas — ábrelo DESPUÉS de intentarlo · 4 secciones</span></div><span class="fecha"></span></li>
 </ol>
 <p class="nota" id="plan-nota"></p>
 </section>
@@ -561,7 +563,7 @@ mide y qué no mide tu puntaje.</p>
 <div class="bn" aria-hidden="true">2</div><div>
 <h2>El tema</h2>
 <div class="meta">
-<span class="chip">1 h 14 min estimados</span>
+<span class="chip">1 h 33 min estimados</span>
 <label class="tiempo">tu tiempo real <input class="real" type="number" min="0" step="1" inputmode="numeric" id="real-b2" name="real-b2" data-bloque="2" aria-label="tiempo real del bloque 2 en minutos"> min</label>
 </div></div></div>
 <p>Este archivo es el piso común de la materia. Supone que sabes Python básico
@@ -698,6 +700,28 @@ interesa acertar en ese conjunto concreto.</li>
 </ul>
 <p>La diferencia es qué información está disponible durante el aprendizaje, no qué
 algoritmo se usa.</p>
+<p><strong>En una frase:</strong> El <strong>aprendizaje supervisado</strong> parte de pares (entrada, salida)
+que alguien etiquetó; los otros dos parten de solo entradas o de una recompensa.</p>
+<form class="quiz" data-quiz="b2s2-0" data-total="2">
+<div class="quiz-cab"><output class="avance" aria-live="polite">0 de 2 respondidas</output><div class="quiz-prog" aria-hidden="true"><i></i></div></div>
+<fieldset class="pregunta" id="b2s2-0-q1">
+<legend><span class="num">1</span><span class="txt">Un programa aprende a jugar ajedrez probando jugadas y recibiendo una recompensa solo al terminar la partida. ¿Qué tipo de aprendizaje computacional es?</span></legend>
+<div class="opcion"><input type="radio" name="b2s2-0-q1" id="b2s2-0-q1-o0"><label for="b2s2-0-q1-o0"><b>a)</b> <span>Supervisado, porque al final alguien le dice si ganó o perdió.</span></label></div>
+<div class="opcion"><input type="radio" name="b2s2-0-q1" id="b2s2-0-q1-o1"><label for="b2s2-0-q1-o1"><b>b)</b> <span>No supervisado, porque nadie etiquetó cada jugada por separado.</span></label></div>
+<div class="opcion"><input type="radio" name="b2s2-0-q1" id="b2s2-0-q1-o2" data-ok="1"><label for="b2s2-0-q1-o2"><b>c)</b> <span>Por refuerzo: un agente actúa en un ambiente y busca la secuencia de acciones que maximiza una recompensa final.</span></label></div>
+<label class="seguro"><input type="checkbox" name="b2s2-0-q1-seg"> estaba seguro</label>
+<div class="explicacion" hidden><strong>(c)</strong> es la definición literal de la tabla. <strong>(a)</strong> falla porque supervisado exige pares (entrada, salida) —una etiqueta por jugada—, no un premio al final. <strong>(b)</strong> falla porque no supervisado busca patrones en las entradas y aquí sí hay una señal de premio que guía el aprendizaje.</div>
+</fieldset>
+<fieldset class="pregunta" id="b2s2-0-q2">
+<legend><span class="num">2</span><span class="txt">Te dan 500 correos ya etiquetados y, además, los 200 correos sin etiquetar que hay que clasificar; solo te interesa acertar en esos 200. ¿Qué tipo de aprendizaje es?</span></legend>
+<div class="opcion"><input type="radio" name="b2s2-0-q2" id="b2s2-0-q2-o0" data-ok="1"><label for="b2s2-0-q2-o0"><b>a)</b> <span>Transductive learning: al aprender ya se conocen las entradas del conjunto que hay que predecir.</span></label></div>
+<div class="opcion"><input type="radio" name="b2s2-0-q2" id="b2s2-0-q2-o1"><label for="b2s2-0-q2-o1"><b>b)</b> <span>Inductive learning: se aprende solo con el conjunto de entrenamiento y hay que poder predecir cualquier entrada futura.</span></label></div>
+<div class="opcion"><input type="radio" name="b2s2-0-q2" id="b2s2-0-q2-o2"><label for="b2s2-0-q2-o2"><b>c)</b> <span>Aprendizaje por refuerzo, porque hay un objetivo concreto que cumplir.</span></label></div>
+<label class="seguro"><input type="checkbox" name="b2s2-0-q2-seg"> estaba seguro</label>
+<div class="explicacion" hidden><strong>(a)</strong>. La diferencia entre inductivo y transductivo es <strong>qué información está disponible durante el aprendizaje</strong>, no qué algoritmo se usa: aquí las 200 entradas ya están sobre la mesa. <strong>(b)</strong> describiría el caso en que el modelo debe servir para correos que nadie ha visto. <strong>(c)</strong> confunde &quot;tener un objetivo&quot; con la definición de refuerzo, que exige un agente actuando en un ambiente.</div>
+</fieldset>
+<div class="quiz-barra"><button type="button" class="calificar">Calificar</button><button type="button" class="reiniciar">Reiniciar</button><output class="marcador" role="status"></output></div>
+</form>
 <hr />
 
 <div class="estado" data-sec="b2-2-los-tres-tipos-de-aprendizaje-computacional"><button type="button" data-v="ok">&#10003; entendido</button><button type="button" data-v="rep">&#8635; repasar</button><button type="button" data-v="mias">&#9998; con mis palabras</button><textarea hidden rows="3" placeholder="Explica esta sección como se la contarías a alguien. Se guarda en este navegador."></textarea></div>
@@ -918,6 +942,28 @@ dentro de una <code>P</code>, lee <strong>&quot;dado&quot;</strong> y detente a 
 lado. <code>P(Y | X)</code> es &quot;la probabilidad de la salida <strong>dado</strong> que ya vi la entrada&quot;,
 y <code>P(X | Y)</code> es &quot;la probabilidad de haber visto esa entrada <strong>dado</strong> que la clase
 es tal&quot;. <strong>No son lo mismo</strong> y confundirlas es el error clásico de examen.</p>
+<p><strong>En una frase:</strong> La <strong>notación</strong> del libro es un diccionario cerrado: cada símbolo
+tiene una lectura en voz alta y una traducción a Python.</p>
+<form class="quiz" data-quiz="b2s3-0" data-total="2">
+<div class="quiz-cab"><output class="avance" aria-live="polite">0 de 2 respondidas</output><div class="quiz-prog" aria-hidden="true"><i></i></div></div>
+<fieldset class="pregunta" id="b2s3-0-q1">
+<legend><span class="num">1</span><span class="txt">En el libro aparece <code>‖x‖</code>. ¿Cómo se lee y qué devuelve?</span></legend>
+<div class="opcion"><input type="radio" name="b2s3-0-q1" id="b2s3-0-q1-o0"><label for="b2s3-0-q1-o0"><b>a)</b> <span>&quot;x transpuesta&quot;: la tabla con filas y columnas intercambiadas, o sea <code>x.T</code>.</span></label></div>
+<div class="opcion"><input type="radio" name="b2s3-0-q1" id="b2s3-0-q1-o1" data-ok="1"><label for="b2s3-0-q1-o1"><b>b)</b> <span>&quot;la norma de x&quot;, su largo en línea recta: un solo número, <code>np.linalg.norm(x)</code>.</span></label></div>
+<div class="opcion"><input type="radio" name="b2s3-0-q1" id="b2s3-0-q1-o2"><label for="b2s3-0-q1-o2"><b>c)</b> <span>&quot;el valor absoluto de cada componente de x&quot;: una lista del mismo tamaño que <code>x</code>.</span></label></div>
+<label class="seguro"><input type="checkbox" name="b2s3-0-q1-seg"> estaba seguro</label>
+<div class="explicacion" hidden><strong>(b)</strong>, según la tabla de operadores. <strong>(a)</strong> es lo que significa <code>Wᵀ</code>, otro símbolo de la misma tabla. <strong>(c)</strong> se le parece —la norma se construye con los componentes— pero devuelve <strong>un</strong> número, no una lista.</div>
+</fieldset>
+<fieldset class="pregunta" id="b2s3-0-q2">
+<legend><span class="num">2</span><span class="txt">La tabla de operadores define <code>1(e)</code>, la función indicadora. ¿Qué devuelve?</span></legend>
+<div class="opcion"><input type="radio" name="b2s3-0-q2" id="b2s3-0-q2-o0" data-ok="1"><label for="b2s3-0-q2-o0"><b>a)</b> <span>1\ si <code>e</code> es cierto y 0 si no: <code>int(e)</code> sobre un booleano.</span></label></div>
+<div class="opcion"><input type="radio" name="b2s3-0-q2" id="b2s3-0-q2-o1"><label for="b2s3-0-q2-o1"><b>b)</b> <span>La posición de <code>e</code> dentro de una lista, como <code>lista.index(e)</code>.</span></label></div>
+<div class="opcion"><input type="radio" name="b2s3-0-q2" id="b2s3-0-q2-o2"><label for="b2s3-0-q2-o2"><b>c)</b> <span>El valor absoluto de <code>e</code>, como <code>abs(e)</code>.</span></label></div>
+<label class="seguro"><input type="checkbox" name="b2s3-0-q2-seg"> estaba seguro</label>
+<div class="explicacion" hidden><strong>(a)</strong>. Es el puente entre &quot;acerté / fallé&quot; y un número que se puede sumar o promediar; por eso <code>(real != pred).mean()</code> mide el error. <strong>(b)</strong> la confunde con un índice y <strong>(c)</strong> con el valor absoluto: ninguna de las dos se limita a devolver 0 o 1.</div>
+</fieldset>
+<div class="quiz-barra"><button type="button" class="calificar">Calificar</button><button type="button" class="reiniciar">Reiniciar</button><output class="marcador" role="status"></output></div>
+</form>
 <hr />
 
 <div class="estado" data-sec="b2-3-diccionario-de-la-notacion-oficial"><button type="button" data-v="ok">&#10003; entendido</button><button type="button" data-v="rep">&#8635; repasar</button><button type="button" data-v="mias">&#9998; con mis palabras</button><textarea hidden rows="3" placeholder="Explica esta sección como se la contarías a alguien. Se guarda en este navegador."></textarea></div>
@@ -1002,6 +1048,28 @@ está el truco que se usa en toda la materia: <strong><code>True</code> cuenta c
 como 0</strong>, así que el <strong>promedio de los <code>True</code> es la proporción de casos</strong>. Dos de
 cinco fallos → 0.4. Esa línea, <code>(real != pred).mean()</code>, es literalmente cómo se
 mide el error de un clasificador.</p>
+<p><strong>En una frase:</strong> Un <strong>arreglo</strong> de numpy opera todos sus números de golpe, guarda su
+forma <code>(N, d)</code> y con <code>axis=1</code> devuelve un resultado por dato.</p>
+<form class="quiz" data-quiz="b2s4-0" data-total="2">
+<div class="quiz-cab"><output class="avance" aria-live="polite">0 de 2 respondidas</output><div class="quiz-prog" aria-hidden="true"><i></i></div></div>
+<fieldset class="pregunta" id="b2s4-0-q1">
+<legend><span class="num">1</span><span class="txt">Con <code>lista = [1, 2]</code> y <code>arr = np.array([1, 2])</code>, ¿qué imprime <code>print(lista * 3, arr * 3)</code>?</span></legend>
+<div class="opcion"><input type="radio" name="b2s4-0-q1" id="b2s4-0-q1-o0"><label for="b2s4-0-q1-o0"><b>a)</b> <span><code>[3, 6] [3 6]</code></span></label></div>
+<div class="opcion"><input type="radio" name="b2s4-0-q1" id="b2s4-0-q1-o1" data-ok="1"><label for="b2s4-0-q1-o1"><b>b)</b> <span><code>[1, 2, 1, 2, 1, 2] [3 6]</code></span></label></div>
+<div class="opcion"><input type="radio" name="b2s4-0-q1" id="b2s4-0-q1-o2"><label for="b2s4-0-q1-o2"><b>c)</b> <span><code>[1, 2, 1, 2, 1, 2] [1 2 1 2 1 2]</code></span></label></div>
+<label class="seguro"><input type="checkbox" name="b2s4-0-q1-seg"> estaba seguro</label>
+<div class="explicacion" hidden><strong>(b)</strong>, medido. <code>lista * 3</code> <strong>repite</strong> la lista tres veces; <code>arr * 3</code> <strong>multiplica cada número</strong>. <strong>(a)</strong> le atribuye a la lista el comportamiento del arreglo y <strong>(c)</strong> al arreglo el de la lista. Pista de regalo: el arreglo se imprime <strong>sin comas</strong>, y es la forma rápida de saber qué tienes enfrente.</div>
+</fieldset>
+<fieldset class="pregunta" id="b2s4-0-q2">
+<legend><span class="num">2</span><span class="txt">Una tabla <code>M</code> tiene <code>M.shape == (150, 4)</code>. ¿Qué forma tiene <code>M.max(axis=1)</code> y qué contiene?</span></legend>
+<div class="opcion"><input type="radio" name="b2s4-0-q2" id="b2s4-0-q2-o0"><label for="b2s4-0-q2-o0"><b>a)</b> <span><code>(4,)</code>: el valor máximo de cada característica.</span></label></div>
+<div class="opcion"><input type="radio" name="b2s4-0-q2" id="b2s4-0-q2-o1"><label for="b2s4-0-q2-o1"><b>b)</b> <span><code>(150, 4)</code>: el máximo repetido en cada celda.</span></label></div>
+<div class="opcion"><input type="radio" name="b2s4-0-q2" id="b2s4-0-q2-o2" data-ok="1"><label for="b2s4-0-q2-o2"><b>c)</b> <span><code>(150,)</code>: el valor máximo de cada dato, uno por fila.</span></label></div>
+<label class="seguro"><input type="checkbox" name="b2s4-0-q2-seg"> estaba seguro</label>
+<div class="explicacion" hidden><strong>(c)</strong>, medido. <code>axis=1</code> significa &quot;opera a lo largo de cada fila y devuélveme un resultado por fila&quot;, y en la convención <code>(N, d)</code> cada fila es un dato: 150 datos, 4 características. <strong>(a)</strong> sería <code>axis=0</code>, que opera por columnas. <strong>(b)</strong> no reduce nada, y <code>max</code> devuelve un valor por fila, no una tabla del mismo tamaño.</div>
+</fieldset>
+<div class="quiz-barra"><button type="button" class="calificar">Calificar</button><button type="button" class="reiniciar">Reiniciar</button><output class="marcador" role="status"></output></div>
+</form>
 <hr />
 
 <div class="estado" data-sec="b2-4-los-datos-son-una-tabla-de-numeros-numpy-minim"><button type="button" data-v="ok">&#10003; entendido</button><button type="button" data-v="rep">&#8635; repasar</button><button type="button" data-v="mias">&#9998; con mis palabras</button><textarea hidden rows="3" placeholder="Explica esta sección como se la contarías a alguien. Se guarda en este navegador."></textarea></div>
@@ -1035,6 +1103,28 @@ tiene la probabilidad más alta&quot;. Es una clase, no un número.</p>
 <code>h* = argmin_{h ∈ H} E(h | T)</code> está diciendo: &quot;de todas las funciones <code>h</code> del
 catálogo <code>H</code>, quédate con <strong>la función</strong> que da el error más chico en el
 entrenamiento&quot;.</p>
+<p><strong>En una frase:</strong> <code>Σ</code> es un <strong><code>for</code> que acumula</strong>; <code>argmax</code> y <code>argmin</code> devuelven
+<strong>quién</strong> gana, no cuánto vale.</p>
+<form class="quiz" data-quiz="b2s5-0" data-total="2">
+<div class="quiz-cab"><output class="avance" aria-live="polite">0 de 2 respondidas</output><div class="quiz-prog" aria-hidden="true"><i></i></div></div>
+<fieldset class="pregunta" id="b2s5-0-q1">
+<legend><span class="num">1</span><span class="txt"><code>Σ_{i=1..4} (2i)</code> se lee &quot;suma, para i de 1 a 4, de 2 por i&quot;. ¿Cuánto vale?</span></legend>
+<div class="opcion"><input type="radio" name="b2s5-0-q1" id="b2s5-0-q1-o0"><label for="b2s5-0-q1-o0"><b>a)</b> <span>10</span></label></div>
+<div class="opcion"><input type="radio" name="b2s5-0-q1" id="b2s5-0-q1-o1" data-ok="1"><label for="b2s5-0-q1-o1"><b>b)</b> <span>20</span></label></div>
+<div class="opcion"><input type="radio" name="b2s5-0-q1" id="b2s5-0-q1-o2"><label for="b2s5-0-q1-o2"><b>c)</b> <span>8</span></label></div>
+<label class="seguro"><input type="checkbox" name="b2s5-0-q1-seg"> estaba seguro</label>
+<div class="explicacion" hidden><strong>(b)</strong>: 2 + 4 + 6 + 8 = 20. <strong>(a)</strong> 10 es <code>Σ i</code>, o sea 1+2+3+4: se olvidó el factor 2. <strong>(c)</strong> 8 es solo el último término, <code>2×4</code>; la <code>Σ</code> acumula todos los términos, no se queda con el final.</div>
+</fieldset>
+<fieldset class="pregunta" id="b2s5-0-q2">
+<legend><span class="num">2</span><span class="txt"><code>errores = {&quot;arbol&quot;: 0.31, &quot;vecinos&quot;: 0.12, &quot;lineal&quot;: 0.45}</code>. ¿Qué devuelven <code>argmin</code> y <code>min</code> sobre ese diccionario?</span></legend>
+<div class="opcion"><input type="radio" name="b2s5-0-q2" id="b2s5-0-q2-o0" data-ok="1"><label for="b2s5-0-q2-o0"><b>a)</b> <span><code>argmin</code> devuelve <code>&quot;vecinos&quot;</code> y <code>min</code> devuelve <code>0.12</code>.</span></label></div>
+<div class="opcion"><input type="radio" name="b2s5-0-q2" id="b2s5-0-q2-o1"><label for="b2s5-0-q2-o1"><b>b)</b> <span><code>argmin</code> devuelve <code>0.12</code> y <code>min</code> devuelve <code>&quot;vecinos&quot;</code>.</span></label></div>
+<div class="opcion"><input type="radio" name="b2s5-0-q2" id="b2s5-0-q2-o2"><label for="b2s5-0-q2-o2"><b>c)</b> <span>Los dos devuelven <code>0.12</code>.</span></label></div>
+<label class="seguro"><input type="checkbox" name="b2s5-0-q2-seg"> estaba seguro</label>
+<div class="explicacion" hidden><strong>(a)</strong>. <code>argmin</code> es <strong>quién</strong> (el modelo con menos error) y <code>min</code> es <strong>cuánto</strong> (el valor). <strong>(b)</strong> los invierte. <strong>(c)</strong> borra la distinción, que es justo la que el libro usa al escribir <code>h* = argmin_{h ∈ H} E(h | T)</code>: <code>h*</code> es una <strong>función</strong>, no un número.</div>
+</fieldset>
+<div class="quiz-barra"><button type="button" class="calificar">Calificar</button><button type="button" class="reiniciar">Reiniciar</button><output class="marcador" role="status"></output></div>
+</form>
 <hr />
 
 <div class="estado" data-sec="b2-5-sumatoria-y-argmax-en-python"><button type="button" data-v="ok">&#10003; entendido</button><button type="button" data-v="rep">&#8635; repasar</button><button type="button" data-v="mias">&#9998; con mis palabras</button><textarea hidden rows="3" placeholder="Explica esta sección como se la contarías a alguien. Se guarda en este navegador."></textarea></div>
@@ -1094,6 +1184,28 @@ Ojo: en un <strong>regresor</strong> (unidades 2 y 3) <code>.score()</code> devu
 </ul>
 <p><code>GaussianNB</code> se estudia formalmente en la Unidad 2. Aquí solo ilustra la
 interfaz, que es idéntica para todos los algoritmos del curso.</p>
+<p><strong>En una frase:</strong> Todos los algoritmos del curso comparten la interfaz
+<strong><code>fit</code> / <code>predict</code></strong>, y el guion bajo final marca lo que el modelo aprendió.</p>
+<form class="quiz" data-quiz="b2s6-0" data-total="2">
+<div class="quiz-cab"><output class="avance" aria-live="polite">0 de 2 respondidas</output><div class="quiz-prog" aria-hidden="true"><i></i></div></div>
+<fieldset class="pregunta" id="b2s6-0-q1">
+<legend><span class="num">1</span><span class="txt">Escribes <code>m = GaussianNB()</code> y enseguida <code>print(m.classes_)</code>, sin llamar a <code>fit</code>. ¿Qué pasa?</span></legend>
+<div class="opcion"><input type="radio" name="b2s6-0-q1" id="b2s6-0-q1-o0"><label for="b2s6-0-q1-o0"><b>a)</b> <span>Imprime una lista vacía, porque el modelo todavía no vio ninguna clase.</span></label></div>
+<div class="opcion"><input type="radio" name="b2s6-0-q1" id="b2s6-0-q1-o1" data-ok="1"><label for="b2s6-0-q1-o1"><b>b)</b> <span>Lanza <code>AttributeError</code>: el guion bajo final marca lo que el modelo aprende <strong>al ajustarse</strong>, y todavía no se ajustó.</span></label></div>
+<div class="opcion"><input type="radio" name="b2s6-0-q1" id="b2s6-0-q1-o2"><label for="b2s6-0-q1-o2"><b>c)</b> <span>Imprime las clases del último modelo que se entrenó en la sesión.</span></label></div>
+<label class="seguro"><input type="checkbox" name="b2s6-0-q1-seg"> estaba seguro</label>
+<div class="explicacion" hidden><strong>(b)</strong>. Los atributos que terminan en guion bajo (<code>classes_</code>, y los equivalentes de cada algoritmo) solo existen después de <code>fit</code>. <strong>(a)</strong> y <strong>(c)</strong> suponen un estado que el objeto recién creado no tiene, y un objeto recién creado no hereda atributos de otros modelos de la sesión.</div>
+</fieldset>
+<fieldset class="pregunta" id="b2s6-0-q2">
+<legend><span class="num">2</span><span class="txt">Un <strong>regresor</strong> de scikit-learn reporta <code>.score(X, y) = -0.4</code>. ¿Qué concluyes?</span></legend>
+<div class="opcion"><input type="radio" name="b2s6-0-q2" id="b2s6-0-q2-o0"><label for="b2s6-0-q2-o0"><b>a)</b> <span>Que hay un bug: <code>score</code> es una proporción de aciertos y no puede ser negativa.</span></label></div>
+<div class="opcion"><input type="radio" name="b2s6-0-q2" id="b2s6-0-q2-o1"><label for="b2s6-0-q2-o1"><b>b)</b> <span>Que el error del modelo vale 1.4, porque <code>score + error = 1</code>.</span></label></div>
+<div class="opcion"><input type="radio" name="b2s6-0-q2" id="b2s6-0-q2-o2" data-ok="1"><label for="b2s6-0-q2-o2"><b>c)</b> <span>Que en regresión <code>.score()</code> devuelve R², que puede salir negativo y <strong>no</strong> complementa a ningún error.</span></label></div>
+<label class="seguro"><input type="checkbox" name="b2s6-0-q2-seg"> estaba seguro</label>
+<div class="explicacion" hidden><strong>(c)</strong>. <code>score + error = 1</code> vale <strong>solo en clasificación</strong>, donde <code>score</code> cuenta aciertos y el error cuenta fallos. <strong>(a)</strong> aplica esa regla fuera de su dominio; <strong>(b)</strong> la aplica hasta el final y saca un número que no significa nada.</div>
+</fieldset>
+<div class="quiz-barra"><button type="button" class="calificar">Calificar</button><button type="button" class="reiniciar">Reiniciar</button><output class="marcador" role="status"></output></div>
+</form>
 <hr />
 
 <div class="estado" data-sec="b2-6-el-patron-fit-predict-de-scikit-learn"><button type="button" data-v="ok">&#10003; entendido</button><button type="button" data-v="rep">&#8635; repasar</button><button type="button" data-v="mias">&#9998; con mis palabras</button><textarea hidden rows="3" placeholder="Explica esta sección como se la contarías a alguien. Se guarda en este navegador."></textarea></div>
@@ -1102,13 +1214,35 @@ interfaz, que es idéntica para todos los algoritmos del curso.</p>
 arrancar un algoritmo iterativo. Si no fijas el azar, <strong>cada corrida da números
 distintos</strong> y ni tú puedes reproducir tu propio resultado.</p>
 <p><code>random_state=0</code> significa &quot;usa siempre esta misma secuencia de números al azar&quot;.
-Existe en <code>train_test_split</code>, en casi todos los modelos, en los generadores de
+Existe en <code>train_test_split</code>, en los modelos que usan azar (árboles, bosques; no en <code>GaussianNB</code> ni <code>KNeighbors</code>), en los generadores de
 <code>scipy</code> (<code>rvs(size=1000, random_state=1)</code>) y como <code>np.random.seed(0)</code> global.</p>
 <p>Consecuencia práctica al estudiar con el libro: <strong>los números del libro no van a
 coincidir exactamente con los tuyos</strong> si el autor no fijó la semilla, y en varios
 ejemplos no la fija. Un error de 0.0123 en el libro y 0.0093 en tu máquina no es
 un error tuyo: es otra muestra al azar del mismo problema. Lo que debe coincidir
 es el <strong>orden de magnitud y la conclusión</strong>, no el último decimal.</p>
+<p><strong>En una frase:</strong> Fijar la <strong>semilla</strong> hace reproducible una corrida; sin ella, los
+números del libro y los tuyos son dos muestras distintas del mismo problema.</p>
+<form class="quiz" data-quiz="b2s7-0" data-total="2">
+<div class="quiz-cab"><output class="avance" aria-live="polite">0 de 2 respondidas</output><div class="quiz-prog" aria-hidden="true"><i></i></div></div>
+<fieldset class="pregunta" id="b2s7-0-q1">
+<legend><span class="num">1</span><span class="txt">Corres un ejemplo del libro y te da error 0.0093 donde el libro reporta 0.0123. ¿Qué haces?</span></legend>
+<div class="opcion"><input type="radio" name="b2s7-0-q1" id="b2s7-0-q1-o0"><label for="b2s7-0-q1-o0"><b>a)</b> <span>Buscar el bug: si el código es el mismo, los números tienen que coincidir.</span></label></div>
+<div class="opcion"><input type="radio" name="b2s7-0-q1" id="b2s7-0-q1-o1" data-ok="1"><label for="b2s7-0-q1-o1"><b>b)</b> <span>Nada: si el autor no fijó la semilla son dos muestras al azar del mismo problema; lo que debe coincidir es el orden de magnitud y la conclusión.</span></label></div>
+<div class="opcion"><input type="radio" name="b2s7-0-q1" id="b2s7-0-q1-o2"><label for="b2s7-0-q1-o2"><b>c)</b> <span>Probar semillas hasta que salga 0.0123 y reportar esa corrida.</span></label></div>
+<label class="seguro"><input type="checkbox" name="b2s7-0-q1-seg"> estaba seguro</label>
+<div class="explicacion" hidden><strong>(b)</strong>, y el libro no fija la semilla en varios de sus ejemplos. <strong>(a)</strong> supone determinismo donde hay azar. <strong>(c)</strong> es peor que inútil: elegir la semilla que da el número que quieres es fabricar el resultado, no reproducirlo.</div>
+</fieldset>
+<fieldset class="pregunta" id="b2s7-0-q2">
+<legend><span class="num">2</span><span class="txt">¿Cuál de estas afirmaciones sobre <code>random_state</code> es correcta?</span></legend>
+<div class="opcion"><input type="radio" name="b2s7-0-q2" id="b2s7-0-q2-o0"><label for="b2s7-0-q2-o0"><b>a)</b> <span>Elimina el azar del algoritmo, así que el resultado deja de depender de los datos.</span></label></div>
+<div class="opcion"><input type="radio" name="b2s7-0-q2" id="b2s7-0-q2-o1"><label for="b2s7-0-q2-o1"><b>b)</b> <span>Solo existe en <code>train_test_split</code>; los modelos no lo aceptan.</span></label></div>
+<div class="opcion"><input type="radio" name="b2s7-0-q2" id="b2s7-0-q2-o2" data-ok="1"><label for="b2s7-0-q2-o2"><b>c)</b> <span>Fija la secuencia de números al azar, de modo que la misma corrida se pueda reproducir.</span></label></div>
+<label class="seguro"><input type="checkbox" name="b2s7-0-q2-seg"> estaba seguro</label>
+<div class="explicacion" hidden><strong>(c)</strong>. <strong>(a)</strong> confunde &quot;fijar el azar&quot; con &quot;quitarlo&quot;: el procedimiento sigue siendo aleatorio, solo que siempre con la misma secuencia, y el resultado sí depende de los datos. <strong>(b)</strong> es falso: aparece en muchos modelos (los que usan azar, como los árboles), en los generadores de scipy (<code>rvs(size=1000, random_state=1)</code>) y como <code>np.random.seed(0)</code>.</div>
+</fieldset>
+<div class="quiz-barra"><button type="button" class="calificar">Calificar</button><button type="button" class="reiniciar">Reiniciar</button><output class="marcador" role="status"></output></div>
+</form>
 <hr />
 
 <div class="estado" data-sec="b2-7-la-semilla-random-state-por-que-se-fija-siempr"><button type="button" data-v="ok">&#10003; entendido</button><button type="button" data-v="rep">&#8635; repasar</button><button type="button" data-v="mias">&#9998; con mis palabras</button><textarea hidden rows="3" placeholder="Explica esta sección como se la contarías a alguien. Se guarda en este navegador."></textarea></div>
@@ -1217,7 +1351,7 @@ es el <strong>orden de magnitud y la conclusión</strong>, no el último decimal
 <div class="bn" aria-hidden="true">3</div><div>
 <h2>Trampas de examen</h2>
 <div class="meta">
-<span class="chip">12 min estimados</span>
+<span class="chip">19 min estimados</span>
 <span class="chip q">&#9733; Ruta examen</span>
 <label class="tiempo">tu tiempo real <input class="real" type="number" min="0" step="1" inputmode="numeric" id="real-b3" name="real-b3" data-bloque="3" aria-label="tiempo real del bloque 3 en minutos"> min</label>
 </div></div></div>
@@ -1361,6 +1495,20 @@ pide comparar <code>T</code> con <code>G</code>, está hablando de promedios aun
 citaron sea la suma.</p>
 <p><em>Evidencia:</em> <code>1.1.audit.md:73-78</code> (corrida real) y la corrección ya incorporada
 en <a class="ref" href="#b4-4-que-se-busca-exactamente-h-y-el-error-empirico">«El apunte de la unidad» §4</a>.</p>
+<p><strong>En una frase:</strong> Para <strong>comparar <code>T</code> con <code>G</code></strong> el error se promedia; la <code>Σ</code> sin
+dividir solo sirve para minimizar dentro de un mismo conjunto.</p>
+<form class="quiz" data-quiz="b3s1-0" data-total="1">
+<div class="quiz-cab"><output class="avance" aria-live="polite">0 de 1 respondidas</output><div class="quiz-prog" aria-hidden="true"><i></i></div></div>
+<fieldset class="pregunta" id="b3s1-0-q1">
+<legend><span class="num">1</span><span class="txt">Un enunciado te pide comparar <code>E(h|T)</code> con <code>E(h|G)</code> y cita la fórmula <code>E(h|T) = Σ L(y, h(x))</code>. ¿Cómo hay que entenderlo?</span></legend>
+<div class="opcion"><input type="radio" name="b3s1-0-q1" id="b3s1-0-q1-o0" data-ok="1"><label for="b3s1-0-q1-o0"><b>a)</b> <span>Como promedios: la suma sin dividir no es comparable entre conjuntos de distinto tamaño.</span></label></div>
+<div class="opcion"><input type="radio" name="b3s1-0-q1" id="b3s1-0-q1-o1"><label for="b3s1-0-q1-o1"><b>b)</b> <span>Como sumas literales: si el enunciado cita la fórmula, la fórmula manda sobre el código.</span></label></div>
+<div class="opcion"><input type="radio" name="b3s1-0-q1" id="b3s1-0-q1-o2"><label for="b3s1-0-q1-o2"><b>c)</b> <span>Da igual, porque <code>T</code> y <code>G</code> tienen siempre el mismo número de datos.</span></label></div>
+<label class="seguro"><input type="checkbox" name="b3s1-0-q1-seg"> estaba seguro</label>
+<div class="explicacion" hidden><strong>(a)</strong>. Medido: con la definición literal el modelo <strong>equilibrado</strong> daba 26.55 en <code>T</code> contra 16.42 en <code>G</code>, un sentido que la §5 no le asigna a un modelo equilibrado. <strong>(b)</strong> usa la fórmula fuera del caso para el que sirve, que es minimizar dentro de un mismo conjunto. <strong>(c)</strong> es falso: en esa corrida <code>T</code> tenía 70 datos y <code>G</code> 30.</div>
+</fieldset>
+<div class="quiz-barra"><button type="button" class="calificar">Calificar</button><button type="button" class="reiniciar">Reiniciar</button><output class="marcador" role="status"></output></div>
+</form>
 <h4>Trampa medida 2 · <code>score</code> + error = 1 solo en clasificación</h4>
 <p>En un clasificador, <code>score</code> cuenta aciertos y el error cuenta fallos: suman 1. En
 un <strong>regresor</strong>, <code>.score()</code> de scikit-learn devuelve <strong>R²</strong>, que no está acotado
@@ -1375,6 +1523,20 @@ apunte usa un regresor, y las unidades 2 y 3 son de regresión además de
 clasificación.</p>
 <p><em>Evidencia:</em> <code>1.1.audit.md:106-113</code>; la salvedad está en <a class="ref" href="#b2-6-el-patron-fit-predict-de-scikit-learn">«El tema» §6</a> y en su
 glosario.</p>
+<p><strong>En una frase:</strong> <code>score + error = 1</code> vale <strong>solo en clasificación</strong>; en regresión
+<code>.score()</code> es R² y no complementa a ningún error.</p>
+<form class="quiz" data-quiz="b3s1-1" data-total="1">
+<div class="quiz-cab"><output class="avance" aria-live="polite">0 de 1 respondidas</output><div class="quiz-prog" aria-hidden="true"><i></i></div></div>
+<fieldset class="pregunta" id="b3s1-1-q1">
+<legend><span class="num">1</span><span class="txt">Un <code>DecisionTreeRegressor</code> con <code>max_depth=4</code> reporta <code>score(R²) = 0.9740</code> y <code>error(MSE) = 0.5475</code>. ¿Cuánto vale <code>score + error</code>?</span></legend>
+<div class="opcion"><input type="radio" name="b3s1-1-q1" id="b3s1-1-q1-o0"><label for="b3s1-1-q1-o0"><b>a)</b> <span>1.0000, como en cualquier modelo de scikit-learn.</span></label></div>
+<div class="opcion"><input type="radio" name="b3s1-1-q1" id="b3s1-1-q1-o1" data-ok="1"><label for="b3s1-1-q1-o1"><b>b)</b> <span>1.5214, porque en regresión el <code>score</code> es R² y no complementa a ningún error.</span></label></div>
+<div class="opcion"><input type="radio" name="b3s1-1-q1" id="b3s1-1-q1-o2"><label for="b3s1-1-q1-o2"><b>c)</b> <span>0.4265, que es lo que dan los dos juntos.</span></label></div>
+<label class="seguro"><input type="checkbox" name="b3s1-1-q1-seg"> estaba seguro</label>
+<div class="explicacion" hidden><strong>(b)</strong>, medido. <strong>(a)</strong> aplica la regla de clasificación fuera de su dominio: R² no está acotado por abajo y hasta puede salir negativo. <strong>(c)</strong> hizo la operación equivocada: 0.4265 es <code>score - error</code>, una resta que tampoco significa nada aquí.</div>
+</fieldset>
+<div class="quiz-barra"><button type="button" class="calificar">Calificar</button><button type="button" class="reiniciar">Reiniciar</button><output class="marcador" role="status"></output></div>
+</form>
 <h4>Trampa medida 3 · &quot;sin traslape el error es 0&quot; es un condicional, no un caso real</h4>
 <p>&quot;Si las nubes de cada clase no comparten territorio, la regla de Bayes acierta
 siempre&quot; es cierto <strong>como enunciado condicional</strong>. Lo que no existe es el caso:
@@ -1384,12 +1546,28 @@ es siempre mayor que cero, por pequeño que sea.</p>
 <p>Lo que sí se midió: de los 28 errores de la corrida de la §9.1, la distribución
 por par de clases es <code>{(2→1): 16, (1→2): 12}</code> — la nube 3 no participa en
 ninguno. Pero eso es una propiedad <strong>de esta muestra de 3000 puntos</strong>, no del
-problema: <code>p3.pdf</code> no se anula en ningún punto del plano.</p>
+problema: <code>p3.pdf</code> no se anula en ningún punto del plano. (Matemáticamente; en la
+computadora <code>p3.pdf([-50, -50])</code> imprime <code>0.0</code> porque el valor es más chico de lo
+que un flotante representa —subdesbordamiento—, no porque la densidad sea cero.)</p>
 <p><strong>Qué llevarte:</strong> &quot;traslape despreciable en la muestra&quot; y &quot;traslape cero&quot; no son
 lo mismo, y en un examen conviene contestar el condicional (<code>sin traslape → 0</code>)
 sabiendo que su antecedente no se cumple con gaussianas.</p>
 <p><em>Evidencia:</em> <code>1.1.audit.md:144-165</code>; la §10.2 ya está redactada con esa
 precisión.</p>
+<p><strong>En una frase:</strong> &quot;Sin traslape el error es 0&quot; es un <strong>condicional verdadero cuyo
+antecedente no se cumple</strong> cuando las clases son nubes gaussianas.</p>
+<form class="quiz" data-quiz="b3s1-2" data-total="1">
+<div class="quiz-cab"><output class="avance" aria-live="polite">0 de 1 respondidas</output><div class="quiz-prog" aria-hidden="true"><i></i></div></div>
+<fieldset class="pregunta" id="b3s1-2-q1">
+<legend><span class="num">1</span><span class="txt">&quot;Si las clases no se traslapan, el error de Bayes es 0.&quot; ¿Cómo se aplica eso a dos nubes gaussianas?</span></legend>
+<div class="opcion"><input type="radio" name="b3s1-2-q1" id="b3s1-2-q1-o0" data-ok="1"><label for="b3s1-2-q1-o0"><b>a)</b> <span>El condicional es cierto, pero su antecedente no se cumple: con gaussianas el traslape nunca es exactamente cero, solo despreciable.</span></label></div>
+<div class="opcion"><input type="radio" name="b3s1-2-q1" id="b3s1-2-q1-o1"><label for="b3s1-2-q1-o1"><b>b)</b> <span>Se aplica tal cual: en la corrida de la §9.1 la nube 3 no participó en ningún error, así que su traslape es cero.</span></label></div>
+<div class="opcion"><input type="radio" name="b3s1-2-q1" id="b3s1-2-q1-o2"><label for="b3s1-2-q1-o2"><b>c)</b> <span>No se aplica: sin traslape el error sería 0.5.</span></label></div>
+<label class="seguro"><input type="checkbox" name="b3s1-2-q1-seg"> estaba seguro</label>
+<div class="explicacion" hidden><strong>(a)</strong>. <strong>(b)</strong> confunde &quot;traslape despreciable <strong>en esta muestra</strong> de 3000 puntos&quot; con &quot;traslape cero&quot;: la distribución de los errores por par de clases es una propiedad de la muestra, no del problema. <strong>(c)</strong> invierte el resultado: 0.5 es el mínimo con traslape <strong>total</strong> y dos clases, el extremo contrario.</div>
+</fieldset>
+<div class="quiz-barra"><button type="button" class="calificar">Calificar</button><button type="button" class="reiniciar">Reiniciar</button><output class="marcador" role="status"></output></div>
+</form>
 <h4>Trampa medida 4 · un prior desbalanceado <strong>no siempre</strong> sube el error</h4>
 <p>La lectura fácil del Experimento 1 es &quot;si mientes sobre el prior, el error sube&quot;.
 Es lo que pasó con los dos priors del Apéndice A.2, y no es una regla. Ejecutando
@@ -1408,6 +1586,20 @@ el desbalance, es que el desbalance sea suficiente para mover la frontera dentro
 del traslape</strong>.</p>
 <p><em>Evidencia:</em> <code>1.1.review.md:108-121</code>; reproducido con
 <code>intento-trainee/experimentos_propios.py</code>, cuya salida es la de arriba.</p>
+<p><strong>En una frase:</strong> Lo que sube el error no es el <strong>desbalance del prior</strong> en sí, sino
+que ese desbalance alcance a mover la frontera dentro del traslape.</p>
+<form class="quiz" data-quiz="b3s1-3" data-total="1">
+<div class="quiz-cab"><output class="avance" aria-live="polite">0 de 1 respondidas</output><div class="quiz-prog" aria-hidden="true"><i></i></div></div>
+<fieldset class="pregunta" id="b3s1-3-q1">
+<legend><span class="num">1</span><span class="txt">Con las tres nubes de la §8 (error 0.0093 con prior balanceado), el prior <code>[0.6, 0.2, 0.2]</code> dio error 0.0117 y <code>[0.2, 0.6, 0.2]</code> dio 0.0093. ¿Qué concluyes?</span></legend>
+<div class="opcion"><input type="radio" name="b3s1-3-q1" id="b3s1-3-q1-o0"><label for="b3s1-3-q1-o0"><b>a)</b> <span>Que desbalancear el prior siempre sube el error.</span></label></div>
+<div class="opcion"><input type="radio" name="b3s1-3-q1" id="b3s1-3-q1-o1"><label for="b3s1-3-q1-o1"><b>b)</b> <span>Que el prior no influye en el error.</span></label></div>
+<div class="opcion"><input type="radio" name="b3s1-3-q1" id="b3s1-3-q1-o2" data-ok="1"><label for="b3s1-3-q1-o2"><b>c)</b> <span>Que sube el error solo si el desbalance alcanza a mover la frontera dentro del traslape: <code>[0.2, 0.6, 0.2]</code> no volteó ni un punto.</span></label></div>
+<label class="seguro"><input type="checkbox" name="b3s1-3-q1-seg"> estaba seguro</label>
+<div class="explicacion" hidden><strong>(c)</strong>, medido. <strong>(a)</strong> es la generalización que estos dos números desmienten: el segundo prior deja el error <strong>idéntico</strong> al balanceado. <strong>(b)</strong> se va al otro extremo y choca con el primer prior, que sí lo subió de 0.0093 a 0.0117.</div>
+</fieldset>
+<div class="quiz-barra"><button type="button" class="calificar">Calificar</button><button type="button" class="reiniciar">Reiniciar</button><output class="marcador" role="status"></output></div>
+</form>
 
 <div class="estado" data-sec="b3-cuatro-trampas-medidas-que-no-salieron-de-leer-s"><button type="button" data-v="ok">&#10003; entendido</button><button type="button" data-v="rep">&#8635; repasar</button><button type="button" data-v="mias">&#9998; con mis palabras</button><textarea hidden rows="3" placeholder="Explica esta sección como se la contarías a alguien. Se guarda en este navegador."></textarea></div>
 </section>
@@ -1415,7 +1607,7 @@ del traslape</strong>.</p>
 <div class="bn" aria-hidden="true">4</div><div>
 <h2>El apunte de la unidad · exámenes 1.1 y 1.2</h2>
 <div class="meta">
-<span class="chip">3 h 56 min estimados</span>
+<span class="chip">4 h 56 min estimados</span>
 <label class="tiempo">tu tiempo real <input class="real" type="number" min="0" step="1" inputmode="numeric" id="real-b4" name="real-b4" data-bloque="4" aria-label="tiempo real del bloque 4 en minutos"> min</label>
 </div></div></div>
 <p><strong>Antes de leer esto, lee «El tema».</strong> De ahí vienen la notación, numpy y el
@@ -1527,6 +1719,28 @@ curso caen en este segundo escenario.</p>
 que justifica toda la unidad: la probabilidad no está ahí por elegancia
 matemática, está porque el problema tiene incertidumbre irreducible y no hay otra
 forma de describirlo.</p>
+<p><strong>En una frase:</strong> Un predictor no puede ser infalible porque el fenómeno tiene
+<strong>incertidumbre irreducible</strong>; por eso se describe con probabilidad.</p>
+<form class="quiz" data-quiz="b4s3-0" data-total="2">
+<div class="quiz-cab"><output class="avance" aria-live="polite">0 de 2 respondidas</output><div class="quiz-prog" aria-hidden="true"><i></i></div></div>
+<fieldset class="pregunta" id="b4s3-0-q1">
+<legend><span class="num">1</span><span class="txt">De estas tres tareas, ¿cuál es del tipo &quot;si alguna vez se equivoca, el programa está mal&quot; y <strong>no</strong> del tipo que estudia esta materia?</span></legend>
+<div class="opcion"><input type="radio" name="b4s3-0-q1" id="b4s3-0-q1-o0"><label for="b4s3-0-q1-o0"><b>a)</b> <span>Predecir si un paciente desarrollará diabetes a partir de su expediente.</span></label></div>
+<div class="opcion"><input type="radio" name="b4s3-0-q1" id="b4s3-0-q1-o1" data-ok="1"><label for="b4s3-0-q1-o1"><b>b)</b> <span>Calcular la mediana de una lista de números.</span></label></div>
+<div class="opcion"><input type="radio" name="b4s3-0-q1" id="b4s3-0-q1-o2"><label for="b4s3-0-q1-o2"><b>c)</b> <span>Predecir cuántos pasajeros habrá mañana en una ruta de autobús.</span></label></div>
+<label class="seguro"><input type="checkbox" name="b4s3-0-q1-seg"> estaba seguro</label>
+<div class="explicacion" hidden><strong>(b)</strong>. Como el ordenamiento, la mediana tiene una respuesta correcta calculable a partir de la entrada: si falla una vez, está mal. <strong>(a)</strong> y <strong>(c)</strong> son del segundo tipo, en el que la entrada no contiene todo lo que determina la salida, así que lo mejor esperable es un algoritmo exacto y preciso, <strong>no infalible</strong>.</div>
+</fieldset>
+<fieldset class="pregunta" id="b4s3-0-q2">
+<legend><span class="num">2</span><span class="txt">Dos solicitantes de crédito tienen exactamente los mismos valores en todas las columnas de la tabla; uno paga y el otro no. ¿Qué implica eso para cualquier modelo que reciba solo esas columnas?</span></legend>
+<div class="opcion"><input type="radio" name="b4s3-0-q2" id="b4s3-0-q2-o0" data-ok="1"><label for="b4s3-0-q2-o0"><b>a)</b> <span>Que ningún modelo puede acertar en los dos: con esa entrada la salida no está determinada.</span></label></div>
+<div class="opcion"><input type="radio" name="b4s3-0-q2" id="b4s3-0-q2-o1"><label for="b4s3-0-q2-o1"><b>b)</b> <span>Que falta entrenar más tiempo; con suficientes iteraciones el modelo separaría los dos casos.</span></label></div>
+<div class="opcion"><input type="radio" name="b4s3-0-q2" id="b4s3-0-q2-o2"><label for="b4s3-0-q2-o2"><b>c)</b> <span>Que uno de los dos registros está mal capturado y hay que borrarlo.</span></label></div>
+<label class="seguro"><input type="checkbox" name="b4s3-0-q2-seg"> estaba seguro</label>
+<div class="explicacion" hidden><strong>(a)</strong>, y es una de las tres razones que da esta sección. <strong>(b)</strong> falla porque el problema no es de esfuerzo: las dos filas son idénticas, así que cualquier función devuelve lo mismo para las dos. <strong>(c)</strong> confunde esta causa con otra distinta que la sección también menciona —la incertidumbre en la captura—; borrar el caso incómodo no elimina la incertidumbre, la esconde.</div>
+</fieldset>
+<div class="quiz-barra"><button type="button" class="calificar">Calificar</button><button type="button" class="reiniciar">Reiniciar</button><output class="marcador" role="status"></output></div>
+</form>
 <hr />
 
 <div class="estado" data-sec="b4-1-por-que-probabilidad-y-no-certeza"><button type="button" data-v="ok">&#10003; entendido</button><button type="button" data-v="rep">&#8635; repasar</button><button type="button" data-v="mias">&#9998; con mis palabras</button><textarea hidden rows="3" placeholder="Explica esta sección como se la contarías a alguien. Se guarda en este navegador."></textarea></div>
@@ -1544,6 +1758,29 @@ supervisado. Memorízalos: son candidatos naturales a pregunta de examen.</p>
 <strong>paso 4</strong> (predecir) y la §9 es un ejemplo del <strong>paso 5</strong> (medir el
 rendimiento). Si en el examen te preguntan a qué paso corresponde calcular el
 error, la respuesta es el 5.</p>
+<p><strong>En una frase:</strong> La <strong>metodología</strong> son cinco pasos fijos: datos, entrenamiento,
+algoritmo, predicción y medición del rendimiento.</p>
+<form class="quiz" data-quiz="b4s4-0" data-total="2">
+<div class="quiz-cab"><output class="avance" aria-live="polite">0 de 2 respondidas</output><div class="quiz-prog" aria-hidden="true"><i></i></div></div>
+<fieldset class="pregunta" id="b4s4-0-q1">
+<legend><span class="num">1</span><span class="txt">En la metodología de cinco pasos, &quot;se selecciona el conjunto de entrenamiento <code>T ⊆ D</code>&quot; es el paso:</span></legend>
+<div class="opcion"><input type="radio" name="b4s4-0-q1" id="b4s4-0-q1-o0"><label for="b4s4-0-q1-o0"><b>a)</b> <span>1</span></label></div>
+<div class="opcion"><input type="radio" name="b4s4-0-q1" id="b4s4-0-q1-o1" data-ok="1"><label for="b4s4-0-q1-o1"><b>b)</b> <span>2</span></label></div>
+<div class="opcion"><input type="radio" name="b4s4-0-q1" id="b4s4-0-q1-o2"><label for="b4s4-0-q1-o2"><b>c)</b> <span>3</span></label></div>
+<div class="opcion"><input type="radio" name="b4s4-0-q1" id="b4s4-0-q1-o3"><label for="b4s4-0-q1-o3"><b>d)</b> <span>5</span></label></div>
+<label class="seguro"><input type="checkbox" name="b4s4-0-q1-seg"> estaba seguro</label>
+<div class="explicacion" hidden><strong>(b)</strong>. El <strong>1</strong> es &quot;todo empieza con un conjunto de datos <code>D</code>&quot;. El <strong>3</strong> es diseñar el algoritmo <code>f</code> <strong>usando</strong> <code>T</code>, lo que ya supone haberlo seleccionado. El <strong>5</strong> es medir el rendimiento, el último de todos.</div>
+</fieldset>
+<fieldset class="pregunta" id="b4s4-0-q2">
+<legend><span class="num">2</span><span class="txt">Ordena estas dos tareas dentro de los cinco pasos: (i) usar <code>f</code> para predecir la salida de datos nuevos; (ii) medir el rendimiento de <code>f</code>.</span></legend>
+<div class="opcion"><input type="radio" name="b4s4-0-q2" id="b4s4-0-q2-o0"><label for="b4s4-0-q2-o0"><b>a)</b> <span>(i) es el paso 3 y (ii) el paso 4.</span></label></div>
+<div class="opcion"><input type="radio" name="b4s4-0-q2" id="b4s4-0-q2-o1"><label for="b4s4-0-q2-o1"><b>b)</b> <span>(i) es el paso 5 y (ii) el paso 4.</span></label></div>
+<div class="opcion"><input type="radio" name="b4s4-0-q2" id="b4s4-0-q2-o2" data-ok="1"><label for="b4s4-0-q2-o2"><b>c)</b> <span>(i) es el paso 4 y (ii) el paso 5.</span></label></div>
+<label class="seguro"><input type="checkbox" name="b4s4-0-q2-seg"> estaba seguro</label>
+<div class="explicacion" hidden><strong>(c)</strong>. Predecir es el paso 4 (&quot;se utiliza <code>f</code> para estimar las características modeladas&quot;) y medir el rendimiento es el 5. <strong>(a)</strong> mete predecir en el paso 3, que es <strong>diseñar</strong> el algoritmo. <strong>(b)</strong> invierte el orden: no se puede medir el rendimiento antes de haber predicho.</div>
+</fieldset>
+<div class="quiz-barra"><button type="button" class="calificar">Calificar</button><button type="button" class="reiniciar">Reiniciar</button><output class="marcador" role="status"></output></div>
+</form>
 <hr />
 
 <div class="estado" data-sec="b4-2-la-metodologia-general-en-cinco-pasos"><button type="button" data-v="ok">&#10003; entendido</button><button type="button" data-v="rep">&#8635; repasar</button><button type="button" data-v="mias">&#9998; con mis palabras</button><textarea hidden rows="3" placeholder="Explica esta sección como se la contarías a alguien. Se guarda en este navegador."></textarea></div>
@@ -1631,6 +1868,36 @@ aprendizaje (supervisado, no supervisado, por refuerzo) están en <a class="ref"
 Los tipos de problema son estos tres. La pregunta &quot;¿cuáles son los diferentes
 tipos de problemas de aprendizaje computacional?&quot; admite las dos lecturas, así
 que ten listas ambas listas.</p>
+<p><strong>En una frase:</strong> La <strong>clase de problema</strong> se decide por la forma de la salida <code>y</code>:
+binaria, multi-clase o multi-etiqueta, y regresión.</p>
+<form class="quiz" data-quiz="b4s5-0" data-total="3">
+<div class="quiz-cab"><output class="avance" aria-live="polite">0 de 3 respondidas</output><div class="quiz-prog" aria-hidden="true"><i></i></div></div>
+<fieldset class="pregunta" id="b4s5-0-q1">
+<legend><span class="num">1</span><span class="txt">El libro contrapone dos fines al construir <code>f</code>. Si tu prioridad es <strong>entender cómo la entrada produce la salida</strong>, ¿qué costo asumes?</span></legend>
+<div class="opcion"><input type="radio" name="b4s5-0-q1" id="b4s5-0-q1-o0"><label for="b4s5-0-q1-o0"><b>a)</b> <span>Ninguno: entender mejor el fenómeno siempre mejora la predicción.</span></label></div>
+<div class="opcion"><input type="radio" name="b4s5-0-q1" id="b4s5-0-q1-o1" data-ok="1"><label for="b4s5-0-q1-o1"><b>b)</b> <span>Normalmente predices peor, porque los dos fines se contraponen.</span></label></div>
+<div class="opcion"><input type="radio" name="b4s5-0-q1" id="b4s5-0-q1-o2"><label for="b4s5-0-q1-o2"><b>c)</b> <span>Que el problema deja de ser supervisado y pasa a ser no supervisado.</span></label></div>
+<label class="seguro"><input type="checkbox" name="b4s5-0-q1-seg"> estaba seguro</label>
+<div class="explicacion" hidden><strong>(b)</strong>, es la tensión que el libro subraya y que no es un defecto de los algoritmos sino del problema. <strong>(a)</strong> afirma justo lo que la tabla niega. <strong>(c)</strong> confunde el <strong>fin</strong> con el <strong>tipo de aprendizaje</strong>: sigues teniendo pares (entrada, salida), o sea aprendizaje supervisado.</div>
+</fieldset>
+<fieldset class="pregunta" id="b4s5-0-q2">
+<legend><span class="num">2</span><span class="txt">Un modelo asigna a cada correo exactamente una de tres bandejas: &quot;principal&quot;, &quot;promociones&quot; o &quot;spam&quot;. ¿Qué clase de problema es y cómo se escribe la salida?</span></legend>
+<div class="opcion"><input type="radio" name="b4s5-0-q2" id="b4s5-0-q2-o0"><label for="b4s5-0-q2-o0"><b>a)</b> <span>Clasificación binaria, <code>y ∈ {0, 1}</code>.</span></label></div>
+<div class="opcion"><input type="radio" name="b4s5-0-q2" id="b4s5-0-q2-o1"><label for="b4s5-0-q2-o1"><b>b)</b> <span>Regresión, <code>y ∈ ℝ</code>.</span></label></div>
+<div class="opcion"><input type="radio" name="b4s5-0-q2" id="b4s5-0-q2-o2" data-ok="1"><label for="b4s5-0-q2-o2"><b>c)</b> <span>Clasificación multi-clase, <code>y ∈ {0, 1}^K</code> con <code>K = 3</code> y exactamente un uno.</span></label></div>
+<label class="seguro"><input type="checkbox" name="b4s5-0-q2-seg"> estaba seguro</label>
+<div class="explicacion" hidden><strong>(c)</strong>. Tres opciones excluyentes: se elige <strong>una</strong> de <code>K</code>. <strong>(a)</strong> solo valdría con dos bandejas. <strong>(b)</strong> exige una salida numérica continua, y &quot;promociones&quot; no es un número. Si un correo pudiera caer en dos bandejas a la vez sería <strong>multi-etiqueta</strong>: misma notación, más de un uno.</div>
+</fieldset>
+<fieldset class="pregunta" id="b4s5-0-q3">
+<legend><span class="num">3</span><span class="txt">En un examen preguntan &quot;¿cuáles son los diferentes tipos de problemas de aprendizaje computacional?&quot;. ¿Qué conviene tener listo?</span></legend>
+<div class="opcion"><input type="radio" name="b4s5-0-q3" id="b4s5-0-q3-o0" data-ok="1"><label for="b4s5-0-q3-o0"><b>a)</b> <span>Las dos listas: los tres tipos de aprendizaje (supervisado, no supervisado, por refuerzo) y las tres clases de problema (binaria, multi-clase o multi-etiqueta, regresión), porque la pregunta admite las dos lecturas.</span></label></div>
+<div class="opcion"><input type="radio" name="b4s5-0-q3" id="b4s5-0-q3-o1"><label for="b4s5-0-q3-o1"><b>b)</b> <span>Solo los tipos de aprendizaje: &quot;problema&quot; y &quot;aprendizaje&quot; son sinónimos en el libro.</span></label></div>
+<div class="opcion"><input type="radio" name="b4s5-0-q3" id="b4s5-0-q3-o2"><label for="b4s5-0-q3-o2"><b>c)</b> <span>Solo las clases de problema, que se distinguen por el algoritmo que vas a usar.</span></label></div>
+<label class="seguro"><input type="checkbox" name="b4s5-0-q3-seg"> estaba seguro</label>
+<div class="explicacion" hidden><strong>(a)</strong>, es la advertencia explícita de esta sección. <strong>(b)</strong> borra una distinción que el apunte marca a propósito. <strong>(c)</strong> además se equivoca en el criterio: las clases de problema se distinguen por la <strong>forma de la salida <code>y</code></strong>, no por el algoritmo.</div>
+</fieldset>
+<div class="quiz-barra"><button type="button" class="calificar">Calificar</button><button type="button" class="reiniciar">Reiniciar</button><output class="marcador" role="status"></output></div>
+</form>
 <hr />
 
 <div class="estado" data-sec="b4-3-que-tipo-de-problema-tienes"><button type="button" data-v="ok">&#10003; entendido</button><button type="button" data-v="rep">&#8635; repasar</button><button type="button" data-v="mias">&#9998; con mis palabras</button><textarea hidden rows="3" placeholder="Explica esta sección como se la contarías a alguien. Se guarda en este navegador."></textarea></div>
@@ -1705,6 +1972,36 @@ exactamente lo que hace la figura de comparación del capítulo 1, donde se enfr
 Gaussiano Ingenuo, LDA, QDA, Máquinas de Soporte Vectorial, Vecinos Cercanos y
 Bosques Aleatorios. Todos esos algoritmos son materia de las unidades 2 a 5; en
 esta unidad solo importa <strong>por qué</strong> se comparan en <code>G</code> y no en <code>T</code>.</p>
+<p><strong>En una frase:</strong> Aprender es <strong>elegir del catálogo <code>H</code> la función <code>h*</code> que minimiza
+el error empírico</strong> en <code>T</code>; para comparar dos conjuntos, ese error se promedia.</p>
+<form class="quiz" data-quiz="b4s6-0" data-total="3">
+<div class="quiz-cab"><output class="avance" aria-live="polite">0 de 3 respondidas</output><div class="quiz-prog" aria-hidden="true"><i></i></div></div>
+<fieldset class="pregunta" id="b4s6-0-q1">
+<legend><span class="num">1</span><span class="txt">Elegir &quot;todas las líneas rectas&quot; en vez de &quot;todos los árboles de decisión&quot; es elegir:</span></legend>
+<div class="opcion"><input type="radio" name="b4s6-0-q1" id="b4s6-0-q1-o0"><label for="b4s6-0-q1-o0"><b>a)</b> <span>la función de error <code>L</code>.</span></label></div>
+<div class="opcion"><input type="radio" name="b4s6-0-q1" id="b4s6-0-q1-o1"><label for="b4s6-0-q1-o1"><b>b)</b> <span>el conjunto de entrenamiento <code>T</code>.</span></label></div>
+<div class="opcion"><input type="radio" name="b4s6-0-q1" id="b4s6-0-q1-o2" data-ok="1"><label for="b4s6-0-q1-o2"><b>c)</b> <span>el conjunto de hipótesis <code>H</code>: el catálogo de funciones donde se busca, que es lo mismo que elegir el algoritmo.</span></label></div>
+<label class="seguro"><input type="checkbox" name="b4s6-0-q1-seg"> estaba seguro</label>
+<div class="explicacion" hidden><strong>(c)</strong>. <strong>(a)</strong> falla porque <code>L</code> mide cuánto te equivocaste en <strong>un</strong> caso y es una elección aparte: puedes usar el mismo <code>L</code> con dos catálogos distintos. <strong>(b)</strong> falla porque <code>T</code> son datos, no funciones.</div>
+</fieldset>
+<fieldset class="pregunta" id="b4s6-0-q2">
+<legend><span class="num">2</span><span class="txt"><code>E(h|T) = Σ L(y, h(x))</code> suma un término por dato. Si <code>T</code> tiene 70 datos y <code>G</code> tiene 30, ¿por qué el código divide entre el número de datos antes de comparar los dos conjuntos?</span></legend>
+<div class="opcion"><input type="radio" name="b4s6-0-q2" id="b4s6-0-q2-o0"><label for="b4s6-0-q2-o0"><b>a)</b> <span>Porque dividir deja el error entre 0 y 1 en cualquier problema.</span></label></div>
+<div class="opcion"><input type="radio" name="b4s6-0-q2" id="b4s6-0-q2-o1" data-ok="1"><label for="b4s6-0-q2-o1"><b>b)</b> <span>Porque la suma crece con el tamaño del conjunto, así que las dos sumas no son comparables; dividir entre el número de datos es lo que hace <code>.mean()</code>.</span></label></div>
+<div class="opcion"><input type="radio" name="b4s6-0-q2" id="b4s6-0-q2-o2"><label for="b4s6-0-q2-o2"><b>c)</b> <span>Porque la definición del libro está equivocada.</span></label></div>
+<label class="seguro"><input type="checkbox" name="b4s6-0-q2-seg"> estaba seguro</label>
+<div class="explicacion" hidden><strong>(b)</strong>. <strong>(a)</strong> es falso: en regresión el promedio de diferencias al cuadrado no está acotado por 1, y la §5.1 mide 6.6651. <strong>(c)</strong> también: la suma sin dividir es correcta para <strong>minimizar dentro de un mismo conjunto</strong>, donde el divisor es el mismo y no cambia quién gana; lo que no sirve es para comparar conjuntos de distinto tamaño.</div>
+</fieldset>
+<fieldset class="pregunta" id="b4s6-0-q3">
+<legend><span class="num">3</span><span class="txt">¿Por qué los algoritmos se comparan entre sí en <code>G</code> y no en <code>T</code>?</span></legend>
+<div class="opcion"><input type="radio" name="b4s6-0-q3" id="b4s6-0-q3-o0"><label for="b4s6-0-q3-o0"><b>a)</b> <span>Porque <code>G</code> siempre tiene más datos que <code>T</code>.</span></label></div>
+<div class="opcion"><input type="radio" name="b4s6-0-q3" id="b4s6-0-q3-o1"><label for="b4s6-0-q3-o1"><b>b)</b> <span>Porque en <code>T</code> el error no se puede calcular.</span></label></div>
+<div class="opcion"><input type="radio" name="b4s6-0-q3" id="b4s6-0-q3-o2" data-ok="1"><label for="b4s6-0-q3-o2"><b>c)</b> <span>Porque lo que interesa es generalizar, y en <code>T</code> ganaría un modelo que se memorizó los datos sin haber aprendido nada del fenómeno.</span></label></div>
+<label class="seguro"><input type="checkbox" name="b4s6-0-q3-seg"> estaba seguro</label>
+<div class="explicacion" hidden><strong>(c)</strong>. <strong>(a)</strong> es falso y al revés: lo normal es que <code>T</code> sea el conjunto grande (105 contra 45 en el ejemplo de <a class="ref" href="#b2-6-el-patron-fit-predict-de-scikit-learn">«El tema» §6</a>). <strong>(b)</strong> es falso: en <code>T</code> el error se calcula igual —de hecho <code>h*</code> se elige minimizándolo ahí—; lo que no hace es decirte si el modelo generaliza.</div>
+</fieldset>
+<div class="quiz-barra"><button type="button" class="calificar">Calificar</button><button type="button" class="reiniciar">Reiniciar</button><output class="marcador" role="status"></output></div>
+</form>
 <hr />
 
 <div class="estado" data-sec="b4-4-que-se-busca-exactamente-h-y-el-error-empirico"><button type="button" data-v="ok">&#10003; entendido</button><button type="button" data-v="rep">&#8635; repasar</button><button type="button" data-v="mias">&#9998; con mis palabras</button><textarea hidden rows="3" placeholder="Explica esta sección como se la contarías a alguien. Se guarda en este navegador."></textarea></div>
@@ -1776,6 +2073,36 @@ sigue; a la derecha una línea que pasa por encima de cada punto de entrenamient
 persiguiendo el ruido.</p>
 <p><strong>Un error de entrenamiento bajo no dice nada por sí solo: hay que compararlo con
 el de prueba. Uno alto, en cambio, ya diagnostica sub-aprendizaje sin mirar <code>G</code>.</strong></p>
+<p><strong>En una frase:</strong> <strong>Sobre-aprender</strong> es error casi nulo en <code>T</code> y grande en <code>G</code>;
+<strong>sub-aprender</strong> es error grande ya en <code>T</code>.</p>
+<form class="quiz" data-quiz="b4s7-0" data-total="3">
+<div class="quiz-cab"><output class="avance" aria-live="polite">0 de 3 respondidas</output><div class="quiz-prog" aria-hidden="true"><i></i></div></div>
+<fieldset class="pregunta" id="b4s7-0-q1">
+<legend><span class="num">1</span><span class="txt">Un modelo da <code>E(h*|T) = 5.8</code> y <code>E(h*|G) = 6.1</code> en un problema donde un modelo razonable llega a 0.4. ¿Qué diagnosticas y con qué conjunto basta?</span></legend>
+<div class="opcion"><input type="radio" name="b4s7-0-q1" id="b4s7-0-q1-o0" data-ok="1"><label for="b4s7-0-q1-o0"><b>a)</b> <span>Sub-aprendizaje, y basta con <code>T</code>: el error ya es enorme en entrenamiento, o sea <code>E(h*|T) ≫ 0</code>.</span></label></div>
+<div class="opcion"><input type="radio" name="b4s7-0-q1" id="b4s7-0-q1-o1"><label for="b4s7-0-q1-o1"><b>b)</b> <span>Sobre-aprendizaje, porque el error de prueba es mayor que el de entrenamiento.</span></label></div>
+<div class="opcion"><input type="radio" name="b4s7-0-q1" id="b4s7-0-q1-o2"><label for="b4s7-0-q1-o2"><b>c)</b> <span>Generaliza bien, porque los dos errores se parecen.</span></label></div>
+<label class="seguro"><input type="checkbox" name="b4s7-0-q1-seg"> estaba seguro</label>
+<div class="explicacion" hidden><strong>(a)</strong>. <strong>(b)</strong> confunde el síntoma: sobre-aprendizaje es <code>E(h*|T) ≪ E(h*|G)</code>, con el de entrenamiento <strong>casi cero</strong>, y aquí no lo es. <strong>(c)</strong> es la trampa fina: que los dos se parezcan solo dice que el modelo se comporta igual en ambos conjuntos, y con los dos altos eso es sub-aprendizaje, no equilibrio.</div>
+</fieldset>
+<fieldset class="pregunta" id="b4s7-0-q2">
+<legend><span class="num">2</span><span class="txt">El &quot;algoritmo&quot; que guarda <code>T</code> en un diccionario y responde <code>0</code> para cualquier entrada que no esté ahí tiene error de entrenamiento exactamente 0. ¿Por qué es un mal modelo?</span></legend>
+<div class="opcion"><input type="radio" name="b4s7-0-q2" id="b4s7-0-q2-o0"><label for="b4s7-0-q2-o0"><b>a)</b> <span>Porque un diccionario no cuenta como algoritmo de aprendizaje.</span></label></div>
+<div class="opcion"><input type="radio" name="b4s7-0-q2" id="b4s7-0-q2-o1"><label for="b4s7-0-q2-o1"><b>b)</b> <span>Porque su error de entrenamiento en realidad debería salir 1.</span></label></div>
+<div class="opcion"><input type="radio" name="b4s7-0-q2" id="b4s7-0-q2-o2" data-ok="1"><label for="b4s7-0-q2-o2"><b>c)</b> <span>Porque no generaliza: ante un dato nuevo responde <code>0</code> sin haber capturado nada del fenómeno. Es el caso extremo de sobre-aprendizaje.</span></label></div>
+<label class="seguro"><input type="checkbox" name="b4s7-0-q2-seg"> estaba seguro</label>
+<div class="explicacion" hidden><strong>(c)</strong>. <strong>(a)</strong> es irrelevante: el punto del ejemplo es justo que un diccionario <strong>sí</strong> puede minimizar el error en <code>T</code>. <strong>(b)</strong> es falso, porque devuelve el <code>y</code> correcto de cada par que memorizó de <code>T</code>; y esa es exactamente la razón por la que un error de entrenamiento de 0 es sospechoso y no una buena noticia.</div>
+</fieldset>
+<fieldset class="pregunta" id="b4s7-0-q3">
+<legend><span class="num">3</span><span class="txt">Te dicen solo un número: <code>E(h*|T) = 0.02</code>. ¿Qué puedes diagnosticar?</span></legend>
+<div class="opcion"><input type="radio" name="b4s7-0-q3" id="b4s7-0-q3-o0"><label for="b4s7-0-q3-o0"><b>a)</b> <span>Sobre-aprendizaje, seguro.</span></label></div>
+<div class="opcion"><input type="radio" name="b4s7-0-q3" id="b4s7-0-q3-o1" data-ok="1"><label for="b4s7-0-q3-o1"><b>b)</b> <span>Nada todavía: un error de entrenamiento bajo no dice nada por sí solo; hay que compararlo con <code>E(h*|G)</code>.</span></label></div>
+<div class="opcion"><input type="radio" name="b4s7-0-q3" id="b4s7-0-q3-o2"><label for="b4s7-0-q3-o2"><b>c)</b> <span>Que el modelo generaliza bien.</span></label></div>
+<label class="seguro"><input type="checkbox" name="b4s7-0-q3-seg"> estaba seguro</label>
+<div class="explicacion" hidden><strong>(b)</strong>. Puede ser un modelo excelente o uno que se memorizó <code>T</code>; el dato que falta es <code>E(h*|G)</code>. <strong>(a)</strong> y <strong>(c)</strong> son las dos conclusiones apresuradas, una en cada dirección. El caso contrario sí sería concluyente: un <code>E(h*|T)</code> <strong>alto</strong> ya diagnostica sub-aprendizaje sin mirar <code>G</code>.</div>
+</fieldset>
+<div class="quiz-barra"><button type="button" class="calificar">Calificar</button><button type="button" class="reiniciar">Reiniciar</button><output class="marcador" role="status"></output></div>
+</form>
 <hr />
 
 <div class="estado" data-sec="b4-5-las-dos-formas-de-fallar-sobre-aprendizaje-y-s"><button type="button" data-v="ok">&#10003; entendido</button><button type="button" data-v="rep">&#8635; repasar</button><button type="button" data-v="mias">&#9998; con mis palabras</button><textarea hidden rows="3" placeholder="Explica esta sección como se la contarías a alguien. Se guarda en este navegador."></textarea></div>
@@ -1889,6 +2216,36 @@ concentra todo en poco espacio y su densidad en el centro es altísima.</p>
 <p>En el libro esta función es <code>f_X</code>. Lo que sí es una probabilidad es el resultado
 después de <strong>normalizar</strong>: dividir entre la evidencia para que los números sumen
 exactamente 1 (§7).</p>
+<p><strong>En una frase:</strong> La probabilidad es una <strong>proporción</strong>, la barra se lee &quot;dado&quot;, la
+evidencia sale de la probabilidad total y la <strong>densidad no es una probabilidad</strong>.</p>
+<form class="quiz" data-quiz="b4s8-0" data-total="3">
+<div class="quiz-cab"><output class="avance" aria-live="polite">0 de 3 respondidas</output><div class="quiz-prog" aria-hidden="true"><i></i></div></div>
+<fieldset class="pregunta" id="b4s8-0-q1">
+<legend><span class="num">1</span><span class="txt"><code>P(el suelo está mojado | llovió)</code> es casi 1. ¿Qué puedes decir de <code>P(llovió | el suelo está mojado)</code>?</span></legend>
+<div class="opcion"><input type="radio" name="b4s8-0-q1" id="b4s8-0-q1-o0"><label for="b4s8-0-q1-o0"><b>a)</b> <span>Es también casi 1: la barra se puede leer en cualquier dirección.</span></label></div>
+<div class="opcion"><input type="radio" name="b4s8-0-q1" id="b4s8-0-q1-o1" data-ok="1"><label for="b4s8-0-q1-o1"><b>b)</b> <span>Es menor: el suelo también se moja por riego, por una fuga o por un camión de limpieza.</span></label></div>
+<div class="opcion"><input type="radio" name="b4s8-0-q1" id="b4s8-0-q1-o2"><label for="b4s8-0-q1-o2"><b>c)</b> <span>Es 1 menos la primera, o sea casi 0.</span></label></div>
+<label class="seguro"><input type="checkbox" name="b4s8-0-q1-seg"> estaba seguro</label>
+<div class="explicacion" hidden><strong>(b)</strong>. Invertir la barra cambia la pregunta y la respuesta; es el mismo caso de <code>P(cuatro patas | perro)</code> contra <code>P(perro | cuatro patas)</code>. <strong>(a)</strong> es exactamente la confusión que el teorema de Bayes existe para resolver. <strong>(c)</strong> confunde el intercambio con el complemento: lo que suma 1 es <code>P(A|B) + P(no A|B)</code>, no <code>P(A|B) + P(B|A)</code>.</div>
+</fieldset>
+<fieldset class="pregunta" id="b4s8-0-q2">
+<legend><span class="num">2</span><span class="txt">Dos clases con prior <code>P(Y=1) = 0.6</code> y <code>P(Y=2) = 0.4</code>. Para un punto <code>x</code>, <code>P(x|Y=1) = 0.25</code> y <code>P(x|Y=2) = 0.05</code>. ¿Cuánto vale <code>P(x)</code>?</span></legend>
+<div class="opcion"><input type="radio" name="b4s8-0-q2" id="b4s8-0-q2-o0"><label for="b4s8-0-q2-o0"><b>a)</b> <span>0.30</span></label></div>
+<div class="opcion"><input type="radio" name="b4s8-0-q2" id="b4s8-0-q2-o1"><label for="b4s8-0-q2-o1"><b>b)</b> <span>0.15</span></label></div>
+<div class="opcion"><input type="radio" name="b4s8-0-q2" id="b4s8-0-q2-o2" data-ok="1"><label for="b4s8-0-q2-o2"><b>c)</b> <span>0.17</span></label></div>
+<label class="seguro"><input type="checkbox" name="b4s8-0-q2-seg"> estaba seguro</label>
+<div class="explicacion" hidden><strong>(c)</strong>, por probabilidad total: <code>0.25 × 0.6 + 0.05 × 0.4 = 0.15 + 0.02 = 0.17</code>. <strong>(a)</strong> 0.30 suma las verosimilitudes sin ponderarlas por el prior. <strong>(b)</strong> 0.15 se quedó con el término de la clase 1 y olvidó el de la clase 2; la suma recorre <strong>todas</strong> las clases.</div>
+</fieldset>
+<fieldset class="pregunta" id="b4s8-0-q3">
+<legend><span class="num">3</span><span class="txt">Dos nubes centradas en <code>[0, 0]</code>: una con <code>cov=[[9, 0], [0, 9]]</code> y otra con <code>cov=[[0.25, 0], [0, 0.25]]</code>. ¿Cuál tiene la densidad más alta en su centro?</span></legend>
+<div class="opcion"><input type="radio" name="b4s8-0-q3" id="b4s8-0-q3-o0" data-ok="1"><label for="b4s8-0-q3-o0"><b>a)</b> <span>La de <code>cov=[[0.25, 0], [0, 0.25]]</code>: concentra todo en poco espacio (medido: 0.6366 contra 0.0177).</span></label></div>
+<div class="opcion"><input type="radio" name="b4s8-0-q3" id="b4s8-0-q3-o1"><label for="b4s8-0-q3-o1"><b>b)</b> <span>La de <code>cov=[[9, 0], [0, 9]]</code>, porque abarca más área.</span></label></div>
+<div class="opcion"><input type="radio" name="b4s8-0-q3" id="b4s8-0-q3-o2"><label for="b4s8-0-q3-o2"><b>c)</b> <span>Las dos igual: la densidad en el centro siempre vale 1.</span></label></div>
+<label class="seguro"><input type="checkbox" name="b4s8-0-q3-seg"> estaba seguro</label>
+<div class="explicacion" hidden><strong>(a)</strong>. Los números de la diagonal son varianzas, o sea dispersión al cuadrado: un 9 es una nube que se extiende unas 3 unidades y un 0.25 unas 0.5. <strong>(b)</strong> invierte la relación: abarcar más área es repartir la misma masa en más espacio. <strong>(c)</strong> trata la densidad como si fuera una probabilidad; ni está acotada por 1 ni vale lo mismo en todas las nubes.</div>
+</fieldset>
+<div class="quiz-barra"><button type="button" class="calificar">Calificar</button><button type="button" class="reiniciar">Reiniciar</button><output class="marcador" role="status"></output></div>
+</form>
 <hr />
 
 <div class="estado" data-sec="b4-6-probabilidad-el-minimo-indispensable"><button type="button" data-v="ok">&#10003; entendido</button><button type="button" data-v="rep">&#8635; repasar</button><button type="button" data-v="mias">&#9998; con mis palabras</button><textarea hidden rows="3" placeholder="Explica esta sección como se la contarías a alguien. Se guarda en este navegador."></textarea></div>
@@ -1985,6 +2342,36 @@ ganador. Y lo necesitas en la §12, donde la regla de decisión compara el
 posterior contra un umbral. La evidencia es el <strong>factor normalizador que hace que
 las probabilidades sumen 1</strong>; sin ella tienes puntajes comparables, no
 probabilidades.</p>
+<p><strong>En una frase:</strong> <strong>Bayes</strong> convierte lo que puedes medir —verosimilitud y prior— en
+lo que quieres —el posterior—, dividiendo entre la evidencia.</p>
+<form class="quiz" data-quiz="b4s9-0" data-total="3">
+<div class="quiz-cab"><output class="avance" aria-live="polite">0 de 3 respondidas</output><div class="quiz-prog" aria-hidden="true"><i></i></div></div>
+<fieldset class="pregunta" id="b4s9-0-q1">
+<legend><span class="num">1</span><span class="txt">Una prueba da positivo en 99 de cada 100 enfermos. Sales positivo. ¿Qué dato <strong>falta</strong> para saber qué tan probable es que estés enfermo?</span></legend>
+<div class="opcion"><input type="radio" name="b4s9-0-q1" id="b4s9-0-q1-o0" data-ok="1"><label for="b4s9-0-q1-o0"><b>a)</b> <span>El prior <code>P(Y)</code>: qué tan frecuente es la enfermedad antes de hacerte la prueba.</span></label></div>
+<div class="opcion"><input type="radio" name="b4s9-0-q1" id="b4s9-0-q1-o1"><label for="b4s9-0-q1-o1"><b>b)</b> <span>Nada: 99 de cada 100 ya es la respuesta que buscas.</span></label></div>
+<div class="opcion"><input type="radio" name="b4s9-0-q1" id="b4s9-0-q1-o2"><label for="b4s9-0-q1-o2"><b>c)</b> <span>El número de personas que se hicieron la prueba ese día.</span></label></div>
+<label class="seguro"><input type="checkbox" name="b4s9-0-q1-seg"> estaba seguro</label>
+<div class="explicacion" hidden><strong>(a)</strong>. <strong>(b)</strong> es el error clásico: 99/100 es la <strong>verosimilitud</strong> <code>P(positivo | enfermo)</code>, no el posterior <code>P(enfermo | positivo)</code>. Con una enfermedad rara los falsos positivos pueden ser mayoría y el posterior queda muy por debajo de 0.99: con prevalencia 1/1000 y 1 % de falsos positivos sale ≈ 0.09 (medido). <strong>(c)</strong> no aparece en ninguno de los cuatro términos de la fórmula.</div>
+</fieldset>
+<fieldset class="pregunta" id="b4s9-0-q2">
+<legend><span class="num">2</span><span class="txt">La derivación del teorema de Bayes arranca de <code>P(X, Y) = P(Y, X)</code>. ¿Por qué esa igualdad es cierta?</span></legend>
+<div class="opcion"><input type="radio" name="b4s9-0-q2" id="b4s9-0-q2-o0"><label for="b4s9-0-q2-o0"><b>a)</b> <span>Porque <code>X</code> y <code>Y</code> son independientes.</span></label></div>
+<div class="opcion"><input type="radio" name="b4s9-0-q2" id="b4s9-0-q2-o1" data-ok="1"><label for="b4s9-0-q2-o1"><b>b)</b> <span>Porque la probabilidad conjunta es conmutativa: &quot;que pasen las dos cosas&quot; no depende del orden en que se nombren.</span></label></div>
+<div class="opcion"><input type="radio" name="b4s9-0-q2" id="b4s9-0-q2-o2"><label for="b4s9-0-q2-o2"><b>c)</b> <span>Porque <code>P(X)</code> y <code>P(Y)</code> valen lo mismo.</span></label></div>
+<label class="seguro"><input type="checkbox" name="b4s9-0-q2-seg"> estaba seguro</label>
+<div class="explicacion" hidden><strong>(b)</strong>. <strong>(a)</strong> es un supuesto <strong>distinto</strong>, y aquí además indeseable: si la entrada no dijera nada de la clase no habría nada que aprender. <strong>(c)</strong> confunde la conjunta con las marginales, que no tienen por qué coincidir.</div>
+</fieldset>
+<fieldset class="pregunta" id="b4s9-0-q3">
+<legend><span class="num">3</span><span class="txt">¿En cuál de estos casos <strong>no</strong> puedes usar el atajo <code>P(Y|X) ∝ P(X|Y)·P(Y)</code> y saltarte la evidencia?</span></legend>
+<div class="opcion"><input type="radio" name="b4s9-0-q3" id="b4s9-0-q3-o0"><label for="b4s9-0-q3-o0"><b>a)</b> <span>Cuando solo quieres saber qué clase gana entre tres.</span></label></div>
+<div class="opcion"><input type="radio" name="b4s9-0-q3" id="b4s9-0-q3-o1"><label for="b4s9-0-q3-o1"><b>b)</b> <span>Cuando el prior es igual para todas las clases.</span></label></div>
+<div class="opcion"><input type="radio" name="b4s9-0-q3" id="b4s9-0-q3-o2" data-ok="1"><label for="b4s9-0-q3-o2"><b>c)</b> <span>Cuando tienes que comparar el posterior contra un umbral, como en la regla de la acción nula.</span></label></div>
+<label class="seguro"><input type="checkbox" name="b4s9-0-q3-seg"> estaba seguro</label>
+<div class="explicacion" hidden><strong>(c)</strong>. La evidencia es la misma para todas las clases, así que dividir entre ella no cambia <strong>quién</strong> gana: por eso <strong>(a)</strong> sí admite el atajo, y <strong>(b)</strong> también (ahí hasta se cancela el prior). Pero un umbral compara un <strong>número</strong>, y sin normalizar tienes puntajes proporcionales, no probabilidades.</div>
+</fieldset>
+<div class="quiz-barra"><button type="button" class="calificar">Calificar</button><button type="button" class="reiniciar">Reiniciar</button><output class="marcador" role="status"></output></div>
+</form>
 <hr />
 
 <div class="estado" data-sec="b4-7-el-teorema-de-bayes"><button type="button" data-v="ok">&#10003; entendido</button><button type="button" data-v="rep">&#8635; repasar</button><button type="button" data-v="mias">&#9998; con mis palabras</button><textarea hidden rows="3" placeholder="Explica esta sección como se la contarías a alguien. Se guarda en este navegador."></textarea></div>
@@ -2126,6 +2513,36 @@ de traducción existe porque las columnas se numeran desde 0 y las clases desde 
 <p><strong>Nota sobre el prior:</strong> aquí vale 1/3 para las tres porque hay 1000 datos de
 cada clase: <code>P(Y=1) = 1000/3000 = 1/3</code>, y lo mismo para las otras dos. El prior
 no es siempre uniforme; en la §15 lo cambias tú y mides el efecto.</p>
+<p><strong>En una frase:</strong> Con las distribuciones verdaderas, Bayes se calcula en cuatro pasos:
+<strong>verosimilitud por prior</strong>, sumar para la evidencia, dividir y <code>argmax</code>.</p>
+<form class="quiz" data-quiz="b4s10-0" data-total="3">
+<div class="quiz-cab"><output class="avance" aria-live="polite">0 de 3 respondidas</output><div class="quiz-prog" aria-hidden="true"><i></i></div></div>
+<fieldset class="pregunta" id="b4s10-0-q1">
+<legend><span class="num">1</span><span class="txt">En el cálculo paso a paso, el posterior del punto fue <code>[0.3427, 0.6573, 0.0000]</code>, se eligió la clase 2 y el punto en realidad venía de la nube 1. ¿Qué muestra eso?</span></legend>
+<div class="opcion"><input type="radio" name="b4s10-0-q1" id="b4s10-0-q1-o0"><label for="b4s10-0-q1-o0"><b>a)</b> <span>Que el cálculo tiene un error de programación.</span></label></div>
+<div class="opcion"><input type="radio" name="b4s10-0-q1" id="b4s10-0-q1-o1"><label for="b4s10-0-q1-o1"><b>b)</b> <span>Que el prior 1/3 estaba mal elegido para ese punto.</span></label></div>
+<div class="opcion"><input type="radio" name="b4s10-0-q1" id="b4s10-0-q1-o2" data-ok="1"><label for="b4s10-0-q1-o2"><b>c)</b> <span>Que un posterior de 0.6573 es una apuesta razonable, no una garantía: en la zona de traslape la regla óptima también falla.</span></label></div>
+<label class="seguro"><input type="checkbox" name="b4s10-0-q1-seg"> estaba seguro</label>
+<div class="explicacion" hidden><strong>(c)</strong>. <strong>(a)</strong> es falso: los tres posteriores suman 1 y se eligió el mayor, exactamente lo que la regla pide. <strong>(b)</strong> también: el prior 1/3 es el correcto, porque hay 1000 datos de cada clase.</div>
+</fieldset>
+<fieldset class="pregunta" id="b4s10-0-q2">
+<legend><span class="num">2</span><span class="txt"><code>clase = np.array([1, 2, 3])</code> y <code>posterior.argmax(axis=1)</code> devuelve <code>[0, 2, 1]</code> para tres datos. ¿Qué devuelve <code>clase[posterior.argmax(axis=1)]</code>?</span></legend>
+<div class="opcion"><input type="radio" name="b4s10-0-q2" id="b4s10-0-q2-o0"><label for="b4s10-0-q2-o0"><b>a)</b> <span><code>[0, 2, 1]</code>: las mismas posiciones.</span></label></div>
+<div class="opcion"><input type="radio" name="b4s10-0-q2" id="b4s10-0-q2-o1" data-ok="1"><label for="b4s10-0-q2-o1"><b>b)</b> <span><code>[1, 3, 2]</code>: las etiquetas reales.</span></label></div>
+<div class="opcion"><input type="radio" name="b4s10-0-q2" id="b4s10-0-q2-o2"><label for="b4s10-0-q2-o2"><b>c)</b> <span><code>[1, 2, 3]</code>: siempre las tres clases en orden.</span></label></div>
+<label class="seguro"><input type="checkbox" name="b4s10-0-q2-seg"> estaba seguro</label>
+<div class="explicacion" hidden><strong>(b)</strong>, medido. <code>argmax(axis=1)</code> da la <strong>posición</strong> de la columna ganadora y usar ese arreglo como índice de <code>clase</code> la traduce a la etiqueta; el paso existe porque las columnas se numeran desde 0 y las clases desde 1. <strong>(a)</strong> se queda a medio camino, sin traducir. <strong>(c)</strong> ignora que el resultado depende de quién ganó en cada fila.</div>
+</fieldset>
+<fieldset class="pregunta" id="b4s10-0-q3">
+<legend><span class="num">3</span><span class="txt">En el código de los 3000 puntos, <code>evidencia = num.sum(axis=1)</code>. ¿Qué contiene ese arreglo?</span></legend>
+<div class="opcion"><input type="radio" name="b4s10-0-q3" id="b4s10-0-q3-o0" data-ok="1"><label for="b4s10-0-q3-o0"><b>a)</b> <span>Un número por dato: la suma de los tres numeradores de esa fila, o sea la evidencia de ese punto.</span></label></div>
+<div class="opcion"><input type="radio" name="b4s10-0-q3" id="b4s10-0-q3-o1"><label for="b4s10-0-q3-o1"><b>b)</b> <span>Un número por clase: la suma de la columna de cada clase.</span></label></div>
+<div class="opcion"><input type="radio" name="b4s10-0-q3" id="b4s10-0-q3-o2"><label for="b4s10-0-q3-o2"><b>c)</b> <span>Un solo número: la suma de toda la tabla.</span></label></div>
+<label class="seguro"><input type="checkbox" name="b4s10-0-q3-seg"> estaba seguro</label>
+<div class="explicacion" hidden><strong>(a)</strong>. <code>axis=1</code> opera por filas y en la convención <code>(N, d)</code> cada fila es un dato, así que salen 3000 evidencias, una por punto. <strong>(b)</strong> sería <code>axis=0</code>, y no tendría sentido: la evidencia depende de <code>x</code>. <strong>(c)</strong> sería <code>num.sum()</code> sin <code>axis</code>, un solo número para los 3000 puntos.</div>
+</fieldset>
+<div class="quiz-barra"><button type="button" class="calificar">Calificar</button><button type="button" class="reiniciar">Reiniciar</button><output class="marcador" role="status"></output></div>
+</form>
 <hr />
 
 <div class="estado" data-sec="b4-8-bayes-en-codigo-el-problema-sintetico-de-tres-"><button type="button" data-v="ok">&#10003; entendido</button><button type="button" data-v="rep">&#8635; repasar</button><button type="button" data-v="mias">&#9998; con mis palabras</button><textarea hidden rows="3" placeholder="Explica esta sección como se la contarías a alguien. Se guarda en este navegador."></textarea></div>
@@ -2202,6 +2619,36 @@ cree donde no la hay.</p>
 <p><strong>Cómo se reporta un error:</strong> <code>0.0093 ± 0.0018</code>. Un error de 0.0093 y uno de
 0.0100 medidos con este error estándar <strong>no son distinguibles</strong>. De eso trata la
 unidad 5 de la materia.</p>
+<p><strong>En una frase:</strong> El <strong>error</strong> es el promedio de un arreglo de booleanos, y su <strong>error
+estándar</strong> dice cuánto variaría esa medición si la repitieras.</p>
+<form class="quiz" data-quiz="b4s11-0" data-total="3">
+<div class="quiz-cab"><output class="avance" aria-live="polite">0 de 3 respondidas</output><div class="quiz-prog" aria-hidden="true"><i></i></div></div>
+<fieldset class="pregunta" id="b4s11-0-q1">
+<legend><span class="num">1</span><span class="txt"><code>real = np.array([2, 2, 1, 3, 1, 1])</code> y <code>pred = np.array([2, 1, 1, 3, 1, 2])</code>. ¿Cuánto vale <code>(real != pred).mean()</code>?</span></legend>
+<div class="opcion"><input type="radio" name="b4s11-0-q1" id="b4s11-0-q1-o0"><label for="b4s11-0-q1-o0"><b>a)</b> <span>2</span></label></div>
+<div class="opcion"><input type="radio" name="b4s11-0-q1" id="b4s11-0-q1-o1" data-ok="1"><label for="b4s11-0-q1-o1"><b>b)</b> <span>0.3333</span></label></div>
+<div class="opcion"><input type="radio" name="b4s11-0-q1" id="b4s11-0-q1-o2"><label for="b4s11-0-q1-o2"><b>c)</b> <span>0.6667</span></label></div>
+<label class="seguro"><input type="checkbox" name="b4s11-0-q1-seg"> estaba seguro</label>
+<div class="explicacion" hidden><strong>(b)</strong>, medido: dos fallos de seis, <code>2/6 = 0.3333</code>. <strong>(a)</strong> 2 es la <strong>suma</strong> de los <code>True</code>, o sea <code>(real != pred).sum()</code>. <strong>(c)</strong> 0.6667 es la proporción de <strong>aciertos</strong>, <code>(real == pred).mean()</code>; en clasificación error y aciertos suman 1.</div>
+</fieldset>
+<fieldset class="pregunta" id="b4s11-0-q2">
+<legend><span class="num">2</span><span class="txt">Un clasificador da error 0.04. Con <code>N = 400</code> su error estándar es 0.0098. Si lo mides con <code>N = 1600</code> y el error sale igual, ¿cuánto vale el error estándar?</span></legend>
+<div class="opcion"><input type="radio" name="b4s11-0-q2" id="b4s11-0-q2-o0"><label for="b4s11-0-q2-o0"><b>a)</b> <span>0.0392: sube al cuádruple.</span></label></div>
+<div class="opcion"><input type="radio" name="b4s11-0-q2" id="b4s11-0-q2-o1"><label for="b4s11-0-q2-o1"><b>b)</b> <span>0.0098: no cambia, porque solo depende de <code>p</code>.</span></label></div>
+<div class="opcion"><input type="radio" name="b4s11-0-q2" id="b4s11-0-q2-o2" data-ok="1"><label for="b4s11-0-q2-o2"><b>c)</b> <span>0.0049: baja a la mitad.</span></label></div>
+<label class="seguro"><input type="checkbox" name="b4s11-0-q2-seg"> estaba seguro</label>
+<div class="explicacion" hidden><strong>(c)</strong>, medido. <code>raíz(p(1-p)/N)</code> divide entre <code>N</code> <strong>dentro</strong> de la raíz, así que cuadruplicar <code>N</code> divide el error estándar entre 2. <strong>(a)</strong> invierte la dirección: medir con más datos da una medición <strong>más</strong> estable. <strong>(b)</strong> ignora la <code>N</code> de la fórmula.</div>
+</fieldset>
+<fieldset class="pregunta" id="b4s11-0-q3">
+<legend><span class="num">3</span><span class="txt">El error estándar salió 0.0018 por fórmula y 0.0017 por bootstrap sobre los mismos datos. ¿Qué se concluye del bootstrap?</span></legend>
+<div class="opcion"><input type="radio" name="b4s11-0-q3" id="b4s11-0-q3-o0" data-ok="1"><label for="b4s11-0-q3-o0"><b>a)</b> <span>Que funciona: acierta donde sí hay fórmula, y por eso se le cree donde no la hay.</span></label></div>
+<div class="opcion"><input type="radio" name="b4s11-0-q3" id="b4s11-0-q3-o1"><label for="b4s11-0-q3-o1"><b>b)</b> <span>Que la fórmula está mal, porque los dos números no son idénticos.</span></label></div>
+<div class="opcion"><input type="radio" name="b4s11-0-q3" id="b4s11-0-q3-o2"><label for="b4s11-0-q3-o2"><b>c)</b> <span>Que hacen falta más de 500 remuestreos, porque 0.0017 no es 0.0018.</span></label></div>
+<label class="seguro"><input type="checkbox" name="b4s11-0-q3-seg"> estaba seguro</label>
+<div class="explicacion" hidden><strong>(a)</strong>: esa coincidencia es la validación del método. <strong>(b)</strong> y <strong>(c)</strong> le exigen igualdad exacta a una <strong>simulación</strong>; la diferencia está en el cuarto decimal, muy por debajo de la propia dispersión que se está midiendo.</div>
+</fieldset>
+<div class="quiz-barra"><button type="button" class="calificar">Calificar</button><button type="button" class="reiniciar">Reiniciar</button><output class="marcador" role="status"></output></div>
+</form>
 <hr />
 
 <div class="estado" data-sec="b4-9-medir-el-error-y-que-tan-confiable-es-esa-medi"><button type="button" data-v="ok">&#10003; entendido</button><button type="button" data-v="rep">&#8635; repasar</button><button type="button" data-v="mias">&#9998; con mis palabras</button><textarea hidden rows="3" placeholder="Explica esta sección como se la contarías a alguien. Se guarda en este navegador."></textarea></div>
@@ -2296,6 +2743,36 @@ clases, no del algoritmo.</li>
 <p>Y el corolario que más se pregunta: <strong>un error mayor que cero no significa que tu
 modelo esté mal</strong>. Puede estar en el piso del problema. Al revés también:
 <code>E(h*|T) = 0</code> es normalmente señal de sobre-aprendizaje (§5), no de excelencia.</p>
+<p><strong>En una frase:</strong> El <strong>error de Bayes</strong> es el piso del problema: lo fija el traslape
+entre las clases, no el algoritmo que uses.</p>
+<form class="quiz" data-quiz="b4s12-0" data-total="3">
+<div class="quiz-cab"><output class="avance" aria-live="polite">0 de 3 respondidas</output><div class="quiz-prog" aria-hidden="true"><i></i></div></div>
+<fieldset class="pregunta" id="b4s12-0-q1">
+<legend><span class="num">1</span><span class="txt">En la comparación de la §10.1, la regla de Bayes dio error 0.0085 y la regla &quot;decide P si x2 &gt; 2.5&quot; dio 0.0345. ¿Qué concluyes de la regla alternativa?</span></legend>
+<div class="opcion"><input type="radio" name="b4s12-0-q1" id="b4s12-0-q1-o0"><label for="b4s12-0-q1-o0"><b>a)</b> <span>Que también alcanza el error de Bayes: los dos números son pequeños.</span></label></div>
+<div class="opcion"><input type="radio" name="b4s12-0-q1" id="b4s12-0-q1-o1" data-ok="1"><label for="b4s12-0-q1-o1"><b>b)</b> <span>Que es unas cuatro veces peor que el piso del problema, aunque en términos absolutos parezca buena: <code>0.0345 / 0.0085 ≈ 4.06</code>.</span></label></div>
+<div class="opcion"><input type="radio" name="b4s12-0-q1" id="b4s12-0-q1-o2"><label for="b4s12-0-q1-o2"><b>c)</b> <span>Que el error de Bayes de ese problema es en realidad 0.0345.</span></label></div>
+<label class="seguro"><input type="checkbox" name="b4s12-0-q1-seg"> estaba seguro</label>
+<div class="explicacion" hidden><strong>(b)</strong>. <strong>(a)</strong> compara en absoluto en vez de compararla contra el piso, que es la única referencia que dice si una regla es buena. <strong>(c)</strong> invierte la definición: el error de Bayes es el <strong>mínimo</strong> esperable, y en esta corrida ninguna de las tres alternativas se le acercó: dieron 0.5, 0.1345 y 0.0345.</div>
+</fieldset>
+<fieldset class="pregunta" id="b4s12-0-q2">
+<legend><span class="num">2</span><span class="txt">Cuatro clases igual de probables cuyas entradas provienen todas de la misma distribución. ¿Cuál es el mínimo error alcanzable?</span></legend>
+<div class="opcion"><input type="radio" name="b4s12-0-q2" id="b4s12-0-q2-o0"><label for="b4s12-0-q2-o0"><b>a)</b> <span>0.25</span></label></div>
+<div class="opcion"><input type="radio" name="b4s12-0-q2" id="b4s12-0-q2-o1"><label for="b4s12-0-q2-o1"><b>b)</b> <span>0.5</span></label></div>
+<div class="opcion"><input type="radio" name="b4s12-0-q2" id="b4s12-0-q2-o2" data-ok="1"><label for="b4s12-0-q2-o2"><b>c)</b> <span>0.75</span></label></div>
+<label class="seguro"><input type="checkbox" name="b4s12-0-q2-seg"> estaba seguro</label>
+<div class="explicacion" hidden><strong>(c)</strong>: <code>1 - 1/K</code> con <code>K = 4</code> da 0.75. <strong>(a)</strong> 0.25 es <code>1/K</code>, la proporción de <strong>aciertos</strong> de adivinar, no de fallos. <strong>(b)</strong> 0.5 es el caso de dos clases. Con traslape total las entradas no contienen información sobre la clase y ningún algoritmo baja de ese piso.</div>
+</fieldset>
+<fieldset class="pregunta" id="b4s12-0-q3">
+<legend><span class="num">3</span><span class="txt">Tu modelo da error 0.03 en <code>G</code> y un compañero dice &quot;está mal hecho, debería dar 0&quot;. ¿Qué le contestas?</span></legend>
+<div class="opcion"><input type="radio" name="b4s12-0-q3" id="b4s12-0-q3-o0" data-ok="1"><label for="b4s12-0-q3-o0"><b>a)</b> <span>Que un error mayor que cero puede ser el piso del problema y no un defecto del modelo; lo sospechoso sería un error de <strong>cero en entrenamiento</strong>.</span></label></div>
+<div class="opcion"><input type="radio" name="b4s12-0-q3" id="b4s12-0-q3-o1"><label for="b4s12-0-q3-o1"><b>b)</b> <span>Que tiene razón: con suficientes datos cualquier problema llega a error 0.</span></label></div>
+<div class="opcion"><input type="radio" name="b4s12-0-q3" id="b4s12-0-q3-o2"><label for="b4s12-0-q3-o2"><b>c)</b> <span>Que el error de Bayes solo aplica a problemas de regresión.</span></label></div>
+<label class="seguro"><input type="checkbox" name="b4s12-0-q3-seg"> estaba seguro</label>
+<div class="explicacion" hidden><strong>(a)</strong>. Medido: con el modelo <strong>exacto</strong> que generó los datos hubo 28 errores en 3000. <strong>(b)</strong> confunde &quot;más datos&quot; con &quot;quitar el traslape&quot;: más datos estiman mejor el modelo, no mueven el piso. <strong>(c)</strong> es falso, y el ejemplo entero de la unidad es de clasificación.</div>
+</fieldset>
+<div class="quiz-barra"><button type="button" class="calificar">Calificar</button><button type="button" class="reiniciar">Reiniciar</button><output class="marcador" role="status"></output></div>
+</form>
 <hr />
 
 <div class="estado" data-sec="b4-10-el-error-minimo-alcanzable"><button type="button" data-v="ok">&#10003; entendido</button><button type="button" data-v="rep">&#8635; repasar</button><button type="button" data-v="mias">&#9998; con mis palabras</button><textarea hidden rows="3" placeholder="Explica esta sección como se la contarías a alguien. Se guarda en este navegador."></textarea></div>
@@ -2408,6 +2885,36 @@ la molestia. Solo al 95% se voltea la decisión.</p>
 la clase más probable; <strong>con costos asimétricos no tiene por qué serlo</strong>.</p>
 <p>Comprueba una cuenta a mano: <code>R(permitir) = 10 × 0.10 + 0 × 0.90 = 1.00</code> y
 <code>R(negar) = 0 × 0.10 + 1 × 0.90 = 0.90</code>. Como 0.90 &lt; 1.00, se niega.</p>
+<p><strong>En una frase:</strong> El <strong>riesgo</strong> es el costo promedio ponderado por el posterior; con
+costo 0/1 recupera &quot;la clase más probable&quot;, con costos asimétricos no.</p>
+<form class="quiz" data-quiz="b4s13-0" data-total="3">
+<div class="quiz-cab"><output class="avance" aria-live="polite">0 de 3 respondidas</output><div class="quiz-prog" aria-hidden="true"><i></i></div></div>
+<fieldset class="pregunta" id="b4s13-0-q1">
+<legend><span class="num">1</span><span class="txt">Con la convención de subíndices del apunte, <code>λ_23 = 7</code> significa:</span></legend>
+<div class="opcion"><input type="radio" name="b4s13-0-q1" id="b4s13-0-q1-o0"><label for="b4s13-0-q1-o0"><b>a)</b> <span>que la clase 2 aparece 7 veces más seguido que la clase 3.</span></label></div>
+<div class="opcion"><input type="radio" name="b4s13-0-q1" id="b4s13-0-q1-o1" data-ok="1"><label for="b4s13-0-q1-o1"><b>b)</b> <span>que tomar la acción 2 cuando la clase verdadera era 3 cuesta 7.</span></label></div>
+<div class="opcion"><input type="radio" name="b4s13-0-q1" id="b4s13-0-q1-o2"><label for="b4s13-0-q1-o2"><b>c)</b> <span>que tomar la acción 3 cuando la clase verdadera era 2 cuesta 7.</span></label></div>
+<label class="seguro"><input type="checkbox" name="b4s13-0-q1-seg"> estaba seguro</label>
+<div class="explicacion" hidden><strong>(b)</strong>: el <strong>primer</strong> subíndice es la acción y el <strong>segundo</strong> la clase verdadera; en la tabla, filas = acciones, columnas = clases verdaderas. <strong>(c)</strong> invierte los dos subíndices, y con costos asimétricos eso cambia la decisión. <strong>(a)</strong> confunde un costo con una frecuencia: los <code>λ</code> los eliges tú según el problema, no salen de los datos.</div>
+</fieldset>
+<fieldset class="pregunta" id="b4s13-0-q2">
+<legend><span class="num">2</span><span class="txt">En la simplificación <code>R(α_i|x) = Σ_k λ_ik P(Y=k|x) = 1 - P(Y=i|x)</code> con costo 0/1, ¿qué propiedad se usa en el último paso?</span></legend>
+<div class="opcion"><input type="radio" name="b4s13-0-q2" id="b4s13-0-q2-o0" data-ok="1"><label for="b4s13-0-q2-o0"><b>a)</b> <span>Que las probabilidades de todas las clases suman 1.</span></label></div>
+<div class="opcion"><input type="radio" name="b4s13-0-q2" id="b4s13-0-q2-o1"><label for="b4s13-0-q2-o1"><b>b)</b> <span>Que la evidencia es la suma de los numeradores de todas las clases.</span></label></div>
+<div class="opcion"><input type="radio" name="b4s13-0-q2" id="b4s13-0-q2-o2"><label for="b4s13-0-q2-o2"><b>c)</b> <span>Que el prior es uniforme.</span></label></div>
+<label class="seguro"><input type="checkbox" name="b4s13-0-q2-seg"> estaba seguro</label>
+<div class="explicacion" hidden><strong>(a)</strong>: &quot;la suma de todas menos la de <code>i</code>&quot; es &quot;1 menos la de <code>i</code>&quot;. <strong>(b)</strong> es cierta, pero se usa antes, al calcular los posteriores, no en este paso. <strong>(c)</strong> no hace falta: la simplificación vale con cualquier prior, porque solo necesita que los <strong>posteriores</strong> sumen 1.</div>
+</fieldset>
+<fieldset class="pregunta" id="b4s13-0-q3">
+<legend><span class="num">3</span><span class="txt">Detección de fraude. Bloquear una compra legítima cuesta 1; dejar pasar un fraude cuesta 20; acertar cuesta 0. Para una compra, <code>P(fraude|x) = 0.08</code> y <code>P(legítima|x) = 0.92</code>. ¿Qué acción tiene menor riesgo?</span></legend>
+<div class="opcion"><input type="radio" name="b4s13-0-q3" id="b4s13-0-q3-o0"><label for="b4s13-0-q3-o0"><b>a)</b> <span>Dejar pasar, porque &quot;legítima&quot; es la clase más probable.</span></label></div>
+<div class="opcion"><input type="radio" name="b4s13-0-q3" id="b4s13-0-q3-o1"><label for="b4s13-0-q3-o1"><b>b)</b> <span>Es indistinto: los dos riesgos valen 0.92.</span></label></div>
+<div class="opcion"><input type="radio" name="b4s13-0-q3" id="b4s13-0-q3-o2" data-ok="1"><label for="b4s13-0-q3-o2"><b>c)</b> <span>Bloquear: <code>R(bloquear) = 0×0.08 + 1×0.92 = 0.92</code> contra <code>R(dejar pasar) = 20×0.08 + 0×0.92 = 1.60</code>.</span></label></div>
+<label class="seguro"><input type="checkbox" name="b4s13-0-q3-seg"> estaba seguro</label>
+<div class="explicacion" hidden><strong>(c)</strong>, medido. <strong>(a)</strong> aplica la regla del costo 0/1 donde los costos <strong>no</strong> son simétricos. <strong>(b)</strong> calculó <code>R(bloquear)</code> y se detuvo: 0.92 no es 1.60. Con 92 % de probabilidad de ser legítima, el sistema aun así bloquea, igual que el de autenticación negaba con 90 %.</div>
+</fieldset>
+<div class="quiz-barra"><button type="button" class="calificar">Calificar</button><button type="button" class="reiniciar">Reiniciar</button><output class="marcador" role="status"></output></div>
+</form>
 <hr />
 
 <div class="estado" data-sec="b4-11-riesgo-cuando-equivocarse-cuesta-distinto"><button type="button" data-v="ok">&#10003; entendido</button><button type="button" data-v="rep">&#8635; repasar</button><button type="button" data-v="mias">&#9998; con mis palabras</button><textarea hidden rows="3" placeholder="Explica esta sección como se la contarías a alguien. Se guarda en este navegador."></textarea></div>
@@ -2447,6 +2954,36 @@ decidiría nada.</li>
 <p>El paso clave es factorizar <code>λ</code> (es el mismo para todas las clases) y usar otra
 vez que <strong>los posteriores suman 1</strong>. Que el riesgo de pedir ayuda <strong>no dependa de
 <code>x</code></strong> es lo que hace que la regla de la §13 sea un umbral fijo.</p>
+<p><strong>En una frase:</strong> No decidir se modela como una <strong>acción</strong> extra —<code>K</code> clases, <code>K+1</code>
+acciones— con costo constante <code>λ</code>, y no como una clase extra.</p>
+<form class="quiz" data-quiz="b4s14-0" data-total="3">
+<div class="quiz-cab"><output class="avance" aria-live="polite">0 de 3 respondidas</output><div class="quiz-prog" aria-hidden="true"><i></i></div></div>
+<fieldset class="pregunta" id="b4s14-0-q1">
+<legend><span class="num">1</span><span class="txt">¿Qué pasaría si el costo de la acción nula fuera <code>λ = 1.5</code>?</span></legend>
+<div class="opcion"><input type="radio" name="b4s14-0-q1" id="b4s14-0-q1-o0"><label for="b4s14-0-q1-o0"><b>a)</b> <span>El sistema pediría intervención en todos los casos.</span></label></div>
+<div class="opcion"><input type="radio" name="b4s14-0-q1" id="b4s14-0-q1-o1"><label for="b4s14-0-q1-o1"><b>b)</b> <span>El umbral <code>1 - λ</code> valdría 0.5.</span></label></div>
+<div class="opcion"><input type="radio" name="b4s14-0-q1" id="b4s14-0-q1-o2" data-ok="1"><label for="b4s14-0-q1-o2"><b>c)</b> <span>Pedir ayuda costaría más que equivocarse, así que nunca convendría: la acción nula quedaría inutilizada.</span></label></div>
+<label class="seguro"><input type="checkbox" name="b4s14-0-q1-seg"> estaba seguro</label>
+<div class="explicacion" hidden><strong>(c)</strong>, y por eso el rango declarado es <code>0 &lt; λ &lt; 1</code>. <strong>(a)</strong> describe el otro extremo, <code>λ ≤ 0</code>: pedir ayuda sería gratis o mejor que acertar y el sistema nunca decidiría nada. <strong>(b)</strong> hace mal la resta: <code>1 - 1.5 = -0.5</code>, un umbral que cualquier posterior supera.</div>
+</fieldset>
+<fieldset class="pregunta" id="b4s14-0-q2">
+<legend><span class="num">2</span><span class="txt">Un problema tiene 5 clases y se le agrega la acción nula. ¿Cuántas clases y cuántas acciones hay?</span></legend>
+<div class="opcion"><input type="radio" name="b4s14-0-q2" id="b4s14-0-q2-o0"><label for="b4s14-0-q2-o0"><b>a)</b> <span>6\ clases y 6 acciones.</span></label></div>
+<div class="opcion"><input type="radio" name="b4s14-0-q2" id="b4s14-0-q2-o1" data-ok="1"><label for="b4s14-0-q2-o1"><b>b)</b> <span>5\ clases y 6 acciones.</span></label></div>
+<div class="opcion"><input type="radio" name="b4s14-0-q2" id="b4s14-0-q2-o2"><label for="b4s14-0-q2-o2"><b>c)</b> <span>5\ clases y 5 acciones.</span></label></div>
+<label class="seguro"><input type="checkbox" name="b4s14-0-q2-seg"> estaba seguro</label>
+<div class="explicacion" hidden><strong>(b)</strong>: la acción nula es <code>α_{K+1}</code>, así que las clases siguen siendo <code>K = 5</code> y las acciones pasan a 6. <strong>(a)</strong> es justo la solución que el libro <strong>descarta</strong> —agregar una clase &quot;caso dudoso&quot;— porque incrementa la complejidad del problema. <strong>(c)</strong> no agrega nada y deja al sistema obligado a decidir siempre.</div>
+</fieldset>
+<fieldset class="pregunta" id="b4s14-0-q3">
+<legend><span class="num">3</span><span class="txt">¿Por qué el riesgo de la acción nula no depende de <code>x</code>?</span></legend>
+<div class="opcion"><input type="radio" name="b4s14-0-q3" id="b4s14-0-q3-o0" data-ok="1"><label for="b4s14-0-q3-o0"><b>a)</b> <span>Porque <code>λ</code> es el mismo para todas las clases: se factoriza y lo que queda es la suma de los posteriores, que vale 1.</span></label></div>
+<div class="opcion"><input type="radio" name="b4s14-0-q3" id="b4s14-0-q3-o1"><label for="b4s14-0-q3-o1"><b>b)</b> <span>Porque la acción nula no mira los datos en ningún momento.</span></label></div>
+<div class="opcion"><input type="radio" name="b4s14-0-q3" id="b4s14-0-q3-o2"><label for="b4s14-0-q3-o2"><b>c)</b> <span>Porque <code>x</code> se cancela al dividir entre la evidencia.</span></label></div>
+<label class="seguro"><input type="checkbox" name="b4s14-0-q3-seg"> estaba seguro</label>
+<div class="explicacion" hidden><strong>(a)</strong>, y esa constancia es lo que convierte la regla de la §13 en un umbral fijo. <strong>(b)</strong> suena razonable pero no es el argumento: la fórmula sí recorre los posteriores de <code>x</code>; lo que pasa es que suman 1. <strong>(c)</strong> es falso: la evidencia no aparece en el cálculo del riesgo.</div>
+</fieldset>
+<div class="quiz-barra"><button type="button" class="calificar">Calificar</button><button type="button" class="reiniciar">Reiniciar</button><output class="marcador" role="status"></output></div>
+</form>
 <hr />
 
 <div class="estado" data-sec="b4-12-la-accion-nula-cuando-no-decidir"><button type="button" data-v="ok">&#10003; entendido</button><button type="button" data-v="rep">&#8635; repasar</button><button type="button" data-v="mias">&#9998; con mis palabras</button><textarea hidden rows="3" placeholder="Explica esta sección como se la contarías a alguien. Se guarda en este navegador."></textarea></div>
@@ -2500,6 +3037,36 @@ los casos difíciles</strong>: el error se mide sobre menos casos, y los que sal
 justo los dudosos. Se compra precisión pagando cobertura. Confundir esas dos cosas
 —bajar el error contra contestar menos— es exactamente lo que un examen quiere ver
 si distingues.</p>
+<p><strong>En una frase:</strong> Se decide la clase de posterior máximo <strong>solo si supera <code>1 - λ</code></strong>;
+si no, se pide intervención, y eso compra precisión pagando cobertura.</p>
+<form class="quiz" data-quiz="b4s15-0" data-total="3">
+<div class="quiz-cab"><output class="avance" aria-live="polite">0 de 3 respondidas</output><div class="quiz-prog" aria-hidden="true"><i></i></div></div>
+<fieldset class="pregunta" id="b4s15-0-q1">
+<legend><span class="num">1</span><span class="txt">Cambias <code>λ</code> de 0.30 a 0.05. ¿Qué le pasa al umbral y al número de casos rechazados?</span></legend>
+<div class="opcion"><input type="radio" name="b4s15-0-q1" id="b4s15-0-q1-o0"><label for="b4s15-0-q1-o0"><b>a)</b> <span>El umbral baja de 0.70 a 0.05 y se rechazan menos casos.</span></label></div>
+<div class="opcion"><input type="radio" name="b4s15-0-q1" id="b4s15-0-q1-o1"><label for="b4s15-0-q1-o1"><b>b)</b> <span>El umbral no cambia; lo que cambia es el error de Bayes del problema.</span></label></div>
+<div class="opcion"><input type="radio" name="b4s15-0-q1" id="b4s15-0-q1-o2" data-ok="1"><label for="b4s15-0-q1-o2"><b>c)</b> <span>El umbral sube de 0.70 a 0.95 y se rechazan más casos: <code>λ</code> chico vuelve al sistema <strong>exigente</strong>.</span></label></div>
+<label class="seguro"><input type="checkbox" name="b4s15-0-q1-seg"> estaba seguro</label>
+<div class="explicacion" hidden><strong>(c)</strong>. <strong>(a)</strong> compara contra <code>λ</code> en vez de contra <code>1 - λ</code>, que es la trampa más frecuente de la sección. <strong>(b)</strong> es falso dos veces: el umbral sí cambia, y el error de Bayes del problema no depende de <code>λ</code>.</div>
+</fieldset>
+<fieldset class="pregunta" id="b4s15-0-q2">
+<legend><span class="num">2</span><span class="txt">Un dato tiene posteriores <code>[0.10, 0.55, 0.35]</code> y <code>λ = 0.30</code>. ¿Qué hace la regla completa?</span></legend>
+<div class="opcion"><input type="radio" name="b4s15-0-q2" id="b4s15-0-q2-o0"><label for="b4s15-0-q2-o0"><b>a)</b> <span>Elige la clase 2, porque es la de posterior más alto.</span></label></div>
+<div class="opcion"><input type="radio" name="b4s15-0-q2" id="b4s15-0-q2-o1" data-ok="1"><label for="b4s15-0-q2-o1"><b>b)</b> <span>Pide intervención: la clase 2 gana, pero 0.55 no supera el umbral <code>1 - 0.30 = 0.70</code>.</span></label></div>
+<div class="opcion"><input type="radio" name="b4s15-0-q2" id="b4s15-0-q2-o2"><label for="b4s15-0-q2-o2"><b>c)</b> <span>Elige la clase 3, porque 0.35 está más cerca de <code>λ = 0.30</code>.</span></label></div>
+<label class="seguro"><input type="checkbox" name="b4s15-0-q2-seg"> estaba seguro</label>
+<div class="explicacion" hidden><strong>(b)</strong>. Las <strong>dos</strong> condiciones tienen que cumplirse a la vez y aquí solo se cumple la primera. <strong>(a)</strong> olvida la segunda. <strong>(c)</strong> inventa un criterio de cercanía a <code>λ</code> que no aparece en ninguna parte de la regla.</div>
+</fieldset>
+<fieldset class="pregunta" id="b4s15-0-q3">
+<legend><span class="num">3</span><span class="txt">En la tabla de la §13.1, al subir <code>λ</code> de 0.05 a 0.4 los casos válidos pasaron de 1930 a 1991 y el error entre los válidos subió de 0.0031 a 0.0055. ¿Por qué sube el error al aceptar más casos?</span></legend>
+<div class="opcion"><input type="radio" name="b4s15-0-q3" id="b4s15-0-q3-o0" data-ok="1"><label for="b4s15-0-q3-o0"><b>a)</b> <span>Porque los que se van aceptando son los de posterior más bajo, o sea los dudosos: al contestarlos se falla más seguido.</span></label></div>
+<div class="opcion"><input type="radio" name="b4s15-0-q3" id="b4s15-0-q3-o1"><label for="b4s15-0-q3-o1"><b>b)</b> <span>Porque el modelo se degrada al procesar más datos.</span></label></div>
+<div class="opcion"><input type="radio" name="b4s15-0-q3" id="b4s15-0-q3-o2"><label for="b4s15-0-q3-o2"><b>c)</b> <span>Porque el error de Bayes del problema sube junto con <code>λ</code>.</span></label></div>
+<label class="seguro"><input type="checkbox" name="b4s15-0-q3-seg"> estaba seguro</label>
+<div class="explicacion" hidden><strong>(a)</strong>. <strong>(b)</strong> es falso: el modelo es el mismo y sus predicciones no cambiaron; lo único que cambia es <strong>cuáles</strong> se cuentan. <strong>(c)</strong> también: el piso siguió en 0.0085 en los tres renglones, y los tres errores medidos quedaron por debajo precisamente porque se dejó de contestar lo difícil.</div>
+</fieldset>
+<div class="quiz-barra"><button type="button" class="calificar">Calificar</button><button type="button" class="reiniciar">Reiniciar</button><output class="marcador" role="status"></output></div>
+</form>
 <hr />
 
 <div class="estado" data-sec="b4-13-la-regla-completa-de-decision"><button type="button" data-v="ok">&#10003; entendido</button><button type="button" data-v="rep">&#8635; repasar</button><button type="button" data-v="mias">&#9998; con mis palabras</button><textarea hidden rows="3" placeholder="Explica esta sección como se la contarías a alguien. Se guarda en este navegador."></textarea></div>
