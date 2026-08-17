@@ -243,6 +243,20 @@ border:1px solid var(--border);box-shadow:var(--shadow)}
 padding:2.1rem .95rem .95rem;font:.8rem/1.55 var(--mono)}
 .caja::before{content:attr(data-lang);position:absolute;top:0;left:0;z-index:1;
 font:700 .6rem/1 var(--sans);letter-spacing:.16em;text-transform:uppercase;padding:.6rem .85rem}
+details.pred{margin:1.3rem 0}
+details.pred>summary{cursor:pointer;list-style:none;font:600 .8rem var(--sans);
+color:#8FBF9F;background:#1A1416;border:1px solid #2B2226;border-radius:12px;padding:.7rem .95rem}
+details.pred>summary::-webkit-details-marker{display:none}
+details.pred>summary::before{content:"\203A";display:inline-block;margin-right:.5rem;
+transition:transform .18s ease}
+details.pred[open]>summary{border-radius:12px 12px 0 0;border-bottom:0}
+details.pred[open]>summary::before{transform:rotate(90deg)}
+details.pred[open]>.caja{margin-top:0;border-radius:0 0 12px 12px}
+details.pred[open]>.caja::before{content:""}
+a.ref{color:var(--accent);text-decoration:none;border-bottom:1px dotted var(--accent)}
+a.ref:hover{border-bottom-style:solid}
+.repaso-cta{display:flex;gap:.8rem;align-items:center;flex-wrap:wrap;margin:1rem 0 0}
+.repaso-cta .nota{margin:0}
 .caja.codigo,.caja.salida{background:#1A1416;border-color:#2B2226;color:#F4F1EE}
 .caja.codigo::before{color:#D9A567}
 .caja.salida::before{color:#8FBF9F}
@@ -422,6 +436,7 @@ border-radius:2px}
 </div>
 <details class="nota"><summary>Cómo se calculan estos tiempos, y qué no prometen</summary><p>Los calcula el generador de esta guía contando lo que hay en cada bloque, con tasas <b>provisionales</b>: 100 palabras/min de prosa nueva, 160 de repaso, 4 min por bloque de código, 1 min por bloque de salida, 2 min por figura y 1.5 min por pregunta de quiz. Son una conjetura declarada, no una medición. Miden el tiempo de <b>recorrer</b> el material: no incluyen releer lo que no cuajó, ni las lecturas del curso, ni pelearse con un error de instalación. Anota tu tiempo real en cada bloque (se guarda en este navegador, sin cuentas ni servidor) y las unidades siguientes se estimarán con <i>tu</i> tasa.</p></details>
 <p class="nota" id="real-total"></p>
+<p class="repaso-cta"><button type="button" class="calificar" id="repaso-btn" hidden>Repaso rápido · 10 preguntas</button><span class="nota" id="repaso-info"></span></p>
 </section>
 <section class="plan">
 <h2>Plan de estudio · 8 sesiones de 40-56 min (ruta completa)</h2>
@@ -435,6 +450,7 @@ border-radius:2px}
 <li><span class="n">7</span><div><span class="dur">45 min</span><span class="det">desde <a href="#b4-12-la-accion-nula-cuando-no-decidir">12. La acción nula: cuándo no decidir</a> hasta Referencias · 6 secciones</span></div></li>
 <li><span class="n">8</span><div><span class="dur">52 min</span><span class="det">desde <a href="#b5-16-autoexamen-20-preguntas">16. Autoexamen — 20 preguntas</a> hasta Las cuatro de cálculo, resueltas — ábrelo DESPUÉS de intentarlo · 4 secciones</span></div></li>
 </ol></section>
+<section class="bloque" id="repaso" hidden><div class="cab"><div class="bn" aria-hidden="true">&#8635;</div><div><h2>Repaso rápido</h2><div class="meta"><span class="chip">10 preguntas de toda la unidad, primero las que has fallado, el resto al azar</span></div></div></div><div id="repaso-cuerpo"></div></section>
 <main>
 <section class="bloque" id="b1"><div class="cab">
 <div class="bn" aria-hidden="true">1</div><div>
@@ -500,7 +516,7 @@ salidas.</li>
 un desplegable que dice «ábrelo DESPUÉS de intentarlo». No es adorno: el
 material está escrito para que primero produzcas algo tuyo y luego compares.
 Abrirlo antes te ahorra media hora y te cuesta la mitad del aprendizaje.</li>
-<li><strong>Las referencias entre bloques se ven así:</strong> «El tema» §3.3 significa «esto
+<li><strong>Las referencias entre bloques se ven así:</strong> <a class="ref" href="#b2-3-diccionario-de-la-notacion-oficial">«El tema» §3.3</a> significa «esto
 está en el bloque 2, sección 3.3». Los nombres entre comillas angulares son
 bloques de esta misma página, no archivos aparte.</li>
 </ul>
@@ -1309,19 +1325,20 @@ conjunto</em>; para <em>comparar dos conjuntos</em> el error se promedia. Si un 
 pide comparar <code>T</code> con <code>G</code>, está hablando de promedios aunque la fórmula que
 citaron sea la suma.</p>
 <p><em>Evidencia:</em> <code>1.1.audit.md:73-78</code> (corrida real) y la corrección ya incorporada
-en «El apunte de la unidad» §4.</p>
+en <a class="ref" href="#b4-4-que-se-busca-exactamente-h-y-el-error-empirico">«El apunte de la unidad» §4</a>.</p>
 <h4>Trampa medida 2 · <code>score</code> + error = 1 solo en clasificación</h4>
 <p>En un clasificador, <code>score</code> cuenta aciertos y el error cuenta fallos: suman 1. En
 un <strong>regresor</strong>, <code>.score()</code> de scikit-learn devuelve <strong>R²</strong>, que no está acotado
 por abajo (puede ser negativo) y no complementa a ningún error. Medido sobre los
 datos y la semilla de la §5.1, con <code>DecisionTreeRegressor</code>:</p>
-<div class="caja salida" data-lang="salida"><pre><code>max_depth=1 : score(R2)=0.6438   error(MSE)=7.4902   score+error=8.1341
+<details class="pred"><summary>Salida · ¿qué crees que imprime? Predícelo y luego ábrela</summary><div class="caja salida" data-lang="salida"><pre><code>max_depth=1 : score(R2)=0.6438   error(MSE)=7.4902   score+error=8.1341
 max_depth=4 : score(R2)=0.9740   error(MSE)=0.5475   score+error=1.5214
 </code></pre></div>
+</details>
 <p>Ni uno de los dos suma 1. La trampa importa desde ya: la §5.1 de este mismo
 apunte usa un regresor, y las unidades 2 y 3 son de regresión además de
 clasificación.</p>
-<p><em>Evidencia:</em> <code>1.1.audit.md:106-113</code>; la salvedad está en «El tema» §6 y en su
+<p><em>Evidencia:</em> <code>1.1.audit.md:106-113</code>; la salvedad está en <a class="ref" href="#b2-6-el-patron-fit-predict-de-scikit-learn">«El tema» §6</a> y en su
 glosario.</p>
 <h4>Trampa medida 3 · &quot;sin traslape el error es 0&quot; es un condicional, no un caso real</h4>
 <p>&quot;Si las nubes de cada clase no comparten territorio, la regla de Bayes acierta
@@ -1343,10 +1360,11 @@ precisión.</p>
 Es lo que pasó con los dos priors del Apéndice A.2, y no es una regla. Ejecutando
 el mismo experimento con otros valores sobre las tres nubes de la §8 (error de
 referencia con prior balanceado: <strong>0.0093</strong>):</p>
-<div class="caja salida" data-lang="salida"><pre><code>prior [0.3333333333333333, 0.3333333333333333, 0.3333333333333333] -&gt; error 0.0093
+<details class="pred"><summary>Salida · ¿qué crees que imprime? Predícelo y luego ábrela</summary><div class="caja salida" data-lang="salida"><pre><code>prior [0.3333333333333333, 0.3333333333333333, 0.3333333333333333] -&gt; error 0.0093
 prior [0.6, 0.2, 0.2] -&gt; error 0.0117
 prior [0.2, 0.6, 0.2] -&gt; error 0.0093
 </code></pre></div>
+</details>
 <p><code>[0.6, 0.2, 0.2]</code> sube el error, pero <code>[0.2, 0.6, 0.2]</code> lo deja <strong>idéntico</strong> al
 del prior balanceado: ese desbalance no alcanzó a voltear ni un punto de la zona
 dudosa. Es coherente con lo que el propio apéndice explica —&quot;el prior solo decide
@@ -1569,7 +1587,7 @@ también <strong>multi-etiqueta</strong>: si un texto puede ser al mismo tiempo 
 exactamente una de K&quot;; multi-etiqueta es &quot;puede tener varias de las K a la vez&quot;.
 Las dos se escriben <code>y ∈ {0,1}^K</code>; lo que cambia es cuántos unos se permiten.</p>
 <p><strong>Y el tipo de aprendizaje no es lo mismo que el tipo de problema.</strong> Los tipos de
-aprendizaje (supervisado, no supervisado, por refuerzo) están en «El tema» §2.
+aprendizaje (supervisado, no supervisado, por refuerzo) están en <a class="ref" href="#b2-2-los-tres-tipos-de-aprendizaje-computacional">«El tema» §2</a>.
 Los tipos de problema son estos tres. La pregunta &quot;¿cuáles son los diferentes
 tipos de problemas de aprendizaje computacional?&quot; admite las dos lecturas, así
 que ten listas ambas listas.</p>
@@ -1620,7 +1638,7 @@ for x, y in T:
 </code></pre></div>
 <p><strong>En texto plano:</strong> &quot;h estrella es, de todas las funciones h del catálogo H,
 aquella que da el error empírico más chico en el entrenamiento&quot;. Recuerda de
-«El tema» §5.2 que <code>argmin</code> devuelve <strong>quién</strong>, no cuánto: <code>h*</code> es una
+<a class="ref" href="#b2-5-sumatoria-y-argmax-en-python">«El tema» §5.2</a> que <code>argmin</code> devuelve <strong>quién</strong>, no cuánto: <code>h*</code> es una
 función, no un número. El asterisco significa &quot;la mejor&quot;, no una multiplicación.</p>
 <p><strong>Esto es el &quot;enfoque de optimización&quot; que menciona el fin de aprendizaje de la
 unidad:</strong> aprender se plantea como <em>minimizar</em> una cantidad (el error) <em>sobre</em> un
@@ -1637,7 +1655,7 @@ T ∩ G = vacio    -&gt;  ningun dato esta en los dos
 T ∪ G = D        -&gt;  entre los dos cubren todo
 </code></pre></div>
 <p><code>G = {(x_i, y_i)}</code> para <code>i = 1...M</code>, con <code>M</code> datos. En código, esas dos
-condiciones son una sola línea: <code>train_test_split</code> (ver «El tema» §6).</p>
+condiciones son una sola línea: <code>train_test_split</code> (ver <a class="ref" href="#b2-6-el-patron-fit-predict-de-scikit-learn">«El tema» §6</a>).</p>
 <p>La señal de que generalizaste bien es que <strong>el error se parezca en los dos
 conjuntos</strong>: <code>E(h* | T) ≈ E(h* | G)</code>, que se lee &quot;el error en entrenamiento es
 aproximadamente igual al error en prueba&quot;.</p>
@@ -2841,7 +2859,7 @@ banco, qué mide y qué no mide tu puntaje.</p>
 <legend><span class="num">16</span><span class="txt"><strong>Verdadero o falso.</strong> <code>argmax_k P(Y=k|X=x)</code> devuelve el valor de la probabilidad más alta.</span></legend>
 <div class="opcion"><input type="radio" name="b5s0-0-q16" id="b5s0-0-q16-o0"><label for="b5s0-0-q16-o0"><b>a)</b> <span>Verdadero.</span></label></div>
 <div class="opcion"><input type="radio" name="b5s0-0-q16" id="b5s0-0-q16-o1" data-ok="1"><label for="b5s0-0-q16-o1"><b>b)</b> <span>Falso.</span></label></div>
-<div class="explicacion" hidden><strong>Falso.</strong> («El tema» §5.2) <code>argmax</code> devuelve <strong>cuál</strong> clase, no el valor. El valor lo devuelve <code>max</code>.</div>
+<div class="explicacion" hidden><strong>Falso.</strong> (<a class="ref" href="#b2-5-sumatoria-y-argmax-en-python">«El tema» §5.2</a>) <code>argmax</code> devuelve <strong>cuál</strong> clase, no el valor. El valor lo devuelve <code>max</code>.</div>
 </fieldset>
 <div class="quiz-barra"><button type="button" class="calificar">Calificar</button><button type="button" class="reiniciar">Reiniciar</button><output class="marcador" role="status"></output></div>
 </form>
@@ -2856,7 +2874,7 @@ hace falta para contestarlas:</p>
 8, 9, 11, 12, 13, 14, 15 y 16. Cada una es un renglón de esa tabla con otro
 disfraz. La 12 es la más floja de las doce: el renglón te dice que con costos
 asimétricos la respuesta puede no ser la clase más probable, pero la
-aritmética que lo demuestra vive en «El apunte de la unidad» §11.3.</li>
+aritmética que lo demuestra vive en <a class="ref" href="#b4-11-riesgo-cuando-equivocarse-cuesta-distinto">«El apunte de la unidad» §11.3</a>.</li>
 <li><strong>4 no se contestan con el bloque 3</strong>: la 1 (por qué probabilidad y no certeza,
 §1), la 2 (tipo de problema, §3.1), la 7 (por qué la intervención humana es una
 acción y no una clase, §12) y la 10 (el mínimo con dos clases de la misma
@@ -2887,13 +2905,13 @@ pregunta de examen&quot;; ninguna sobre <strong>cuándo se puede quitar la evide
 (§7.4), que la §13 declara el punto fino del umbral; ninguna que pida la
 <strong>definición</strong> de <code>h*</code> ni la del error empírico (§4) —la 9 usa la notación,
 pero lo que evalúa es el diagnóstico de la §5—; y ninguna sobre <strong>inductivo
-contra transductivo</strong> («El tema» §2).</li>
+contra transductivo</strong> (<a class="ref" href="#b2-2-los-tres-tipos-de-aprendizaje-computacional">«El tema» §2</a>).</li>
 <li><strong>Hay distractores que no compiten</strong>, así que tu puntaje sobreestima lo que
 sabes: la (a) y la (c) de la 1, la (d) de la 2, la (a) de la 5 y la (a) y la
 (d) de la 7 se descartan sin saber el tema. Las que de verdad separan son la
 6, la 8, la 10, la 11, la 12, la 14 y la 15.</li>
 <li><strong>No mide que sepas hacer, solo que sepas elegir.</strong> Eso lo miden los tres
-experimentos de «El apunte de la unidad» §15, y se mide corriendo código y
+experimentos de <a class="ref" href="#b4-15-tres-experimentos-propios-predice-antes-de-co">«El apunte de la unidad» §15</a>, y se mide corriendo código y
 explicando el resultado, no marcando una opción.</li>
 <li><strong>La clave está sesgada, y conviene saberlo.</strong> En las doce de opción múltiple
 la correcta <strong>nunca</strong> es la (a) ni la (d): el reparto es b·7, c·5. Y de las
@@ -3094,8 +3112,17 @@ function pintaVencimientos(){
     caja.hidden=false;
     caja.querySelector('b').textContent=v.replace('/',' de ');
   }
-  d.querySelectorAll('.quiz').forEach(function(f){
-    var qs=f.querySelectorAll('.pregunta');
+  // Memoria de fallos por pregunta: {id: veces falladas}. La alimenta cada
+  // calificacion y la consume el repaso rapido (falladas primero).
+  function fallas(){try{return JSON.parse(guardado(KEY+'fallas'))||{};}catch(e){return {};}}
+  function anota(id,ok){
+    var f=fallas();
+    if(ok){ if(f[id]) f[id]=Math.max(0,f[id]-1); if(!f[id]) delete f[id]; }
+    else f[id]=(f[id]||0)+1;
+    guarda(KEY+'fallas',JSON.stringify(f));
+  }
+  function iniciaQuiz(f){
+    var qs=f.querySelectorAll('.pregunta'),repaso=f.hasAttribute('data-repaso');
     function avance(){
       var n=f.querySelectorAll('input:checked').length;
       f.querySelector('.avance').textContent=n+' de '+qs.length+' respondidas';
@@ -3113,12 +3140,17 @@ function pintaVencimientos(){
           else if(i.checked) o.classList.add('errada');
         });
         q.querySelector('.explicacion').hidden=false;
-        if(marcada&&marcada.dataset.ok) bien++;
+        var ok=!!(marcada&&marcada.dataset.ok);
+        if(ok) bien++;
+        if(marcada) anota(q.getAttribute('data-orig')||q.id,ok);
       });
       f.querySelector('.marcador').textContent=bien+' de '+qs.length+' correctas';
-      var previo=guardado(KEY+'mejor');
-      if(!previo||bien>parseInt(previo.split('/')[0],10)) guarda(KEY+'mejor',bien+'/'+qs.length);
-      pintaMejor();
+      if(!repaso){
+        var previo=guardado(KEY+'mejor');
+        if(!previo||bien>parseInt(previo.split('/')[0],10)) guarda(KEY+'mejor',bien+'/'+qs.length);
+        pintaMejor();
+      }
+      pintaRepaso();
     });
     f.querySelector('.reiniciar').addEventListener('click',function(){
       f.reset();
@@ -3128,8 +3160,50 @@ function pintaVencimientos(){
       avance();
     });
     avance();
-  });
+  }
+  d.querySelectorAll('.quiz').forEach(iniciaQuiz);
   pintaMejor();
+
+  var btn=d.getElementById('repaso-btn'),info=d.getElementById('repaso-info'),
+      sec=d.getElementById('repaso'),banco=d.querySelectorAll('main .pregunta');
+  function pintaRepaso(){
+    if(!btn||!banco.length) return;
+    btn.hidden=false;
+    var n=Object.keys(fallas()).length;
+    info.textContent=n?('Llevas '+n+' pregunta'+(n===1?'':'s')+' con fallos pendientes.'):
+      'Todas las preguntas de la unidad, barajadas.';
+  }
+  function armaRepaso(){
+    var f=fallas(),lista=[].slice.call(banco);
+    for(var i=lista.length-1;i>0;i--){var j=Math.floor(Math.random()*(i+1)),t=lista[i];lista[i]=lista[j];lista[j]=t;}
+    lista.sort(function(a,b){return (f[b.id]||0)-(f[a.id]||0);});
+    lista=lista.slice(0,10);
+    var form=d.createElement('form');
+    form.className='quiz';form.setAttribute('data-repaso','1');
+    form.innerHTML='<div class="quiz-cab"><output class="avance" aria-live="polite"></output>'
+      +'<div class="quiz-prog" aria-hidden="true"><i></i></div></div>';
+    lista.forEach(function(q,k){
+      var c=q.cloneNode(true),id='rep-'+q.id;
+      c.setAttribute('data-orig',q.id);c.id=id;
+      c.querySelector('.num').textContent=k+1;
+      c.querySelectorAll('.opcion').forEach(function(o){
+        var i=o.querySelector('input'),l=o.querySelector('label');
+        o.classList.remove('correcta','errada');
+        i.checked=false;i.name=id;i.id=id+'-'+i.id.split('-').pop();l.htmlFor=i.id;
+      });
+      c.querySelector('.explicacion').hidden=true;
+      form.appendChild(c);
+    });
+    form.insertAdjacentHTML('beforeend','<div class="quiz-barra">'
+      +'<button type="button" class="calificar">Calificar</button>'
+      +'<button type="button" class="reiniciar">Reiniciar</button>'
+      +'<output class="marcador" role="status"></output></div>');
+    var cuerpo=d.getElementById('repaso-cuerpo');
+    cuerpo.innerHTML='';cuerpo.appendChild(form);
+    iniciaQuiz(form);
+    sec.hidden=false;sec.scrollIntoView({behavior:'smooth'});
+  }
+  if(btn){btn.addEventListener('click',armaRepaso);pintaRepaso();}
 
   var reales=d.querySelectorAll('input.real');
   function total(){
