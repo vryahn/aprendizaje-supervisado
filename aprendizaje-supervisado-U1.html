@@ -2545,7 +2545,7 @@ primer punto de la clase 1: [8.2487 4.1348]
 </code></pre></div>
 <p><code>rvs</code> significa <em>random variates</em>: &quot;genera datos al azar de esta distribución&quot;.
 <code>np.concatenate</code> pega las tres nubes una debajo de otra: 3000 filas, 2 columnas.
-El arreglo <code>y</code> guarda la clase verdadera, y su construcción `[1]<em>1000 + [2]</em>1000</p>
+El arreglo <code>y</code> guarda la clase verdadera, y su construcción `[1]*1000 + [2]*1000</p>
 <ul>
 <li>[3]*1000` es lo que te permite saber después quién era quién: <strong>los primeros
 1000 son clase 1, los siguientes 1000 clase 2, los últimos 1000 clase 3.</strong></li>
