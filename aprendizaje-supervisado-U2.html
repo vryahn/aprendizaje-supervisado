@@ -1753,6 +1753,9 @@ maximiza</p>
 <p>leído: &quot;posterior igual a verosimilitud por prior, entre evidencia&quot;. Ahí las
 verosimilitudes te las daban hechas. <strong>La pieza nueva de esta unidad es que
 ahora las estimas tú</strong>, y las estimas suponiendo que cada clase es una campana:</p>
+<p>Dos avisos de notación antes de leerla. El símbolo <code>~</code> se lee &quot;se distribuye
+como&quot;. Y esta <code>Σ_k</code> <strong>no es la suma</strong> que viste en la base: aquí es la tabla que
+dice cuánto varían las columnas juntas, la covarianza.</p>
 <blockquote>
 <p><code>X</code> dado <code>Y = k</code> sigue una normal de media <code>μ_k</code> y covarianza <code>Σ_k</code>. En
 notación del libro: <code>X|Y ~ N(μ_Y, Σ_Y)</code>.</p>
@@ -2190,12 +2193,14 @@ la suma de los errores al cuadrado.</p>
 ordinarios</strong> (OLS, <em>Ordinary Least Squares</em>). No son dos métodos: son el mismo
 método visto desde dos lados. Es la conexión que la unidad quiere que veas, y
 una pregunta natural de examen.</p>
-<p>Y tiene solución cerrada, sin necesidad de buscar nada:</p>
+<p>Y tiene solución cerrada, sin necesidad de buscar nada. Tres palabras antes de
+la fórmula: una <strong>matriz</strong> es una tabla de números, con filas y columnas;
+<code>Xᵀ</code> es la <strong>transpuesta</strong> de esa tabla (<code>X.T</code>: las filas pasan a columnas); y
+<code>⁻¹</code> es la <strong>inversa</strong>, la operación que &quot;deshace&quot; a la matriz, análoga a
+dividir. Con eso, la fórmula se lee:</p>
 <div class="caja figura" data-lang="esquema"><pre><code>w  =  (Xᵀ X)⁻¹ Xᵀ y
 </code></pre></div>
-<p>donde <code>Xᵀ</code> es la transpuesta (<code>X.T</code>, filas por columnas) y el <code>⁻¹</code> es la
-<strong>inversa de la matriz</strong>: la operación que &quot;deshace&quot; a la matriz, análoga a
-dividir. En Python no necesitas escribir eso:</p>
+<p>En Python no necesitas escribir eso:</p>
 <div class="caja codigo" data-lang="Python"><pre><code>from sklearn.linear_model import LinearRegression
 m = LinearRegression().fit(T, y_t)
 m.coef_        # los w
@@ -2518,7 +2523,7 @@ que la clase dado el dato es una <strong>Bernoulli</strong> (§2.4) cuyo <code>p
 máximo con un método de optimización iterativo. Por eso <code>LogisticRegression</code>
 tiene un parámetro <code>max_iter</code> y a veces avisa que no convergió.</p>
 <p><strong>Con más de dos clases</strong> se usa uno-vs-resto (§9.3) o su generalización
-(<em>softmax</em>), y las probabilidades se normalizan para que sumen 1:</p>
+(<em>softmax</em>: exponencia cada puntuación y divide entre la suma, para que las tres sumen 1), y las probabilidades se normalizan para que sumen 1:</p>
 <div class="pred-caja" data-pred="b4s13-sal2"><label class="pred-lab">Antes de abrir: ¿qué imprime? Escríbelo aquí (se guarda en este navegador).<textarea class="pred-mia" rows="2"></textarea></label><details class="pred"><summary>Salida · compárala con tu predicción</summary><div class="caja salida" data-lang="salida"><pre><code>probabilidades del primer dato de prueba: [0.9705, 0.0295, 0.0]
 suman: 1.0
 </code></pre></div>

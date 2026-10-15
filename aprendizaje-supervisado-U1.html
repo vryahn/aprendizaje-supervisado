@@ -1569,8 +1569,6 @@ salen bien.</p>
 conjunto</em>; para <em>comparar dos conjuntos</em> el error se promedia. Si un enunciado te
 pide comparar <code>T</code> con <code>G</code>, está hablando de promedios aunque la fórmula que
 citaron sea la suma.</p>
-<p><em>Evidencia:</em> <code>1.1.audit.md:73-78</code> (corrida real) y la corrección ya incorporada
-en <a class="ref" href="#b4-4-que-se-busca-exactamente-h-y-el-error-empirico">«El apunte de la unidad» §4</a>.</p>
 <p><strong>En una frase:</strong> Para <strong>comparar <code>T</code> con <code>G</code></strong> el error se promedia; la <code>Σ</code> sin
 dividir solo sirve para minimizar dentro de un mismo conjunto.</p>
 <form class="quiz" data-quiz="b3s2-0" data-total="1">
@@ -1597,8 +1595,6 @@ max_depth=4 : score(R2)=0.9740   error(MSE)=0.5475   score+error=1.5214
 <p>Ni uno de los dos suma 1. La trampa importa desde ya: la §5.1 de este mismo
 apunte usa un regresor, y las unidades 2 y 3 son de regresión además de
 clasificación.</p>
-<p><em>Evidencia:</em> <code>1.1.audit.md:106-113</code>; la salvedad está en <a class="ref" href="#b2-6-el-patron-fit-predict-de-scikit-learn">«El tema» §6</a> y en su
-glosario.</p>
 <p><strong>En una frase:</strong> <code>score + error = 1</code> vale <strong>solo en clasificación</strong>; en regresión
 <code>.score()</code> es R² y no complementa a ningún error.</p>
 <form class="quiz" data-quiz="b3s2-1" data-total="1">
@@ -1628,8 +1624,6 @@ que un flotante representa —subdesbordamiento—, no porque la densidad sea ce
 <p><strong>Qué llevarte:</strong> &quot;traslape despreciable en la muestra&quot; y &quot;traslape cero&quot; no son
 lo mismo, y en un examen conviene contestar el condicional (<code>sin traslape → 0</code>)
 sabiendo que su antecedente no se cumple con gaussianas.</p>
-<p><em>Evidencia:</em> <code>1.1.audit.md:144-165</code>; la §10.2 ya está redactada con esa
-precisión.</p>
 <p><strong>En una frase:</strong> &quot;Sin traslape el error es 0&quot; es un <strong>condicional verdadero cuyo
 antecedente no se cumple</strong> cuando las clases son nubes gaussianas.</p>
 <form class="quiz" data-quiz="b3s2-2" data-total="1">
@@ -1660,8 +1654,6 @@ dudosa. Es coherente con lo que el propio apéndice explica —&quot;el prior so
 en la zona dudosa&quot;— y desmiente la generalización: <strong>lo que sube el error no es
 el desbalance, es que el desbalance sea suficiente para mover la frontera dentro
 del traslape</strong>.</p>
-<p><em>Evidencia:</em> <code>1.1.review.md:108-121</code>; reproducido con
-<code>intento-trainee/experimentos_propios.py</code>, cuya salida es la de arriba.</p>
 <p><strong>En una frase:</strong> Lo que sube el error no es el <strong>desbalance del prior</strong> en sí, sino
 que ese desbalance alcance a mover la frontera dentro del traslape.</p>
 <form class="quiz" data-quiz="b3s2-3" data-total="1">
